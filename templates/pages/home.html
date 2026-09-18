@@ -23,12 +23,12 @@
       --text-muted: #64746D;
       --border-color: rgba(11, 36, 23, 0.08);
 
-      --radius-sm: 12px;
-      --radius-lg: 24px;
+      --radius-sm: 10px;
+      --radius-lg: 20px;
       --radius-pill: 100px;
 
-      --shadow-soft: 0 12px 28px rgba(11, 36, 23, 0.06);
-      --shadow-hover: 0 20px 36px rgba(0, 178, 114, 0.18);
+      --shadow-soft: 0 10px 24px rgba(11, 36, 23, 0.05);
+      --shadow-hover: 0 16px 32px rgba(0, 178, 114, 0.18);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -41,7 +41,7 @@
     html, body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     body {
@@ -57,26 +57,39 @@
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 5%;
+      padding: 0 4%;
     }
 
-    /* --- Rich Editorial Header --- */
-    .navbar {
+    /* ===================================================================
+       STRICT SINGLE-VIEWPORT FIRST FOLD (HEADER + HERO + STATS)
+    =================================================================== */
+    .viewport-fold {
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background: linear-gradient(180deg, #FFFFFF 0%, #EBF5F0 100%);
+      position: relative;
+    }
+
+    /* --- Compact Header --- */
+    .viewport-fold .navbar {
+      flex: 0 0 auto;
       background: #FFFFFF;
-      position: sticky;
-      top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 20px rgba(11, 36, 23, 0.04);
+      box-shadow: 0 2px 14px rgba(11, 36, 23, 0.04);
       width: 100%;
     }
 
     .header-top {
-      padding: 12px 36px;
+      padding: 6px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      gap: 20px;
+      gap: 16px;
     }
 
     .nav-divider {
@@ -90,19 +103,19 @@
     .brand-container {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 14px;
     }
 
     .brand-logo {
-      height: 80px;
-      width: 80px;
+      height: clamp(48px, 5.5vh, 68px);
+      width: auto;
       object-fit: contain;
       background: #FFFFFF;
       flex-shrink: 0;
     }
 
     .brand-details h1 {
-      font-size: clamp(20px, 2.4vw, 28px);
+      font-size: clamp(17px, 1.8vw, 24px);
       font-weight: 800;
       color: var(--deep-forest);
       letter-spacing: -0.02em;
@@ -110,32 +123,32 @@
     }
 
     .brand-details p {
-      font-size: 12px;
+      font-size: clamp(10px, 0.9vw, 11.5px);
       color: var(--text-muted);
       font-weight: 600;
-      margin-top: 4px;
-      letter-spacing: 0.015em;
+      margin-top: 2px;
+      letter-spacing: 0.01em;
     }
 
     .header-auth {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 10px;
+      gap: 6px;
       flex-shrink: 0;
     }
 
     .header-auth-buttons {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .btn-auth-login {
-      padding: 9px 22px;
+      padding: 6px 16px;
       border-radius: var(--radius-pill);
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--deep-forest);
       background: rgba(11, 36, 23, 0.05);
       border: 1px solid rgba(11, 36, 23, 0.12);
@@ -148,31 +161,29 @@
     }
 
     .btn-auth-register {
-      padding: 9px 24px;
+      padding: 6px 18px;
       border-radius: var(--radius-pill);
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--surface-white);
       background: var(--vibrant-green);
-      box-shadow: 0 4px 14px rgba(0, 178, 114, 0.25);
+      box-shadow: 0 3px 10px rgba(0, 178, 114, 0.25);
       transition: var(--transition);
     }
 
     .btn-auth-register:hover {
       background: var(--vibrant-green-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
     }
 
     .header-auth-socials {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .header-auth-socials .social-icon {
-      width: 34px;
-      height: 34px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -184,13 +195,12 @@
     }
 
     .header-auth-socials .social-icon svg {
-      width: 17px;
-      height: 17px;
+      width: 14px;
+      height: 14px;
     }
 
     .header-auth-socials .social-icon:hover {
       color: var(--surface-white);
-      transform: translateY(-2px);
     }
 
     .header-auth-socials .social-icon.facebook:hover { background: #1877F2; border-color: #1877F2; }
@@ -200,12 +210,12 @@
 
     .header-nav-bar {
       background: #FFFFFF;
-      padding: 0 36px;
+      padding: 0 28px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      height: 48px;
+      height: clamp(34px, 4vh, 40px);
       width: 100%;
     }
 
@@ -213,7 +223,7 @@
       display: flex;
       align-items: center;
       height: 100%;
-      gap: 32px;
+      gap: clamp(18px, 2vw, 32px);
     }
 
     .nav-item {
@@ -225,12 +235,12 @@
 
     .nav-item > a {
       font-weight: 700;
-      font-size: 14.5px;
+      font-size: clamp(12.5px, 1vw, 14px);
       color: var(--deep-forest);
       transition: var(--transition);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
 
     .nav-item:hover > a,
@@ -246,11 +256,11 @@
       border: 1px solid var(--border-color);
       border-radius: var(--radius-sm);
       box-shadow: var(--shadow-soft);
-      min-width: 220px;
-      padding: 12px 0;
+      min-width: 200px;
+      padding: 8px 0;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(10px);
+      transform: translateY(6px);
       transition: var(--transition);
       display: flex;
       flex-direction: column;
@@ -264,10 +274,10 @@
     }
 
     .dropdown a {
-      padding: 10px 24px;
+      padding: 8px 18px;
       color: var(--text-main);
       font-weight: 500;
-      font-size: 14px;
+      font-size: 13px;
       white-space: nowrap;
       display: block;
     }
@@ -278,8 +288,8 @@
     }
 
     .caret {
-      width: 13px;
-      height: 13px;
+      width: 11px;
+      height: 11px;
       transition: transform 0.3s ease;
     }
 
@@ -291,57 +301,70 @@
       display: none;
       background: none;
       border: none;
-      font-size: 26px;
+      font-size: 22px;
       color: var(--deep-forest);
       cursor: pointer;
       padding: 4px;
       position: absolute;
-      right: 20px;
+      right: 16px;
       top: 50%;
       transform: translateY(-50%);
     }
 
-    /* --- Hero Section (Flexible Height, No Clipping!) --- */
-    .hero {
-      padding: 50px 0 60px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #EBF5F0 100%);
+    /* --- Dynamic Scaling Hero Section --- */
+    .viewport-fold .hero {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      align-items: center;
       position: relative;
+      padding: clamp(8px, 1.5vh, 20px) 0;
     }
 
     .hero-inner {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 40px;
+      gap: clamp(16px, 3vw, 40px);
       align-items: center;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-badge {
       display: inline-block;
+      align-self: flex-start;
       background: rgba(0, 178, 114, 0.12);
       color: var(--vibrant-green);
-      padding: 6px 14px;
+      padding: 3px 10px;
       border-radius: var(--radius-pill);
       font-weight: 800;
-      font-size: 12.5px;
+      font-size: clamp(10px, 0.8vw, 11.5px);
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: clamp(6px, 1vh, 12px);
       letter-spacing: 0.04em;
     }
 
     .hero h1 {
-      font-size: clamp(28px, 3.5vw, 48px);
+      font-size: clamp(22px, 2.5vw, 40px);
       font-weight: 800;
       color: var(--deep-forest);
-      line-height: 1.15;
+      line-height: 1.12;
       letter-spacing: -0.03em;
-      margin-bottom: 16px;
+      margin-bottom: clamp(6px, 1vh, 12px);
     }
 
     .hero p {
-      font-size: clamp(15px, 1.3vw, 17px);
+      font-size: clamp(12.5px, 1.05vw, 15px);
       color: var(--text-muted);
-      margin-bottom: 28px;
-      line-height: 1.6;
+      margin-bottom: clamp(12px, 2vh, 20px);
+      line-height: 1.45;
     }
 
     .hero-search {
@@ -349,23 +372,23 @@
       background: var(--surface-white);
       border: 2px solid var(--border-color);
       border-radius: var(--radius-pill);
-      padding: 6px;
-      max-width: 520px;
+      padding: 4px;
+      max-width: 480px;
       box-shadow: var(--shadow-soft);
       transition: var(--transition);
     }
 
     .hero-search:focus-within {
       border-color: var(--vibrant-green);
-      box-shadow: 0 0 0 4px rgba(0, 178, 114, 0.15);
+      box-shadow: 0 0 0 3px rgba(0, 178, 114, 0.15);
     }
 
     .hero-search input {
       flex: 1;
       border: none;
       background: none;
-      padding: 0 18px;
-      font-size: 15px;
+      padding: 0 14px;
+      font-size: clamp(12.5px, 0.9vw, 14px);
       font-family: inherit;
       outline: none;
       color: var(--text-main);
@@ -373,32 +396,34 @@
     }
 
     .btn-search {
-      padding: 12px 28px;
+      padding: 8px 22px;
       border-radius: 100px;
       border: none;
       background: var(--vibrant-green);
       color: #FFF;
       font-weight: 700;
-      font-size: 14.5px;
+      font-size: clamp(12.5px, 0.9vw, 13.5px);
       cursor: pointer;
       transition: var(--transition);
     }
 
     .btn-search:hover {
       background: var(--vibrant-green-hover);
-      box-shadow: 0 4px 12px rgba(0, 178, 114, 0.3);
     }
 
-    /* Hero Carousel Container */
+    /* Dynamic Scaling Carousel (Fits available viewport flex space!) */
     .hero-carousel-container {
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(11, 36, 23, 0.12);
+      box-shadow: 0 12px 28px rgba(11, 36, 23, 0.1);
       background: #FFFFFF;
-      border: 6px solid var(--surface-white);
+      border: 4px solid var(--surface-white);
       aspect-ratio: 3 / 4;
-      width: 100%;
-      max-width: 380px;
+      width: auto;
+      height: 100%;
+      max-height: calc(100vh - 220px);
+      max-height: calc(100dvh - 220px);
+      max-width: 340px;
       margin: 0 auto;
       position: relative;
     }
@@ -429,17 +454,17 @@
 
     .carousel-dots {
       position: absolute;
-      bottom: 14px;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 8px;
+      gap: 6px;
       z-index: 10;
     }
 
     .dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: rgba(0, 0, 0, 0.3);
       cursor: pointer;
@@ -448,23 +473,24 @@
 
     .dot.active {
       background: var(--vibrant-green);
-      width: 22px;
+      width: 18px;
       border-radius: 4px;
     }
 
-    /* --- Stats Section --- */
-    .stats-section {
+    /* --- Compact Stats Section (Anchored to bottom of Viewport Fold) --- */
+    .viewport-fold .stats-section {
+      flex: 0 0 auto;
       background: #FFFFFF;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
-      padding: 32px 0;
+      padding: clamp(10px, 1.5vh, 18px) 0;
       box-shadow: var(--shadow-soft);
     }
 
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 16px;
       text-align: center;
     }
 
@@ -483,34 +509,34 @@
     }
 
     .stat-number {
-      font-size: clamp(28px, 3vw, 42px);
+      font-size: clamp(20px, 2.2vw, 32px);
       font-weight: 800;
       color: var(--vibrant-green);
       line-height: 1.1;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .stat-label {
-      font-size: 13.5px;
+      font-size: clamp(10.5px, 0.85vw, 12px);
       font-weight: 700;
       color: var(--deep-forest);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
 
     /* ===================================================================
-       EXPLORE THE SOCIETY (F-PATTERN GRID: 3 TOP + 1 BOTTOM-LEFT)
+       PORTAL SECTION (SCROLL DOWN TO SEE: 3 TOP CARDS + 1 BOTTOM-LEFT CARD)
     =================================================================== */
     .portal-section {
-      padding: 70px 0;
+      padding: 60px 0;
     }
 
     .section-header {
-      margin-bottom: 36px;
+      margin-bottom: 30px;
     }
 
     .section-header h2 {
-      font-size: clamp(26px, 2.8vw, 36px);
+      font-size: clamp(24px, 2.5vw, 34px);
       font-weight: 800;
       color: var(--deep-forest);
     }
@@ -519,13 +545,13 @@
     .f-pattern-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 24px;
     }
 
     .grid-card {
       background: var(--surface-white);
-      padding: 32px 28px;
-      border-radius: 20px;
+      padding: 28px 24px;
+      border-radius: 18px;
       border: 1px solid var(--border-color);
       transition: var(--transition);
       display: flex;
@@ -534,41 +560,40 @@
     }
 
     .grid-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-hover);
       border-color: var(--vibrant-green);
     }
 
-    /* 4th Card anchored on the bottom left (Column 1) */
     .stem-card {
       grid-column: 1 / 2;
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
+      width: 46px;
+      height: 46px;
       background: rgba(0, 178, 114, 0.1);
       color: var(--vibrant-green);
-      border-radius: 14px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .grid-card h3 {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
       color: var(--deep-forest);
     }
 
     .grid-card p {
       color: var(--text-muted);
-      font-size: 14.5px;
-      margin-bottom: 20px;
+      font-size: 14px;
+      margin-bottom: 16px;
       flex: 1;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     .grid-card-link {
@@ -576,49 +601,49 @@
       color: var(--vibrant-green);
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 14.5px;
+      gap: 6px;
+      font-size: 14px;
     }
 
     /* --- Impact Banner --- */
     .impact-banner {
       background: var(--deep-forest);
-      padding: 56px 40px;
+      padding: 48px 36px;
       color: var(--surface-white);
       border-radius: var(--radius-lg);
-      margin: 0 5% 70px;
+      margin: 0 4% 60px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(11, 36, 23, 0.15);
+      box-shadow: 0 16px 36px rgba(11, 36, 23, 0.12);
     }
 
     .impact-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 30px;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
     .impact-text h2 {
-      font-size: clamp(26px, 3vw, 36px);
+      font-size: clamp(24px, 2.8vw, 34px);
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--accent-gold);
     }
 
     .impact-text p {
-      font-size: 15.5px;
+      font-size: 14.5px;
       opacity: 0.9;
-      max-width: 500px;
+      max-width: 480px;
     }
 
     .btn-accent {
       background: var(--accent-gold);
       color: var(--deep-forest);
-      font-size: 15px;
-      padding: 14px 28px;
-      box-shadow: 0 8px 24px rgba(234, 179, 8, 0.25);
+      font-size: 14.5px;
+      padding: 12px 26px;
+      box-shadow: 0 6px 20px rgba(234, 179, 8, 0.25);
       border-radius: var(--radius-pill);
       font-weight: 800;
       transition: var(--transition);
@@ -632,33 +657,33 @@
     /* --- Footer --- */
     .footer {
       background: var(--deep-forest);
-      padding: 60px 0 30px;
-      font-size: 14px;
+      padding: 50px 0 28px;
+      font-size: 13.5px;
       color: rgba(255, 255, 255, 0.75);
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 36px;
+      margin-bottom: 36px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 40px;
+      padding-bottom: 36px;
     }
 
     .footer-brand {
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 18px;
+      gap: 10px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--surface-white);
     }
 
     .footer-brand img {
-      height: 36px;
-      width: 36px;
+      height: 32px;
+      width: 32px;
       border-radius: 6px;
       object-fit: contain;
       background: #FFFFFF;
@@ -666,24 +691,24 @@
     }
 
     .footer-desc {
-      margin-bottom: 14px;
-      line-height: 1.6;
+      margin-bottom: 12px;
+      line-height: 1.5;
     }
 
     .footer-heading {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
       color: var(--accent-gold);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .footer-links {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .footer-links a {
@@ -703,16 +728,16 @@
       border-radius: 4px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      height: 44px;
-      max-width: 320px;
+      height: 40px;
+      max-width: 300px;
     }
 
     .newsletter-form input {
       flex: 1;
       border: none;
-      padding: 0 14px;
+      padding: 0 12px;
       font-family: inherit;
-      font-size: 13.5px;
+      font-size: 13px;
       outline: none;
       min-width: 0;
     }
@@ -721,33 +746,33 @@
       background: var(--vibrant-green);
       color: var(--surface-white);
       border: none;
-      padding: 0 18px;
+      padding: 0 16px;
       font-weight: 700;
       cursor: pointer;
     }
 
     .footer-socials {
       display: flex;
-      gap: 10px;
-      margin-top: 12px;
+      gap: 8px;
+      margin-top: 10px;
     }
 
     .social-icon {
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--surface-white);
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: var(--transition);
     }
 
     .social-icon svg {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
     }
 
     .social-icon:hover {
@@ -759,14 +784,24 @@
     .footer-bottom {
       text-align: center;
       color: rgba(255, 255, 255, 0.5);
-      font-size: 13px;
+      font-size: 12.5px;
     }
 
-    /* Responsive Media Queries */
+    /* Mobile Adaptations */
     @media (max-width: 1080px) {
+      .viewport-fold {
+        height: auto;
+        overflow: visible;
+      }
+
       .hero-inner {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
+      }
+
+      .hero-carousel-container {
+        max-height: 360px;
+        width: 100%;
       }
 
       .f-pattern-grid {
@@ -789,188 +824,193 @@
 </head>
 <body>
 
-  <!-- Rich Academic Header -->
-  <header class="navbar">
-    <div class="header-top">
-      <div class="brand-container">
-        {% if site_settings and site_settings.logo %}
-          <img src="{{ site_settings.logo.url }}" alt="PPAI Logo" class="brand-logo">
-        {% else %}
-          <img src="{% static 'images/ppai_logo.png' %}" alt="PPAI Logo" class="brand-logo">
-        {% endif %}
-        <div class="brand-details">
-          <h1>{% if site_settings %}{{ site_settings.site_title }}{% else %}Plant Protection Association of India{% endif %}</h1>
-          <p>{% if site_settings %}{{ site_settings.registration_info }}{% else %}(Regn. No. S399 of 1949-50 under the Societies Registration Act XXI of 1860){% endif %}</p>
-        </div>
-      </div>
+  <!-- SINGLE-VIEWPORT FIRST FOLD (HEADER + HERO + STATS) -->
+  <div class="viewport-fold">
 
-      <div class="header-auth">
-        <div class="header-auth-buttons">
-          <a href="/admin/login/" class="btn-auth-login">Login</a>
-          <a href="#" class="btn-auth-register">Join New Member</a>
-        </div>
-        <div class="header-auth-socials">
-          <a href="#" class="social-icon facebook" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
-          </a>
-          <a href="#" class="social-icon youtube" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.56 9.38.56 9.38.56s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
-          </a>
-          <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-          </a>
-          <a href="#" class="social-icon xtwitter" aria-label="X (formerly Twitter)">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2.3h3.2l-7 8 8.2 10.9h-6.4l-5-6.6-5.7 6.6H2l7.5-8.6L1.6 2.3H8.2l4.5 6 6.2-6zm-1.1 17.1h1.8L7.3 4.1H5.4l12.4 15.3z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <hr class="nav-divider">
-
-    <nav class="header-nav-bar">
-      <div class="nav-links" id="navLinks">
-        <div class="nav-item">
-          <a href="#" class="active">Home</a>
-        </div>
-
-        <div class="nav-item">
-          <a href="#">The Society
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
-          <div class="dropdown">
-            <a href="#">About Us</a>
-            <a href="#">Executive Council</a>
-            <a href="#">Legends of PPAI</a>
+    <!-- Header -->
+    <header class="navbar">
+      <div class="header-top">
+        <div class="brand-container">
+          {% if site_settings and site_settings.logo %}
+            <img src="{{ site_settings.logo.url }}" alt="PPAI Logo" class="brand-logo">
+          {% else %}
+            <img src="{% static 'images/ppai_logo.png' %}" alt="PPAI Logo" class="brand-logo">
+          {% endif %}
+          <div class="brand-details">
+            <h1>{% if site_settings %}{{ site_settings.site_title }}{% else %}Plant Protection Association of India{% endif %}</h1>
+            <p>{% if site_settings %}{{ site_settings.registration_info }}{% else %}(Regn. No. S399 of 1949-50 under the Societies Registration Act XXI of 1860){% endif %}</p>
           </div>
         </div>
 
-        <div class="nav-item">
-          <a href="#">Journal
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
-          <div class="dropdown">
-            <a href="#">Current Issue</a>
-            <a href="#">Archives</a>
-            <a href="#">Editorial Board</a>
-            <a href="#">Author Guidelines</a>
-            <a href="#">Books</a>
+        <div class="header-auth">
+          <div class="header-auth-buttons">
+            <a href="/admin/login/" class="btn-auth-login">Login</a>
+            <a href="#" class="btn-auth-register">Join New Member</a>
           </div>
-        </div>
-
-        <div class="nav-item">
-          <a href="#">Membership
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
-          <div class="dropdown">
-            <a href="#">Membership Information</a>
-            <a href="#">Membership Directory</a>
-          </div>
-        </div>
-
-        <div class="nav-item">
-          <a href="#">Awards
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
-          <div class="dropdown">
-            <a href="#">PPAI Society Awards</a>
-            <a href="#">Awards Nomination</a>
-          </div>
-        </div>
-
-        <div class="nav-item">
-          <a href="#">Event
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
-          <div class="dropdown">
-            <a href="#">Upcoming Conference</a>
-            <a href="#">Workshops &amp; Meetings</a>
-            <a href="#">Election</a>
+          <div class="header-auth-socials">
+            <a href="#" class="social-icon facebook" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+            </a>
+            <a href="#" class="social-icon youtube" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.56 9.38.56 9.38.56s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
+            </a>
+            <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </a>
+            <a href="#" class="social-icon xtwitter" aria-label="X (formerly Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2.3h3.2l-7 8 8.2 10.9h-6.4l-5-6.6-5.7 6.6H2l7.5-8.6L1.6 2.3H8.2l4.5 6 6.2-6zm-1.1 17.1h1.8L7.3 4.1H5.4l12.4 15.3z"/></svg>
+            </a>
           </div>
         </div>
       </div>
 
-      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
-    </nav>
-  </header>
+      <hr class="nav-divider">
 
-  <!-- Hero Section (Clean Flexible Height, No Clipping!) -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-content">
-        <span class="hero-badge">{% if site_settings %}{{ site_settings.hero_badge }}{% else %}Since 1972{% endif %}</span>
-        <h1>{% if site_settings %}{{ site_settings.hero_title }}{% else %}Indian Journal of Plant Protection{% endif %}</h1>
-        <p>{% if site_settings %}{{ site_settings.hero_description }}{% else %}The Indian Journal of Plant Protection (IJPP) is a peer-reviewed quarterly journal published by the Plant Protection Association of India (PPAI), Hyderabad. It publishes original research, reviews, and short communications in agricultural entomology, plant pathology, nematology, weed science, and integrated pest management (IPM).{% endif %}</p>
+      <nav class="header-nav-bar">
+        <div class="nav-links" id="navLinks">
+          <div class="nav-item">
+            <a href="#" class="active">Home</a>
+          </div>
 
-        <form class="hero-search" onsubmit="event.preventDefault();">
-          <input type="text" placeholder="Search journals, members, or events..." required>
-          <button type="submit" class="btn-search">Search</button>
-        </form>
-      </div>
+          <div class="nav-item">
+            <a href="#">The Society
+              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="dropdown">
+              <a href="#">About Us</a>
+              <a href="#">Executive Council</a>
+              <a href="#">Legends of PPAI</a>
+            </div>
+          </div>
 
-      <!-- Right Side Auto Carousel -->
-      <div class="hero-carousel-container">
-        <div class="carousel-track" id="carouselTrack">
-          {% if slides %}
-            {% for slide in slides %}
+          <div class="nav-item">
+            <a href="#">Journal
+              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="dropdown">
+              <a href="#">Current Issue</a>
+              <a href="#">Archives</a>
+              <a href="#">Editorial Board</a>
+              <a href="#">Author Guidelines</a>
+              <a href="#">Books</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#">Membership
+              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="dropdown">
+              <a href="#">Membership Information</a>
+              <a href="#">Membership Directory</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#">Awards
+              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="dropdown">
+              <a href="#">PPAI Society Awards</a>
+              <a href="#">Awards Nomination</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#">Event
+              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="dropdown">
+              <a href="#">Upcoming Conference</a>
+              <a href="#">Workshops &amp; Meetings</a>
+              <a href="#">Election</a>
+            </div>
+          </div>
+        </div>
+
+        <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
+      </nav>
+    </header>
+
+    <!-- Hero Section (Flexibly Scales to Fill Middle Space) -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="hero-badge">{% if site_settings %}{{ site_settings.hero_badge }}{% else %}Since 1972{% endif %}</span>
+          <h1>{% if site_settings %}{{ site_settings.hero_title }}{% else %}Indian Journal of Plant Protection{% endif %}</h1>
+          <p>{% if site_settings %}{{ site_settings.hero_description }}{% else %}The Indian Journal of Plant Protection (IJPP) is a peer-reviewed quarterly journal published by the Plant Protection Association of India (PPAI), Hyderabad. It publishes original research, reviews, and short communications in agricultural entomology, plant pathology, nematology, weed science, and integrated pest management (IPM).{% endif %}</p>
+
+          <form class="hero-search" onsubmit="event.preventDefault();">
+            <input type="text" placeholder="Search journals, members, or events..." required>
+            <button type="submit" class="btn-search">Search</button>
+          </form>
+        </div>
+
+        <!-- Right Side Auto Carousel (Dynamically scales inside viewport height!) -->
+        <div class="hero-carousel-container">
+          <div class="carousel-track" id="carouselTrack">
+            {% if slides %}
+              {% for slide in slides %}
+                <div class="carousel-slide">
+                  <img src="{{ slide.image.url }}" alt="{{ slide.title|default:"Indian Journal Cover" }}">
+                </div>
+              {% endfor %}
+            {% else %}
               <div class="carousel-slide">
-                <img src="{{ slide.image.url }}" alt="{{ slide.title|default:"Indian Journal Cover" }}">
+                <img src="{% static 'images/journal_cover.png' %}" alt="Indian Journal of Plant Protection Cover Vol 54 No 1">
               </div>
-            {% endfor %}
-          {% else %}
-            <div class="carousel-slide">
-              <img src="{% static 'images/journal_cover.png' %}" alt="Indian Journal of Plant Protection Cover Vol 54 No 1">
-            </div>
-            <div class="carousel-slide">
-              <img src="{% static 'images/slide1.jpg' %}" alt="Moth on Leaf">
-            </div>
-            <div class="carousel-slide">
-              <img src="{% static 'images/slide2.jpg' %}" alt="Ladybug on Plant">
-            </div>
-            <div class="carousel-slide">
-              <img src="{% static 'images/slide3.jpg' %}" alt="Plant Disease Spot">
-            </div>
-            <div class="carousel-slide">
-              <img src="{% static 'images/slide4.jpg' %}" alt="Hands Holding Seedling">
-            </div>
-          {% endif %}
-        </div>
-        <div class="carousel-dots" id="carouselDots">
-          {% if slides %}
-            {% for slide in slides %}
-              <span class="dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.counter0 }}"></span>
-            {% endfor %}
-          {% else %}
-            <span class="dot active" data-slide="0"></span>
-            <span class="dot" data-slide="1"></span>
-            <span class="dot" data-slide="2"></span>
-            <span class="dot" data-slide="3"></span>
-            <span class="dot" data-slide="4"></span>
-          {% endif %}
+              <div class="carousel-slide">
+                <img src="{% static 'images/slide1.jpg' %}" alt="Moth on Leaf">
+              </div>
+              <div class="carousel-slide">
+                <img src="{% static 'images/slide2.jpg' %}" alt="Ladybug on Plant">
+              </div>
+              <div class="carousel-slide">
+                <img src="{% static 'images/slide3.jpg' %}" alt="Plant Disease Spot">
+              </div>
+              <div class="carousel-slide">
+                <img src="{% static 'images/slide4.jpg' %}" alt="Hands Holding Seedling">
+              </div>
+            {% endif %}
+          </div>
+          <div class="carousel-dots" id="carouselDots">
+            {% if slides %}
+              {% for slide in slides %}
+                <span class="dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.counter0 }}"></span>
+              {% endfor %}
+            {% else %}
+              <span class="dot active" data-slide="0"></span>
+              <span class="dot" data-slide="1"></span>
+              <span class="dot" data-slide="2"></span>
+              <span class="dot" data-slide="3"></span>
+              <span class="dot" data-slide="4"></span>
+            {% endif %}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="container stats-grid">
-      <div class="stat-item">
-        <div class="stat-number">{% if site_settings %}{{ site_settings.members_count }}{% else %}1,900+{% endif %}</div>
-        <div class="stat-label">members nationwide</div>
+    <!-- Stats Section (Anchored at the Bottom of First Fold) -->
+    <section class="stats-section">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">{% if site_settings %}{{ site_settings.members_count }}{% else %}1,900+{% endif %}</div>
+          <div class="stat-label">members nationwide</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">{% if site_settings %}{{ site_settings.society_years }}{% else %}54{% endif %}</div>
+          <div class="stat-label">years as a society</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">{% if site_settings %}{{ site_settings.published_volumes }}{% else %}54{% endif %}</div>
+          <div class="stat-label">published volumes</div>
+        </div>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">{% if site_settings %}{{ site_settings.society_years }}{% else %}54{% endif %}</div>
-        <div class="stat-label">years as a society</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">{% if site_settings %}{{ site_settings.published_volumes }}{% else %}54{% endif %}</div>
-        <div class="stat-label">published volumes</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Explore the Society Section (3 Top Cards + 1 Bottom-Left Card) -->
+  </div><!-- /.viewport-fold -->
+
+  <!-- Explore the Society Section (Scroll down to view: 3 Top Cards + 1 Bottom-Left Card) -->
   <section class="portal-section">
     <div class="container">
       <div class="section-header">
