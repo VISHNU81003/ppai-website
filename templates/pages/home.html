@@ -45,7 +45,8 @@
     }
 
     body {
-      background: #F8FAF8;
+      background: linear-gradient(180deg, #FFFFFF 0%, #E1F0E8 100%);
+      background-attachment: fixed;
       overflow-x: hidden;
     }
 
@@ -61,7 +62,7 @@
     }
 
     /* ===================================================================
-       SINGLE-VIEWPORT FIRST FOLD (NO TOP LINE ABOVE LOGO, SPACIOUS WHITE SECTION)
+       SINGLE-VIEWPORT FIRST FOLD WITH GRADIENT BACKGROUND
     =================================================================== */
     .viewport-fold {
       height: 100vh;
@@ -70,11 +71,11 @@
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
-      background: #FFFFFF; /* Clean white background */
+      background: linear-gradient(180deg, #FFFFFF 0%, #E1F0E8 100%); /* Restored Mint Gradient */
       position: relative;
     }
 
-    /* --- Clean Header (No Top Border Above Logo) --- */
+    /* --- Clean Header (No Top Line Above Logo) --- */
     .viewport-fold .navbar {
       flex: 0 0 auto;
       background: #FFFFFF;
@@ -312,7 +313,7 @@
       transform: translateY(-50%);
     }
 
-    /* --- Slightly Increased White Hero Section --- */
+    /* --- Hero Section with Gradient --- */
     .viewport-fold .hero {
       flex: 1 1 auto;
       min-height: 0;
@@ -320,7 +321,7 @@
       align-items: center;
       position: relative;
       padding: clamp(14px, 2.2vh, 28px) 0;
-      background: #FFFFFF; /* Pure spacious white section */
+      background: transparent;
     }
 
     .hero-inner {
@@ -419,7 +420,7 @@
       overflow: hidden;
       box-shadow: 0 14px 32px rgba(11, 36, 23, 0.08);
       background: #FFFFFF;
-      border: 5px solid #F4F8F5;
+      border: 5px solid #FFFFFF;
       aspect-ratio: 3 / 4;
       width: auto;
       height: 100%;
@@ -479,10 +480,11 @@
       border-radius: 4px;
     }
 
-    /* --- Stats Section (NO Vertical Divider Lines!) --- */
+    /* --- Stats Section (NO Vertical Divider Lines, Soft Glass Backdrop) --- */
     .viewport-fold .stats-section {
       flex: 0 0 auto;
-      background: #FFFFFF;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
       padding: clamp(14px, 1.8vh, 22px) 0;
@@ -499,7 +501,7 @@
       position: relative;
     }
 
-    /* NO VERTICAL LINES in stats counts as requested */
+    /* NO VERTICAL LINES in stats counts */
     .stat-item::after {
       display: none !important;
     }
@@ -650,10 +652,10 @@
       transform: translateY(-2px);
     }
 
-    /* --- Slightly Reduced Compact Footer --- */
+    /* --- Compact Footer --- */
     .footer {
       background: var(--deep-forest);
-      padding: 40px 0 20px; /* Reduced vertical padding */
+      padding: 40px 0 20px;
       font-size: 13px;
       color: rgba(255, 255, 255, 0.75);
     }
@@ -661,7 +663,7 @@
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px; /* Reduced gap */
+      gap: 30px;
       margin-bottom: 28px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       padding-bottom: 28px;
@@ -820,7 +822,7 @@
 </head>
 <body>
 
-  <!-- SINGLE-VIEWPORT FIRST FOLD (NO TOP LINE ABOVE LOGO, SPACIOUS WHITE SECTION) -->
+  <!-- SINGLE-VIEWPORT FIRST FOLD WITH MINT GRADIENT -->
   <div class="viewport-fold">
 
     <!-- Header (No line above logo) -->
@@ -928,7 +930,7 @@
       </nav>
     </header>
 
-    <!-- Slightly Increased White Hero Section -->
+    <!-- Hero Section -->
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-content">
@@ -986,7 +988,7 @@
       </div>
     </section>
 
-    <!-- Stats Section (NO Vertical Divider Lines) -->
+    <!-- Stats Section (NO Vertical Divider Lines, Soft Glass Backdrop) -->
     <section class="stats-section">
       <div class="container stats-grid">
         <div class="stat-item">
@@ -1070,7 +1072,7 @@
     </div>
   </section>
 
-  <!-- Compact Footer (Slightly Reduced Height) -->
+  <!-- Compact Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
