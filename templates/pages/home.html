@@ -4,7 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if site_settings %}{{ site_settings.site_title }}{% else %}PPAI | Scientific Publishing & Association{% endif %}</title>
+  <title>{% if site_settings %}{{ site_settings.site_title }}{% else %}Plant Protection Association of India (PPAI) | Official Website{% endif %}</title>
+
+  <!-- Favicon / Web Icons -->
+  {% if site_settings and site_settings.logo %}
+    <link rel="icon" type="image/png" href="{{ site_settings.logo.url }}">
+    <link rel="shortcut icon" type="image/png" href="{{ site_settings.logo.url }}">
+    <link rel="apple-touch-icon" href="{{ site_settings.logo.url }}">
+  {% else %}
+    <link rel="icon" type="image/png" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/ppai_logo.png' %}">
+  {% endif %}
+
+  <!-- Primary SEO Meta Tags -->
+  <meta name="description" content="Plant Protection Association of India (PPAI) - Est. 1972. Official publisher of the Indian Journal of Plant Protection (IJPP). Research in agricultural entomology, plant pathology, and IPM.">
+  <meta name="keywords" content="PPAI, Plant Protection Association of India, IJPP, Indian Journal of Plant Protection, Crop Protection, Agricultural Entomology, Plant Pathology, Nematology, IPM">
+  <link rel="canonical" href="https://ppai.org.in/">
+
+  <!-- OpenGraph / Social Sharing Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ppai.org.in/">
+  <meta property="og:title" content="Plant Protection Association of India (PPAI)">
+  <meta property="og:description" content="Official website of PPAI and the Indian Journal of Plant Protection (IJPP). Active research society since 1972.">
+  <meta property="og:image" content="https://ppai.org.in{% static 'images/ppai_logo.png' %}">
 
   <!-- Modern, geometric sans-serif font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +94,7 @@
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
-      background: linear-gradient(180deg, #FFFFFF 0%, #E1F0E8 100%); /* Restored Mint Gradient */
+      background: linear-gradient(180deg, #FFFFFF 0%, #E1F0E8 100%);
       position: relative;
     }
 
@@ -80,7 +103,7 @@
       flex: 0 0 auto;
       background: #FFFFFF;
       z-index: 1000;
-      border-top: none; /* NO line above logo */
+      border-top: none;
       box-shadow: 0 2px 14px rgba(11, 36, 23, 0.03);
       width: 100%;
     }
