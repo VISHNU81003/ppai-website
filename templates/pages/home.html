@@ -890,67 +890,71 @@
       <nav class="header-nav-bar">
         <div class="nav-links" id="navLinks">
           <div class="nav-item">
-            <a href="#" class="active">Home</a>
+            <a href="{% url 'home' %}" class="active">Home</a>
           </div>
 
           <div class="nav-item">
-            <a href="#">The Society
+            <a href="{% url 'about' %}">The Society
               <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
             <div class="dropdown">
-              <a href="#">About Us</a>
-              <a href="#">Executive Council</a>
-              <a href="#">Legends of PPAI</a>
+              <a href="{% url 'about' %}">About Us</a>
+              <a href="{% url 'executive_council' %}">Executive Council</a>
+              <a href="{% url 'legends' %}">Legends of PPAI</a>
             </div>
           </div>
 
           <div class="nav-item">
-            <a href="#">Journal
+            <a href="{% url 'journal_current' %}">Journal
               <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
             <div class="dropdown">
-              <a href="#">Current Issue</a>
-              <a href="#">Archives</a>
-              <a href="#">Editorial Board</a>
-              <a href="#">Author Guidelines</a>
-              <a href="#">Books</a>
+              <a href="{% url 'journal_current' %}">Current Issue</a>
+              <a href="{% url 'journal_archives' %}">Archives</a>
+              <a href="{% url 'editorial_board' %}">Editorial Board</a>
+              <a href="{% url 'author_guidelines' %}">Author Guidelines</a>
+              <a href="{% url 'books' %}">Books</a>
             </div>
           </div>
 
           <div class="nav-item">
-            <a href="#">Membership
+            <a href="{% url 'membership_info' %}">Membership
               <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
             <div class="dropdown">
-              <a href="#">Membership Information</a>
-              <a href="#">Membership Directory</a>
+              <a href="{% url 'membership_info' %}">Membership Information</a>
+              <a href="{% url 'membership_directory' %}">Membership Directory</a>
             </div>
           </div>
 
           <div class="nav-item">
-            <a href="#">Awards
+            <a href="{% url 'awards' %}">Awards
               <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
             <div class="dropdown">
-              <a href="#">PPAI Society Awards</a>
-              <a href="#">Awards Nomination</a>
+              <a href="{% url 'awards' %}">PPAI Society Awards</a>
+              <a href="{% url 'awards_nomination' %}">Awards Nomination</a>
             </div>
           </div>
 
           <div class="nav-item">
-            <a href="#">Event
+            <a href="{% url 'conferences' %}">Event
               <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
             <div class="dropdown">
-              <a href="#">Upcoming Conference</a>
-              <a href="#">Workshops &amp; Meetings</a>
-              <a href="#">Election</a>
+              <a href="{% url 'conferences' %}">Upcoming Conference</a>
+              <a href="{% url 'conferences' %}">Workshops &amp; Meetings</a>
             </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="{% url 'contact' %}">Contact</a>
           </div>
         </div>
 
         <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
       </nav>
+
     </header>
 
     <!-- Hero Section -->
