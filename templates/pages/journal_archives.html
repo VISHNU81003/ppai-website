@@ -3,91 +3,74 @@
 {% block title %}Past Archives - Indian Journal of Plant Protection (IJPP){% endblock %}
 
 {% block content %}
-<div class="page-header">
-  <div class="container page-header-inner">
-    <div class="page-breadcrumb">Journal</div>
-    <h1>Past Archives (2014 – 2025)</h1>
-    <p>Historical Volumes (Vol. 42 to Vol. 53) hosted on the ICAR e-Pubs National Platform.</p>
-  </div>
-</div>
-
 <div class="container inner-section">
-  <div class="card-box" style="background: linear-gradient(135deg, rgba(0,178,114,0.06) 0%, rgba(11,36,23,0.02) 100%); border-left: 4px solid var(--vibrant-green);">
-    <h3 style="margin-top: 0; color: var(--deep-forest);">ICAR e-Pubs Access Notice</h3>
-    <p style="margin-bottom: 8px;">
-      All legacy issues (Vol. 42 to Vol. 53, covering 2014 through 2025) are officially indexed and archived on the ICAR e-Pubs Open Journal Systems (OJS) platform.
-    </p>
-    <p style="margin-bottom: 14px; font-size: 13.5px; color: var(--text-muted);">
-      To browse full text, abstracts, and historical downloads for these past volumes, please visit the official ICAR IJPP portal below.
-    </p>
-    <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-action">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      Visit ICAR e-Pubs IJPP Portal
-    </a>
+  <div class="inner-title-bar">
+    <h1>
+      <span class="badge-pill" style="font-size: 11px; padding: 3px 10px;">Journal</span>
+      Past Archives (Vol. 42 to Vol. 53, 2014 – 2025)
+    </h1>
+    <span class="subtitle">Hosted on ICAR e-Pubs National Platform</span>
   </div>
 
-  <div class="card-box">
-    <h2>Index of Back Volumes (Vol. 42 to 53)</h2>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Volume</th>
-          <th>Year</th>
-          <th>Issues Published</th>
-          <th>Status &amp; Portal Link</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% if back_volumes %}
-          {% for vol in back_volumes %}
+  <div style="display: grid; grid-template-columns: 280px 1fr; gap: 18px; align-items: start;">
+    <!-- Left Notice Box -->
+    <div class="card-box" style="padding: 18px 20px; border-left: 4px solid var(--vibrant-green); background: linear-gradient(135deg, rgba(0,178,114,0.06) 0%, rgba(11,36,23,0.02) 100%);">
+      <h2 style="font-size: 15px; margin-bottom: 8px;">ICAR e-Pubs Access Notice</h2>
+      <p style="font-size: 12.5px; line-height: 1.45; color: var(--text-main); margin-bottom: 12px;">
+        All 36 legacy back issues (Vol. 42 to Vol. 53) are officially indexed and hosted on the ICAR e-Publications platform.
+      </p>
+      <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-action" style="width: 100%; justify-content: center; padding: 8px 14px; font-size: 12.5px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Visit ICAR e-Pubs IJPP Portal
+      </a>
+    </div>
+
+    <!-- Right Table -->
+    <div class="card-box" style="padding: 18px 20px;">
+      <h2 style="font-size: 16px; margin-bottom: 8px;">Index of Back Volumes (Vol. 42 to 53)</h2>
+      <table class="data-table" style="font-size: 12px; margin: 0;">
+        <thead>
           <tr>
-            <td><strong>Volume {{ vol.volume_number }}</strong></td>
-            <td>{{ vol.year }}</td>
-            <td>4 Issues (Nos. 1, 2, 3, 4)</td>
-            <td>
-              <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-outline" style="padding: 4px 12px; font-size: 12px;">
-                View on ICAR e-Pubs
-              </a>
-            </td>
+            <th>Volume</th>
+            <th>Year</th>
+            <th>Issues Available</th>
+            <th style="text-align: right;">Portal Access</th>
           </tr>
-          {% endfor %}
-        {% else %}
-          {% for v in "53|2025,52|2024,51|2023,50|2022,49|2021,48|2020,47|2019,46|2018,45|2017,44|2016,43|2015,42|2014"|make_list %}
-          <!-- Fallback table rows if DB query empty -->
-          {% endfor %}
+        </thead>
+        <tbody>
           <tr>
             <td><strong>Volume 53</strong></td>
             <td>2025</td>
             <td>Issues 1 &amp; 2</td>
-            <td><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-outline" style="padding: 4px 12px; font-size: 12px;">View on ICAR e-Pubs</a></td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 3px 10px; font-size: 11px;">View on ICAR</a></td>
           </tr>
           <tr>
             <td><strong>Volume 52</strong></td>
             <td>2024</td>
             <td>Issues 1, 2, 3, 4</td>
-            <td><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-outline" style="padding: 4px 12px; font-size: 12px;">View on ICAR e-Pubs</a></td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 3px 10px; font-size: 11px;">View on ICAR</a></td>
           </tr>
           <tr>
             <td><strong>Volume 51</strong></td>
             <td>2023</td>
-            <td>Issues 1, 2, 3, 4</td>
-            <td><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-outline" style="padding: 4px 12px; font-size: 12px;">View on ICAR e-Pubs</a></td>
+            <td>Issues 1, 2, 3 (Combined), No. 4</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 3px 10px; font-size: 11px;">View on ICAR</a></td>
           </tr>
           <tr>
             <td><strong>Volume 50</strong></td>
             <td>2022</td>
             <td>Golden Jubilee Special Volume</td>
-            <td><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-outline" style="padding: 4px 12px; font-size: 12px;">View on ICAR e-Pubs</a></td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 3px 10px; font-size: 11px;">View on ICAR</a></td>
           </tr>
           <tr>
             <td><strong>Volume 42 – 49</strong></td>
             <td>2014 – 2021</td>
-            <td>32 Issues Published</td>
-            <td><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-outline" style="padding: 4px 12px; font-size: 12px;">View on ICAR e-Pubs</a></td>
+            <td>32 Issues Online</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 3px 10px; font-size: 11px;">View on ICAR</a></td>
           </tr>
-        {% endif %}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 {% endblock %}

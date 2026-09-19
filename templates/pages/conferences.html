@@ -3,71 +3,64 @@
 {% block title %}Events &amp; Conferences - PPAI{% endblock %}
 
 {% block content %}
-<div class="page-header">
-  <div class="container page-header-inner">
-    <div class="page-breadcrumb">Events</div>
-    <h1>Conferences, Symposia &amp; Workshops</h1>
-    <p>National and international scientific gatherings organized by PPAI since 1986.</p>
-  </div>
-</div>
-
 <div class="container inner-section">
-  <div class="card-box">
-    <h2>Upcoming Event / Conference (2026)</h2>
-    <div style="padding: 20px; border-radius: 12px; background: linear-gradient(135deg, rgba(0,178,114,0.08) 0%, rgba(11,36,23,0.02) 100%); border-left: 4px solid var(--vibrant-green); margin-bottom: 24px;">
-      <span class="badge-pill" style="margin-bottom: 8px;">National Symposium 2026</span>
-      <h3 style="margin-top: 6px; color: var(--deep-forest);">National Symposium on Next-Gen Plant Protection Technologies for Sustainable Agriculture</h3>
-      <p style="font-size: 14px; color: var(--text-main); margin-bottom: 12px;">
-        <strong>Date:</strong> November 18–20, 2026 | <strong>Venue:</strong> ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad
+  <div class="inner-title-bar">
+    <h1>
+      <span class="badge-pill" style="font-size: 11px; padding: 3px 10px;">Events</span>
+      Conferences, Symposia &amp; Workshops
+    </h1>
+    <span class="subtitle">National &amp; International Symposia (1986 – 2026)</span>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+    <!-- Upcoming Event Banner -->
+    <div class="card-box" style="padding: 18px 20px; border-left: 4px solid var(--vibrant-green); background: linear-gradient(135deg, rgba(0,178,114,0.06) 0%, rgba(11,36,23,0.02) 100%);">
+      <span class="badge-pill" style="margin-bottom: 6px; font-size: 11px;">Upcoming Symposium 2026</span>
+      <h2 style="font-size: 16px; margin-bottom: 6px; border-bottom: none; padding-bottom: 0;">National Symposium on Next-Gen Plant Protection Technologies</h2>
+      <p style="font-size: 12px; color: var(--text-main); margin-bottom: 8px;">
+        <strong>Date:</strong> November 18–20, 2026 | <strong>Venue:</strong> ICAR-NBPGR RS, Rajendranagar, Hyderabad
       </p>
-      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px;">
-        Themes: AI &amp; Robotics in IPM, Biopesticides, Climate-Smart Crop Protection, Transboundary Pests &amp; Biosecurity.
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+        Themes: AI &amp; Robotics in IPM, Biopesticides, Climate-Smart Protection, Transboundary Pests.
       </p>
-      <a href="{% url 'contact' %}" class="btn-action">Register Interest / Contact Organizing Committee</a>
+      <a href="{% url 'contact' %}" class="btn-action" style="padding: 6px 14px; font-size: 12px;">Register Interest / Contact Organizing Committee</a>
     </div>
 
-    <h2>5.0 History of PPAI Symposia &amp; Conferences</h2>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Year</th>
-          <th>Conference / Symposium Theme</th>
-          <th>Venue / Host Institution</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% if events_list %}
-          {% for e in events_list %}
+    <!-- History Table -->
+    <div class="card-box" style="padding: 18px 20px;">
+      <h2 style="font-size: 16px; margin-bottom: 8px;">5.0 History of PPAI Symposia</h2>
+      <table class="data-table" style="font-size: 12px; margin: 0;">
+        <thead>
           <tr>
-            <td><span class="badge-pill">{{ e.date_str }}</span></td>
-            <td><strong>{{ e.title }}</strong></td>
-            <td>{{ e.venue }}</td>
+            <th style="width: 50px;">Year</th>
+            <th>Conference / Symposium Theme</th>
+            <th>Venue</th>
           </tr>
-          {% endfor %}
-        {% else %}
+        </thead>
+        <tbody>
           <tr>
             <td><span class="badge-pill">2023</span></td>
             <td><strong>Golden Jubilee International Conference on Plant Protection</strong></td>
-            <td>Hyderabad, Telangana</td>
+            <td>PJTSAU, Hyderabad</td>
           </tr>
           <tr>
             <td><span class="badge-pill">2018</span></td>
             <td><strong>National Symposium on Plant Protection in Changing Climate</strong></td>
-            <td>ICAR-NBPGR RS, Hyderabad</td>
+            <td>ICAR-NBPGR RS</td>
           </tr>
           <tr>
             <td><span class="badge-pill">2012</span></td>
             <td><strong>National Seminar on Eco-Friendly Approaches in IPM</strong></td>
-            <td>ANGRAU, Rajendranagar, Hyderabad</td>
+            <td>ANGRAU, Hyderabad</td>
           </tr>
           <tr>
             <td><span class="badge-pill">1986</span></td>
             <td><strong>First National Seminar on Plant Protection in India</strong></td>
             <td>CPPTI, Hyderabad</td>
           </tr>
-        {% endif %}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 {% endblock %}

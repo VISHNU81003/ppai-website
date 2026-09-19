@@ -3,56 +3,45 @@
 {% block title %}Publications &amp; Books - PPAI{% endblock %}
 
 {% block content %}
-<div class="page-header">
-  <div class="container page-header-inner">
-    <div class="page-breadcrumb">Journal</div>
-    <h1>Books &amp; Special Publications</h1>
-    <p>Monographs, conference proceedings, and special publications published by PPAI.</p>
-  </div>
-</div>
-
 <div class="container inner-section">
-  <div class="card-box">
-    <h2>4.3 PPAI Special Publications</h2>
-    <table class="data-table">
+  <div class="inner-title-bar">
+    <h1>
+      <span class="badge-pill" style="font-size: 11px; padding: 3px 10px;">Journal</span>
+      Books &amp; Special Publications
+    </h1>
+    <span class="subtitle">Monographs &amp; Symposia Volumes</span>
+  </div>
+
+  <div class="card-box" style="padding: 18px 20px;">
+    <h2 style="font-size: 16px; margin-bottom: 8px;">4.3 PPAI Special Publications</h2>
+    <table class="data-table" style="font-size: 12px; margin: 0;">
       <thead>
         <tr>
-          <th>Year</th>
+          <th style="width: 60px;">Year</th>
           <th>Book Title &amp; Theme</th>
           <th>Editors / Authors</th>
           <th>Publisher &amp; Details</th>
         </tr>
       </thead>
       <tbody>
-        {% if books_list %}
-          {% for b in books_list %}
-          <tr>
-            <td><span class="badge-pill">{{ b.year }}</span></td>
-            <td><strong>{{ b.title }}</strong></td>
-            <td>{{ b.editors }}</td>
-            <td>{{ b.publisher|default:"PPAI Hyderabad" }}</td>
-          </tr>
-          {% endfor %}
-        {% else %}
-          <tr>
-            <td><span class="badge-pill">2016</span></td>
-            <td><strong>Plant Protection in India: Challenges and Next Generation Strategies</strong></td>
-            <td>Dr. B. Sarath Babu et al.</td>
-            <td>PPAI Special Volume (ISBN: 978-81-925727-0-4)</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill">2002</span></td>
-            <td><strong>Plant Protection in New Millennium (Vols 1 &amp; 2)</strong></td>
-            <td>Dr. K. D. Paharia &amp; Dr. N. C. Joshi</td>
-            <td>PPAI Pearl Jubilee Publication</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill">1992</span></td>
-            <td><strong>Integrated Pest Management in Indian Agriculture</strong></td>
-            <td>Dr. S. N. Banerjee et al.</td>
-            <td>PPAI Vicennial Publication</td>
-          </tr>
-        {% endif %}
+        <tr>
+          <td><span class="badge-pill">2016</span></td>
+          <td><strong>Plant Protection in India: Challenges and Next Generation Strategies</strong></td>
+          <td>Dr. B. Sarath Babu et al.</td>
+          <td>PPAI Special Volume (ISBN: 978-81-925727-0-4)</td>
+        </tr>
+        <tr>
+          <td><span class="badge-pill">2002</span></td>
+          <td><strong>Plant Protection in New Millennium (Vols 1 &amp; 2)</strong></td>
+          <td>Dr. K. D. Paharia &amp; Dr. N. C. Joshi</td>
+          <td>PPAI Pearl Jubilee Publication</td>
+        </tr>
+        <tr>
+          <td><span class="badge-pill">1992</span></td>
+          <td><strong>Integrated Pest Management in Indian Agriculture</strong></td>
+          <td>Dr. S. N. Banerjee et al.</td>
+          <td>PPAI Vicennial Publication</td>
+        </tr>
       </tbody>
     </table>
   </div>
