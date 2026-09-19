@@ -16,15 +16,17 @@ class CarouselSlideAdmin(admin.ModelAdmin):
 
 @admin.register(ExecutiveMember)
 class ExecutiveMemberAdmin(admin.ModelAdmin):
-    list_display = ('name', 'designation', 'affiliation', 'order')
+    list_display = ('name', 'designation', 'gender', 'affiliation', 'order')
     list_editable = ('order',)
+    list_filter = ('gender', 'designation')
     search_fields = ('name', 'designation', 'affiliation')
 
 @admin.register(PastBearer)
 class PastBearerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'role', 'tenure', 'order')
-    list_filter = ('role',)
+    list_display = ('name', 'role', 'gender', 'tenure', 'order')
+    list_filter = ('role', 'gender')
     search_fields = ('name', 'tenure')
+
 
 @admin.register(EditorialBoardMember)
 class EditorialBoardMemberAdmin(admin.ModelAdmin):

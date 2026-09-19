@@ -42,6 +42,9 @@ class ExecutiveMember(models.Model):
     name = models.CharField(max_length=200)
     designation = models.CharField(max_length=150)
     affiliation = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='council/', blank=True, null=True, help_text="Upload member photo. Defaults to gender avatar if blank.")
+    gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female')], default='male')
+    bio = models.TextField(blank=True, help_text="Short bio / description")
     order = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -62,6 +65,10 @@ class PastBearer(models.Model):
     name = models.CharField(max_length=200)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
     tenure = models.CharField(max_length=100)
+    affiliation = models.CharField(max_length=255, blank=True)
+    image = models.ImageField(upload_to='legends/', blank=True, null=True, help_text="Upload past bearer photo. Defaults to gender avatar if blank.")
+    gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female')], default='male')
+    bio = models.TextField(blank=True, help_text="Short bio / contribution details")
     order = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -69,6 +76,7 @@ class PastBearer(models.Model):
 
     def __str__(self):
         return f"{self.get_role_display()}: {self.name} ({self.tenure})"
+
 
 
 class EditorialBoardMember(models.Model):

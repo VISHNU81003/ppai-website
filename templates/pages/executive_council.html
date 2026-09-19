@@ -12,76 +12,73 @@
 </div>
 
 <div class="container inner-section">
-  <div class="card-box">
-    <h2>2.0 Present Executive Council Members</h2>
-    <p>Below is the official list of elected office bearers for the term 2025–2027.</p>
+  <div class="card-box" style="margin-bottom: 32px;">
+    <h2>Present Executive Council Members</h2>
+    <p style="margin-bottom: 24px;">Meet the elected office bearers and council members leading PPAI initiatives for 2025–2027.</p>
     
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Designation</th>
-          <th>Name</th>
-          <th>Affiliation / Organization</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% if council_members %}
-          {% for m in council_members %}
-          <tr>
-            <td><strong>{{ m.role }}</strong></td>
-            <td>{{ m.name }}</td>
-            <td>{{ m.affiliation|default:"PPAI Headquarters" }}</td>
-          </tr>
-          {% endfor %}
-        {% else %}
-          <tr>
-            <td><strong>President</strong></td>
-            <td>Dr. S. N. Sushil</td>
-            <td>Director, ICAR-NBAIR, Bengaluru</td>
-          </tr>
-          <tr>
-            <td><strong>Vice President</strong></td>
-            <td>Dr. K. T. Rao</td>
-            <td>ANGRAU, Guntur</td>
-          </tr>
-          <tr>
-            <td><strong>General Secretary</strong></td>
-            <td>Dr. G. Anitha</td>
-            <td>PJTSAU, Hyderabad</td>
-          </tr>
-          <tr>
-            <td><strong>Joint Secretary</strong></td>
-            <td>Dr. B. Sarath Babu</td>
-            <td>ICAR-NBPGR RS, Hyderabad</td>
-          </tr>
-          <tr>
-            <td><strong>Treasurer</strong></td>
-            <td>Dr. M. Nagesh</td>
-            <td>ICAR-NBPGR RS, Hyderabad</td>
-          </tr>
-          <tr>
-            <td><strong>Chief Editor</strong></td>
-            <td>Dr. C. Chattopadhyay</td>
-            <td>Former Director, ICAR-NCIPM, New Delhi</td>
-          </tr>
-        {% endif %}
-      </tbody>
-    </table>
+    <!-- Responsive Member Card Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;">
+      {% if council_members %}
+        {% for m in council_members %}
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: var(--shadow-soft); transition: var(--transition); display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <!-- Avatar / Photo -->
+            <div style="width: 96px; height: 96px; border-radius: 50%; overflow: hidden; margin-bottom: 16px; background: rgba(0, 178, 114, 0.08); border: 3px solid var(--vibrant-green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0, 178, 114, 0.15);">
+              {% if m.image %}
+                <img src="{{ m.image.url }}" alt="{{ m.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+              {% else %}
+                {% if m.gender == 'female' %}
+                  <!-- Female Avatar Icon -->
+                  <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+                    <path d="M18 21a6 6 0 0 0-12 0"></path>
+                    <circle cx="12" cy="7" r="1.5" fill="var(--vibrant-green)"></circle>
+                  </svg>
+                {% else %}
+                  <!-- Male Avatar Icon -->
+                  <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                {% endif %}
+              {% endif %}
+            </div>
+
+            <!-- Designation Badge -->
+            <span class="badge-pill" style="margin-bottom: 10px; font-size: 11.5px; padding: 4px 12px;">{{ m.designation }}</span>
+
+            <!-- Name -->
+            <h3 style="font-size: 16.5px; font-weight: 800; color: var(--deep-forest); margin-bottom: 6px; line-height: 1.25;">{{ m.name }}</h3>
+
+            <!-- Affiliation -->
+            <p style="font-size: 12.5px; color: var(--text-muted); font-weight: 600; margin-bottom: 10px; line-height: 1.4;">{{ m.affiliation }}</p>
+          </div>
+
+          <!-- Bio / Description -->
+          {% if m.bio %}
+          <p style="font-size: 12px; color: #4A5568; margin-top: 10px; border-top: 1px solid rgba(11,36,23,0.06); padding-top: 10px; line-height: 1.45; text-align: center;">
+            {{ m.bio }}
+          </p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
   </div>
 
   <div class="card-box">
-    <h2>2.1 Duties &amp; Governance Rules</h2>
+    <h2>Executive Council Governance &amp; Responsibilities</h2>
     <table class="data-table">
       <thead>
         <tr>
           <th>Office Bearer</th>
-          <th>Key Responsibilities</th>
+          <th>Key Governance Responsibilities</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><strong>President</strong></td>
-          <td>Presides over Executive Council meetings and General Body meetings; supervises all executive activities of the Association.</td>
+          <td>Presides over Executive Council and General Body meetings; supervises all executive activities of the Association.</td>
         </tr>
         <tr>
           <td><strong>General Secretary</strong></td>
@@ -89,7 +86,7 @@
         </tr>
         <tr>
           <td><strong>Treasurer</strong></td>
-          <td>Manages bank accounts (SBI), receives membership fees, maintains financial records, and submits audited annual statements.</td>
+          <td>Manages bank accounts (SBI A/c 52114974468), receives membership fees, maintains financial records, and submits audited statements.</td>
         </tr>
         <tr>
           <td><strong>Chief Editor</strong></td>
