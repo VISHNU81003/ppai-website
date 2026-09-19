@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Editorial Board - Indian Journal of Plant Protection (IJPP){% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="container page-header-inner">
+    <div class="page-breadcrumb">Journal</div>
+    <h1>Editorial Board</h1>
+    <p>Distinguished editorial team managing peer review and scientific rigor of IJPP.</p>
+  </div>
+</div>
+
+<div class="container inner-section">
+  <div class="card-box">
+    <h2>4.2 Chief Editor &amp; Editorial Leadership</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Name</th>
+          <th>Affiliation</th>
+          <th>Specialization</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge-pill" style="background: var(--deep-forest); color: white;">Chief Editor</span></td>
+          <td><strong>Dr. C. Chattopadhyay</strong></td>
+          <td>Former Director, ICAR-NCIPM, New Delhi</td>
+          <td>Plant Pathology &amp; IPM</td>
+        </tr>
+        <tr>
+          <td><strong>Associate Editor</strong></td>
+          <td>Dr. S. N. Sushil</td>
+          <td>Director, ICAR-NBAIR, Bengaluru</td>
+          <td>Agricultural Entomology</td>
+        </tr>
+        <tr>
+          <td><strong>Associate Editor</strong></td>
+          <td>Dr. M. Nagesh</td>
+          <td>Principal Scientist, ICAR-NBPGR RS, Hyderabad</td>
+          <td>Nematology &amp; Biocontrol</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-box">
+    <h2>National &amp; International Editorial Members</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Affiliation</th>
+          <th>Location / Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if board_members %}
+          {% for b in board_members %}
+          <tr>
+            <td><strong>{{ b.name }}</strong> ({{ b.designation }})</td>
+            <td>{{ b.affiliation }}</td>
+            <td>{{ b.country|default:"India" }}</td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td><strong>Dr. G. Anitha</strong></td>
+            <td>Professor, PJTSAU, Rajendranagar, Hyderabad</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td><strong>Dr. B. Sarath Babu</strong></td>
+            <td>Head, ICAR-NBPGR RS, Hyderabad</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td><strong>Dr. K. T. Rao</strong></td>
+            <td>Professor &amp; Head, ANGRAU, Guntur</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td><strong>Dr. Subhash Chander</strong></td>
+            <td>Director, ICAR-NCIPM, New Delhi</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td><strong>Prof. John A. Pickett</strong></td>
+            <td>Cardiff University</td>
+            <td>United Kingdom</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

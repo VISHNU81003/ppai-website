@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Membership Directory - PPAI{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="container page-header-inner">
+    <div class="page-breadcrumb">Membership</div>
+    <h1>Membership Directory</h1>
+    <p>Search directory of Life Members and Fellow Members of the Plant Protection Association of India.</p>
+  </div>
+</div>
+
+<div class="container inner-section">
+  <div class="card-box">
+    <h2>Directory Search</h2>
+    <div style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+      <input type="text" placeholder="Search by name, institute, or state..." style="flex: 1; padding: 10px 16px; border-radius: var(--radius-pill); border: 1px solid var(--border-color); outline: none; font-size: 14px; min-width: 250px;">
+      <button class="btn-action">Search Member</button>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>LM No.</th>
+          <th>Name of Member</th>
+          <th>Designation &amp; Affiliation</th>
+          <th>Location</th>
+          <th>Membership Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge-pill">LM-001</span></td>
+          <td><strong>Dr. S. N. Sushil</strong></td>
+          <td>Director, ICAR-NBAIR</td>
+          <td>Bengaluru, Karnataka</td>
+          <td>Life Member</td>
+        </tr>
+        <tr>
+          <td><span class="badge-pill">LM-002</span></td>
+          <td><strong>Dr. G. Anitha</strong></td>
+          <td>Professor, PJTSAU</td>
+          <td>Hyderabad, Telangana</td>
+          <td>Life Member</td>
+        </tr>
+        <tr>
+          <td><span class="badge-pill">LM-003</span></td>
+          <td><strong>Dr. C. Chattopadhyay</strong></td>
+          <td>Former Director, ICAR-NCIPM</td>
+          <td>New Delhi</td>
+          <td>Life Member &amp; Fellow</td>
+        </tr>
+        <tr>
+          <td><span class="badge-pill">LM-004</span></td>
+          <td><strong>Dr. M. Nagesh</strong></td>
+          <td>Principal Scientist, ICAR-NBPGR RS</td>
+          <td>Hyderabad, Telangana</td>
+          <td>Life Member</td>
+        </tr>
+        <tr>
+          <td><span class="badge-pill">LM-005</span></td>
+          <td><strong>Dr. B. Sarath Babu</strong></td>
+          <td>Head, ICAR-NBPGR RS</td>
+          <td>Hyderabad, Telangana</td>
+          <td>Life Member &amp; Fellow</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

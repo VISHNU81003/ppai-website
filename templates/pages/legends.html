@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Legends of PPAI - Past Office Bearers{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="container page-header-inner">
+    <div class="page-breadcrumb">The Society</div>
+    <h1>Legends of PPAI</h1>
+    <p>Honoring the visionaries and leaders who built the Plant Protection Association of India since 1972.</p>
+  </div>
+</div>
+
+<div class="container inner-section">
+  <div class="card-box">
+    <h2>3.1 Past Presidents</h2>
+    <p>Distinguished scientists who led PPAI through five decades of excellence.</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Term Years</th>
+          <th>Name</th>
+          <th>Affiliation</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if past_presidents %}
+          {% for p in past_presidents %}
+          <tr>
+            <td><span class="badge-pill">{{ p.tenure_years }}</span></td>
+            <td><strong>{{ p.name }}</strong></td>
+            <td>{{ p.affiliation }}</td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td><span class="badge-pill">1972 – 1976</span></td>
+            <td><strong>Dr. S. N. Banerjee</strong></td>
+            <td>Plant Protection Adviser to Govt. of India</td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill">1977 – 1980</span></td>
+            <td><strong>Dr. K. D. Paharia</strong></td>
+            <td>Director, CPPTI, Hyderabad</td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill">1981 – 1985</span></td>
+            <td><strong>Dr. N. C. Joshi</strong></td>
+            <td>Director, CPPTI, Hyderabad</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-box">
+    <h2>3.2 Past General Secretaries</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Term Years</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if past_secretaries %}
+          {% for s in past_secretaries %}
+          <tr>
+            <td><span class="badge-pill">{{ s.tenure_years }}</span></td>
+            <td><strong>{{ s.name }}</strong></td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td><span class="badge-pill">1972 – 1978</span></td>
+            <td><strong>Dr. K. D. Paharia</strong></td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill">1979 – 1986</span></td>
+            <td><strong>Dr. C. S. Sengupta</strong></td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-box">
+    <h2>3.3 Past Treasurers &amp; Editors</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Term Years</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if past_treasurers %}
+          {% for t in past_treasurers %}
+          <tr>
+            <td>Treasurer</td>
+            <td><span class="badge-pill">{{ t.tenure_years }}</span></td>
+            <td><strong>{{ t.name }}</strong></td>
+          </tr>
+          {% endfor %}
+        {% endif %}
+        {% if past_editors %}
+          {% for e in past_editors %}
+          <tr>
+            <td>Chief Editor</td>
+            <td><span class="badge-pill">{{ e.tenure_years }}</span></td>
+            <td><strong>{{ e.name }}</strong></td>
+          </tr>
+          {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

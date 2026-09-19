@@ -1,0 +1,795 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% if site_settings %}{{ site_settings.site_title }}{% else %}Plant Protection Association of India (PPAI){% endif %}{% endblock %}</title>
+
+  <!-- Favicon / Web Icons -->
+  {% if site_settings and site_settings.logo %}
+    <link rel="icon" type="image/png" href="{{ site_settings.logo.url }}">
+    <link rel="shortcut icon" type="image/png" href="{{ site_settings.logo.url }}">
+    <link rel="apple-touch-icon" href="{{ site_settings.logo.url }}">
+  {% else %}
+    <link rel="icon" type="image/png" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/ppai_logo.png' %}">
+  {% endif %}
+
+  <!-- Security & SEO Meta Tags -->
+  <meta name="description" content="{% block meta_description %}Plant Protection Association of India (PPAI) - Est. 1972. Official publisher of the Indian Journal of Plant Protection (IJPP). Research in agricultural entomology, plant pathology, and IPM.{% endblock %}">
+  <meta name="keywords" content="PPAI, Plant Protection Association of India, IJPP, Indian Journal of Plant Protection, Crop Protection, Agricultural Entomology, Plant Pathology, Nematology, IPM">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ppai.org.in{{ request.path }}">
+
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ppai.org.in{{ request.path }}">
+  <meta property="og:title" content="{% block og_title %}Plant Protection Association of India (PPAI){% endblock %}">
+  <meta property="og:description" content="Official portal of PPAI and the Indian Journal of Plant Protection (IJPP). Active research society since 1972.">
+  <meta property="og:image" content="https://ppai.org.in{% static 'images/ppai_logo.png' %}">
+
+  <!-- Font & Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --vibrant-green: #00B272;
+      --vibrant-green-hover: #00965F;
+      --deep-forest: #0B2417;
+      --accent-gold: #EAB308;
+      --accent-gold-hover: #D97706;
+      --surface-white: #FFFFFF;
+      --text-main: #1D2924;
+      --text-muted: #64746D;
+      --border-color: rgba(11, 36, 23, 0.08);
+
+      --radius-sm: 10px;
+      --radius-lg: 20px;
+      --radius-pill: 100px;
+
+      --shadow-soft: 0 10px 24px rgba(11, 36, 23, 0.05);
+      --shadow-hover: 0 16px 32px rgba(0, 178, 114, 0.18);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    body {
+      background: linear-gradient(180deg, #FFFFFF 0%, #E1F0E8 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 4%;
+    }
+
+    /* --- Clean Editorial Header --- */
+    .navbar {
+      background: #FFFFFF;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-top: none;
+      box-shadow: 0 2px 14px rgba(11, 36, 23, 0.03);
+      width: 100%;
+    }
+
+    .header-top {
+      padding: 10px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 16px;
+    }
+
+    .nav-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(11, 36, 23, 0.08);
+      border: none;
+      margin: 0;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      height: clamp(50px, 5.5vh, 70px);
+      width: auto;
+      object-fit: contain;
+      background: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .brand-details h1 {
+      font-size: clamp(17px, 1.8vw, 24px);
+      font-weight: 800;
+      color: var(--deep-forest);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .brand-details p {
+      font-size: clamp(10.5px, 0.9vw, 11.5px);
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 3px;
+      letter-spacing: 0.01em;
+    }
+
+    .header-auth {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .header-auth-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-auth-login {
+      padding: 7px 18px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--deep-forest);
+      background: rgba(11, 36, 23, 0.05);
+      border: 1px solid rgba(11, 36, 23, 0.12);
+      transition: var(--transition);
+    }
+
+    .btn-auth-login:hover {
+      background: rgba(11, 36, 23, 0.1);
+      color: var(--vibrant-green);
+    }
+
+    .btn-auth-register {
+      padding: 7px 20px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--surface-white);
+      background: var(--vibrant-green);
+      box-shadow: 0 3px 10px rgba(0, 178, 114, 0.25);
+      transition: var(--transition);
+    }
+
+    .btn-auth-register:hover {
+      background: var(--vibrant-green-hover);
+    }
+
+    .header-auth-socials {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-auth-socials .social-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--deep-forest);
+      background: rgba(11, 36, 23, 0.05);
+      border: 1px solid rgba(11, 36, 23, 0.12);
+      transition: var(--transition);
+    }
+
+    .header-auth-socials .social-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .header-auth-socials .social-icon:hover { color: var(--surface-white); }
+    .header-auth-socials .social-icon.facebook:hover { background: #1877F2; border-color: #1877F2; }
+    .header-auth-socials .social-icon.youtube:hover { background: #FF0000; border-color: #FF0000; }
+    .header-auth-socials .social-icon.linkedin:hover { background: #0A66C2; border-color: #0A66C2; }
+    .header-auth-socials .social-icon.xtwitter:hover { background: #000000; border-color: #000000; }
+
+    .header-nav-bar {
+      background: #FFFFFF;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: clamp(36px, 4.2vh, 42px);
+      width: 100%;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: clamp(16px, 1.8vw, 30px);
+    }
+
+    .nav-item {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-item > a {
+      font-weight: 700;
+      font-size: clamp(12.5px, 0.95vw, 14px);
+      color: var(--deep-forest);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-item:hover > a,
+    .nav-item > a.active {
+      color: var(--vibrant-green);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--surface-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-soft);
+      min-width: 220px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      z-index: 200;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown a {
+      padding: 8px 18px;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 13px;
+      white-space: nowrap;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background: rgba(0, 178, 114, 0.08);
+      color: var(--vibrant-green);
+    }
+
+    .caret {
+      width: 11px;
+      height: 11px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-item:hover .caret {
+      transform: rotate(180deg);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: var(--deep-forest);
+      cursor: pointer;
+      padding: 4px;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* --- INNER PAGE HERO HEADER --- */
+    .page-header {
+      background: linear-gradient(135deg, #0B2417 0%, #153E2A 100%);
+      color: #FFFFFF;
+      padding: 40px 0 32px;
+      margin-bottom: 40px;
+      border-bottom: 4px solid var(--vibrant-green);
+    }
+
+    .page-header-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .page-breadcrumb {
+      font-size: 13px;
+      color: var(--vibrant-green);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .page-header h1 {
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .page-header p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 800px;
+    }
+
+    /* --- MINIMALIST INNER PAGE STYLES --- */
+    .inner-section {
+      padding-bottom: 60px;
+    }
+
+    .card-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 28px;
+    }
+
+    .card-box h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--deep-forest);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(0, 178, 114, 0.15);
+    }
+
+    .card-box h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--deep-forest);
+      margin: 18px 0 10px;
+    }
+
+    .card-box p {
+      color: var(--text-main);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    /* Structured Data Tables */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+      background: #FFFFFF;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .data-table th {
+      background: var(--deep-forest);
+      color: #FFFFFF;
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 13.5px;
+    }
+
+    .data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table tr:nth-child(even) {
+      background: #F9FBF9;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      background: rgba(0, 178, 114, 0.12);
+      color: var(--vibrant-green);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--vibrant-green);
+      color: #FFFFFF;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 13.5px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-action:hover {
+      background: var(--vibrant-green-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--deep-forest);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 13.5px;
+      border: 1px solid rgba(11, 36, 23, 0.2);
+      transition: var(--transition);
+    }
+
+    .btn-outline:hover {
+      background: rgba(11, 36, 23, 0.05);
+      border-color: var(--vibrant-green);
+      color: var(--vibrant-green);
+    }
+
+    /* --- Compact Footer --- */
+    .footer {
+      background: var(--deep-forest);
+      padding: 40px 0 20px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 28px;
+    }
+
+    .footer-brand {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--surface-white);
+    }
+
+    .footer-brand img {
+      height: 30px;
+      width: 30px;
+      border-radius: 6px;
+      object-fit: contain;
+      background: #FFFFFF;
+      padding: 2px;
+    }
+
+    .footer-desc {
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .footer-heading {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.75);
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      color: var(--vibrant-green);
+      padding-left: 4px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      background: var(--surface-white);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      height: 38px;
+      max-width: 290px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      border: none;
+      padding: 0 10px;
+      font-family: inherit;
+      font-size: 12.5px;
+      outline: none;
+      min-width: 0;
+    }
+
+    .newsletter-form button {
+      background: var(--vibrant-green);
+      color: var(--surface-white);
+      border: none;
+      padding: 0 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1080px) {
+      .header-auth { display: none; }
+      .mobile-menu-toggle { display: block; }
+    }
+  </style>
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  <!-- Unified Global Header -->
+  <header class="navbar">
+    <div class="header-top">
+      <div class="brand-container">
+        <a href="{% url 'home' %}">
+          {% if site_settings and site_settings.logo %}
+            <img src="{{ site_settings.logo.url }}" alt="PPAI Logo" class="brand-logo">
+          {% else %}
+            <img src="{% static 'images/ppai_logo.png' %}" alt="PPAI Logo" class="brand-logo">
+          {% endif %}
+        </a>
+        <div class="brand-details">
+          <h1><a href="{% url 'home' %}">{% if site_settings %}{{ site_settings.site_title }}{% else %}Plant Protection Association of India{% endif %}</a></h1>
+          <p>{% if site_settings %}{{ site_settings.registration_info }}{% else %}(Regn. No. S399 of 1949-50 under the Societies Registration Act XXI of 1860){% endif %}</p>
+        </div>
+      </div>
+
+      <div class="header-auth">
+        <div class="header-auth-buttons">
+          <a href="/admin/login/" class="btn-auth-login">Login</a>
+          <a href="{% url 'membership_info' %}" class="btn-auth-register">Join New Member</a>
+        </div>
+        <div class="header-auth-socials">
+          <a href="#" class="social-icon facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          </a>
+          <a href="#" class="social-icon youtube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.56 9.38.56 9.38.56s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
+          </a>
+          <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </a>
+          <a href="#" class="social-icon xtwitter" aria-label="X (formerly Twitter)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2.3h3.2l-7 8 8.2 10.9h-6.4l-5-6.6-5.7 6.6H2l7.5-8.6L1.6 2.3H8.2l4.5 6 6.2-6zm-1.1 17.1h1.8L7.3 4.1H5.4l12.4 15.3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="nav-divider">
+
+    <nav class="header-nav-bar">
+      <div class="nav-links" id="navLinks">
+        <div class="nav-item">
+          <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+        </div>
+
+        <div class="nav-item">
+          <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name in 'about,executive_council,legends' %}active{% endif %}">The Society
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="dropdown">
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'executive_council' %}">Executive Council</a>
+            <a href="{% url 'legends' %}">Legends of PPAI</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="{% url 'journal_current' %}" class="{% if 'journal' in request.resolver_match.url_name %}active{% endif %}">Journal
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="dropdown">
+            <a href="{% url 'journal_current' %}">Current Issue</a>
+            <a href="{% url 'journal_archives' %}">Archives</a>
+            <a href="{% url 'editorial_board' %}">Editorial Board</a>
+            <a href="{% url 'author_guidelines' %}">Author Guidelines</a>
+            <a href="{% url 'books' %}">Books</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="{% url 'membership_info' %}" class="{% if 'membership' in request.resolver_match.url_name %}active{% endif %}">Membership
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="dropdown">
+            <a href="{% url 'membership_info' %}">Membership Information</a>
+            <a href="{% url 'membership_directory' %}">Membership Directory</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="{% url 'awards' %}" class="{% if 'awards' in request.resolver_match.url_name %}active{% endif %}">Awards
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="dropdown">
+            <a href="{% url 'awards' %}">PPAI Society Awards</a>
+            <a href="{% url 'awards_nomination' %}">Awards Nomination</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="{% url 'conferences' %}" class="{% if 'conferences' in request.resolver_match.url_name %}active{% endif %}">Event
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="dropdown">
+            <a href="{% url 'conferences' %}">Upcoming Conference</a>
+            <a href="{% url 'conferences' %}">Workshops &amp; Meetings</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+        </div>
+      </div>
+
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
+    </nav>
+  </header>
+
+  <!-- Page Dynamic Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            {% if site_settings and site_settings.logo %}
+              <img src="{{ site_settings.logo.url }}" alt="PPAI Logo">
+            {% else %}
+              <img src="{% static 'images/ppai_logo.png' %}" alt="PPAI Logo">
+            {% endif %}
+            <span>PPAI</span>
+          </div>
+          <p class="footer-desc">An open-membership scientific society for plant protection researchers, active since 1972.</p>
+
+          <div style="margin-top: 14px;">
+            <label style="display:block; font-weight:700; margin-bottom:6px; color:#fff;">Subscribe to Newsletter</label>
+            <form class="newsletter-form" action="#" method="post">
+              {% csrf_token %}
+              <input type="email" name="email" placeholder="Your email address" required>
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">More From PPAI</h4>
+          <ul class="footer-links">
+            <li><a href="{% url 'executive_council' %}">Executive Council</a></li>
+            <li><a href="{% url 'legends' %}">Legends of PPAI</a></li>
+            <li><a href="{% url 'journal_archives' %}">Journal Archives</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Get Involved</h4>
+          <ul class="footer-links">
+            <li><a href="{% url 'membership_info' %}">Membership Information</a></li>
+            <li><a href="{% url 'awards' %}">Awards Nomination</a></li>
+            <li><a href="{% url 'conferences' %}">Conferences &amp; Symposia</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Connect</h4>
+          <p style="color: #fff; font-weight:600; margin-bottom:4px;">General Secretary, PPAI</p>
+          <p style="font-size:12px; margin-bottom:6px;">ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad – 500 030</p>
+          <p><a href="mailto:secretary@ppaiorg.in" style="color: var(--accent-gold);">secretary@ppaiorg.in</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Plant Protection Association of India. All Rights Reserved. | <a href="{% url 'contact' %}" style="color:rgba(255,255,255,0.7);">Contact Us</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const link = item.querySelector('a');
+      if (item.querySelector('.dropdown')) {
+        link.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1080) {
+            e.preventDefault();
+            item.classList.toggle('open');
+          }
+        });
+      }
+    });
+  </script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

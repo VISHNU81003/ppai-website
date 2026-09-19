@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Executive Council - Plant Protection Association of India (PPAI){% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="container page-header-inner">
+    <div class="page-breadcrumb">The Society</div>
+    <h1>Executive Council (2025 – 2027)</h1>
+    <p>Office bearers and council members steering PPAI governance and scientific vision.</p>
+  </div>
+</div>
+
+<div class="container inner-section">
+  <div class="card-box">
+    <h2>2.0 Present Executive Council Members</h2>
+    <p>Below is the official list of elected office bearers for the term 2025–2027.</p>
+    
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Designation</th>
+          <th>Name</th>
+          <th>Affiliation / Organization</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if council_members %}
+          {% for m in council_members %}
+          <tr>
+            <td><strong>{{ m.role }}</strong></td>
+            <td>{{ m.name }}</td>
+            <td>{{ m.affiliation|default:"PPAI Headquarters" }}</td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td><strong>President</strong></td>
+            <td>Dr. S. N. Sushil</td>
+            <td>Director, ICAR-NBAIR, Bengaluru</td>
+          </tr>
+          <tr>
+            <td><strong>Vice President</strong></td>
+            <td>Dr. K. T. Rao</td>
+            <td>ANGRAU, Guntur</td>
+          </tr>
+          <tr>
+            <td><strong>General Secretary</strong></td>
+            <td>Dr. G. Anitha</td>
+            <td>PJTSAU, Hyderabad</td>
+          </tr>
+          <tr>
+            <td><strong>Joint Secretary</strong></td>
+            <td>Dr. B. Sarath Babu</td>
+            <td>ICAR-NBPGR RS, Hyderabad</td>
+          </tr>
+          <tr>
+            <td><strong>Treasurer</strong></td>
+            <td>Dr. M. Nagesh</td>
+            <td>ICAR-NBPGR RS, Hyderabad</td>
+          </tr>
+          <tr>
+            <td><strong>Chief Editor</strong></td>
+            <td>Dr. C. Chattopadhyay</td>
+            <td>Former Director, ICAR-NCIPM, New Delhi</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-box">
+    <h2>2.1 Duties &amp; Governance Rules</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Office Bearer</th>
+          <th>Key Responsibilities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>President</strong></td>
+          <td>Presides over Executive Council meetings and General Body meetings; supervises all executive activities of the Association.</td>
+        </tr>
+        <tr>
+          <td><strong>General Secretary</strong></td>
+          <td>Manages official correspondence, records minutes, maintains membership directory, and oversees day-to-day operations.</td>
+        </tr>
+        <tr>
+          <td><strong>Treasurer</strong></td>
+          <td>Manages bank accounts (SBI), receives membership fees, maintains financial records, and submits audited annual statements.</td>
+        </tr>
+        <tr>
+          <td><strong>Chief Editor</strong></td>
+          <td>Manages peer-review process, editorial quality, and quarterly publication of the Indian Journal of Plant Protection (IJPP).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

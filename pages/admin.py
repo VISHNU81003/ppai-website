@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import SiteSetting, CarouselSlide
+from .models import (
+    SiteSetting, CarouselSlide, ExecutiveMember, PastBearer,
+    EditorialBoardMember, PublicationBook, ConferenceEvent,
+    SocietyAward, JournalVolume, JournalArticle
+)
 
 @admin.register(SiteSetting)
 class SiteSettingAdmin(admin.ModelAdmin):
@@ -9,3 +13,42 @@ class SiteSettingAdmin(admin.ModelAdmin):
 class CarouselSlideAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'order', 'is_active', 'image')
     list_editable = ('order', 'is_active')
+
+@admin.register(ExecutiveMember)
+class ExecutiveMemberAdmin(admin.ModelAdmin):
+    list_display = ('name', 'designation', 'affiliation', 'order')
+    list_editable = ('order',)
+    search_fields = ('name', 'designation', 'affiliation')
+
+@admin.register(PastBearer)
+class PastBearerAdmin(admin.ModelAdmin):
+    list_display = ('name', 'role', 'tenure', 'order')
+    list_filter = ('role',)
+    search_fields = ('name', 'tenure')
+
+@admin.register(EditorialBoardMember)
+class EditorialBoardMemberAdmin(admin.ModelAdmin):
+    list_display = ('name', 'role', 'institution', 'order')
+    list_filter = ('role',)
+
+@admin.register(PublicationBook)
+class PublicationBookAdmin(admin.ModelAdmin):
+    list_display = ('year', 'title')
+
+@admin.register(ConferenceEvent)
+class ConferenceEventAdmin(admin.ModelAdmin):
+    list_display = ('year', 'event_title')
+
+@admin.register(SocietyAward)
+class SocietyAwardAdmin(admin.ModelAdmin):
+    list_display = ('name', 'conferred_for')
+
+@admin.register(JournalVolume)
+class JournalVolumeAdmin(admin.ModelAdmin):
+    list_display = ('volume_number', 'year', 'issues_available')
+
+@admin.register(JournalArticle)
+class JournalArticleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'volume', 'issue', 'year', 'authors')
+    list_filter = ('volume', 'issue', 'year')
+    search_fields = ('title', 'authors')

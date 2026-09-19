@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Current Issue - Indian Journal of Plant Protection (IJPP){% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="container page-header-inner">
+    <div class="page-breadcrumb">Journal</div>
+    <h1>Current Issue – Vol. 54 (2026)</h1>
+    <p>Indian Journal of Plant Protection (Print ISSN: 0073-6996, Online ISSN: 2584-0681)</p>
+  </div>
+</div>
+
+<div class="container inner-section">
+  <!-- Issue 1 -->
+  <div class="card-box">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+      <h2>Volume 54, Issue 1 (March 2026)</h2>
+      <span class="badge-pill" style="font-size: 13px; padding: 6px 14px;">Full Access Enabled</span>
+    </div>
+
+    {% if issue_1_articles %}
+      {% for article in issue_1_articles %}
+      <div style="padding: 16px; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 14px; background: #FAFDFB;">
+        <h3 style="margin-top: 0; color: var(--deep-forest); font-size: 16px;">{{ article.title }}</h3>
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 8px;">
+          <strong>Authors:</strong> {{ article.authors }} | <strong>Pages:</strong> {{ article.pages }}
+        </p>
+        {% if article.abstract %}
+        <p style="font-size: 13px; color: #4A5568; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+          {{ article.abstract }}
+        </p>
+        {% endif %}
+
+        <div style="display: flex; gap: 10px; align-items: center;">
+          {% if article.pdf_file %}
+            <a href="{{ article.pdf_file.url }}" target="_blank" class="btn-action" style="padding: 6px 14px; font-size: 12.5px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View PDF
+            </a>
+            <a href="{{ article.pdf_file.url }}" download class="btn-outline" style="padding: 6px 14px; font-size: 12.5px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </a>
+          {% else %}
+            <span class="badge-pill">PDF Upload Pending</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div style="padding: 16px; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 14px; background: #FAFDFB;">
+        <h3 style="margin-top: 0; color: var(--deep-forest); font-size: 16px;">Efficacy of Novel Bio-pesticides Against Fall Armyworm (Spodoptera frugiperda) in Maize</h3>
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 8px;">
+          <strong>Authors:</strong> R. K. Sharma, S. N. Sushil, &amp; G. Anitha | <strong>Pages:</strong> 1–12
+        </p>
+        <p style="font-size: 13px; color: #4A5568; margin-bottom: 12px;">
+          Field evaluations of entomopathogenic fungi and neem-based formulations for fall armyworm management under field conditions.
+        </p>
+        <div style="display: flex; gap: 10px;">
+          <a href="#" class="btn-action" style="padding: 6px 14px; font-size: 12.5px;">View PDF</a>
+          <a href="#" class="btn-outline" style="padding: 6px 14px; font-size: 12.5px;">Download PDF</a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Issue 2 -->
+  <div class="card-box">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+      <h2>Volume 54, Issue 2 (June 2026)</h2>
+      <span class="badge-pill" style="font-size: 13px; padding: 6px 14px;">Full Access Enabled</span>
+    </div>
+
+    {% if issue_2_articles %}
+      {% for article in issue_2_articles %}
+      <div style="padding: 16px; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 14px; background: #FAFDFB;">
+        <h3 style="margin-top: 0; color: var(--deep-forest); font-size: 16px;">{{ article.title }}</h3>
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 8px;">
+          <strong>Authors:</strong> {{ article.authors }} | <strong>Pages:</strong> {{ article.pages }}
+        </p>
+        {% if article.abstract %}
+        <p style="font-size: 13px; color: #4A5568; margin-bottom: 12px;">
+          {{ article.abstract }}
+        </p>
+        {% endif %}
+
+        <div style="display: flex; gap: 10px; align-items: center;">
+          {% if article.pdf_file %}
+            <a href="{{ article.pdf_file.url }}" target="_blank" class="btn-action" style="padding: 6px 14px; font-size: 12.5px;">View PDF</a>
+            <a href="{{ article.pdf_file.url }}" download class="btn-outline" style="padding: 6px 14px; font-size: 12.5px;">Download PDF</a>
+          {% else %}
+            <span class="badge-pill">PDF Upload Pending</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div style="padding: 16px; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 14px; background: #FAFDFB;">
+        <h3 style="margin-top: 0; color: var(--deep-forest); font-size: 16px;">Molecular Characterization of Xanthomonas oryzae pv. oryzae Isolates from Southern India</h3>
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 8px;">
+          <strong>Authors:</strong> C. Chattopadhyay, M. Nagesh, &amp; B. Sarath Babu | <strong>Pages:</strong> 13–24
+        </p>
+        <p style="font-size: 13px; color: #4A5568; margin-bottom: 12px;">
+          Assessment of genetic diversity and virulence profile among bacterial leaf blight pathogens in rice ecosystems.
+        </p>
+        <div style="display: flex; gap: 10px;">
+          <a href="#" class="btn-action" style="padding: 6px 14px; font-size: 12.5px;">View PDF</a>
+          <a href="#" class="btn-outline" style="padding: 6px 14px; font-size: 12.5px;">Download PDF</a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

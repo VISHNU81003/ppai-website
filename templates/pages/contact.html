@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Plant Protection Association of India (PPAI){% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="container page-header-inner">
+    <div class="page-breadcrumb">Contact</div>
+    <h1>Contact PPAI Secretariat</h1>
+    <p>Get in touch with office bearers, editorial staff, or headquarters in Hyderabad.</p>
+  </div>
+</div>
+
+<div class="container inner-section">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+    <!-- Contact Info -->
+    <div class="card-box">
+      <h2>Headquarters &amp; Secretariat Address</h2>
+      <p style="margin-bottom: 16px;">
+        <strong>Plant Protection Association of India (PPAI)</strong><br>
+        ICAR-National Bureau of Plant Genetic Resources (NBPGR)<br>
+        Regional Station, Rajendranagar,<br>
+        Hyderabad – 500030, Telangana, India
+      </p>
+
+      <div style="margin-top: 20px;">
+        <h3>Official Communications</h3>
+        <p style="margin-bottom: 6px;"><strong>General Inquiries:</strong> <a href="mailto:ppai1972@gmail.com" style="color: var(--vibrant-green); font-weight: 600;">ppai1972@gmail.com</a></p>
+        <p style="margin-bottom: 6px;"><strong>Journal / Editorial:</strong> <a href="mailto:editorijpp@gmail.com" style="color: var(--vibrant-green); font-weight: 600;">editorijpp@gmail.com</a></p>
+        <p style="margin-bottom: 6px;"><strong>Website Portal:</strong> <a href="https://ppai.org.in" style="color: var(--vibrant-green); font-weight: 600;">www.ppai.org.in</a></p>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <h3>Key Office Bearers</h3>
+        <p style="margin-bottom: 4px;"><strong>General Secretary:</strong> Dr. G. Anitha (PJTSAU)</p>
+        <p style="margin-bottom: 4px;"><strong>Treasurer:</strong> Dr. M. Nagesh (ICAR-NBPGR RS)</p>
+        <p style="margin-bottom: 4px;"><strong>Chief Editor:</strong> Dr. C. Chattopadhyay (Former Director, ICAR-NCIPM)</p>
+      </div>
+    </div>
+
+    <!-- Contact Form with CSRF Protection -->
+    <div class="card-box">
+      <h2>Send Us a Message</h2>
+      <form action="#" method="POST">
+        {% csrf_token %}
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 13px; font-weight: 700; color: var(--deep-forest); margin-bottom: 6px;">Full Name *</label>
+          <input type="text" name="name" required style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); outline: none; font-size: 14px;">
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 13px; font-weight: 700; color: var(--deep-forest); margin-bottom: 6px;">Email Address *</label>
+          <input type="email" name="email" required style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); outline: none; font-size: 14px;">
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 13px; font-weight: 700; color: var(--deep-forest); margin-bottom: 6px;">Subject *</label>
+          <input type="text" name="subject" required style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); outline: none; font-size: 14px;">
+        </div>
+
+        <div style="margin-bottom: 18px;">
+          <label style="display: block; font-size: 13px; font-weight: 700; color: var(--deep-forest); margin-bottom: 6px;">Message *</label>
+          <textarea name="message" rows="5" required style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); outline: none; font-size: 14px; resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-action" style="width: 100%; justify-content: center; padding: 12px;">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

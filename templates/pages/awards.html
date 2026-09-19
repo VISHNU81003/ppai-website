@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Society Awards - PPAI{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="container page-header-inner">
+    <div class="page-breadcrumb">Awards</div>
+    <h1>PPAI Society Awards</h1>
+    <p>Recognizing excellence, lifetime achievements, and young research talent in plant protection science.</p>
+  </div>
+</div>
+
+<div class="container inner-section">
+  <div class="card-box">
+    <h2>6.0 PPAI Awards List</h2>
+    <p>The Association confers prestigious honors biennially during the National Symposia.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Award Title</th>
+          <th>Eligibility / Criteria</th>
+          <th>Recognition &amp; Frequency</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if awards_list %}
+          {% for a in awards_list %}
+          <tr>
+            <td><strong>{{ a.title }}</strong></td>
+            <td>{{ a.description }}</td>
+            <td><span class="badge-pill">{{ a.category|title }}</span></td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td><strong>Fellow of PPAI (FPPAI)</strong></td>
+            <td>Eminent scientists with >15 years of exceptional research contributions in plant protection and active PPAI life membership.</td>
+            <td><span class="badge-pill">Fellow Citation &amp; Scroll</span></td>
+          </tr>
+          <tr>
+            <td><strong>Dr. S. N. Banerjee Outstanding Scientist Award</strong></td>
+            <td>Senior plant protection scientists for lifetime achievements in crop protection research &amp; extension.</td>
+            <td><span class="badge-pill">Gold Medal &amp; Citation</span></td>
+          </tr>
+          <tr>
+            <td><strong>Dr. D. B. Reddy Young Scientist Award</strong></td>
+            <td>Young researchers under 35 years of age for outstanding original research in Entomology/Pathology/Nematology.</td>
+            <td><span class="badge-pill">Cash Award &amp; Certificate</span></td>
+          </tr>
+          <tr>
+            <td><strong>Best Ph.D Thesis Award in Plant Protection</strong></td>
+            <td>Ph.D scholars from Indian Agricultural Universities/ICAR Institutes defending thesis in preceding 2 years.</td>
+            <td><span class="badge-pill">Medal &amp; Certificate</span></td>
+          </tr>
+          <tr>
+            <td><strong>Best Oral &amp; Poster Presentation Awards</strong></td>
+            <td>Presented to student and scientist delegates presenting outstanding paper at PPAI Symposia.</td>
+            <td><span class="badge-pill">Certificate of Honor</span></td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
