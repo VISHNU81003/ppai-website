@@ -3,62 +3,62 @@
 {% block title %}Membership Information — Plant Protection Association of India{% endblock %}
 
 {% block content %}
-<div class="container inner-section" style="padding: 12px 18px 16px 18px; margin-bottom: 160px; border-radius: 14px;">
+<div class="container inner-section" style="padding: 6px 18px 8px 18px; margin-bottom: 0px; border-radius: 14px; display: flex; flex-direction: column; min-height: calc(100vh - 142px); box-sizing: border-box;">
   <!-- Title Bar -->
-  <div class="inner-title-bar" style="margin-bottom: 10px; padding-bottom: 4px;">
-    <h1 style="font-size: 20px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 8px;">
+  <div class="inner-title-bar" style="margin-bottom: 6px; padding-bottom: 2px; flex-shrink: 0;">
+    <h1 style="font-size: 19px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 8px;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       Membership Information
     </h1>
   </div>
 
-  <!-- 4-Card Grid Dashboard (Matching Author Guidelines proven design) -->
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: stretch;">
+  <!-- 4-Card Grid Dashboard (Fills remaining screen height perfectly to the fold) -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex-grow: 1; align-items: stretch; margin-bottom: 0px;">
 
     <!-- Card 1: Membership Fees -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(11, 36, 23, 0.2); border-left: 5px solid var(--deep-forest); border-radius: 12px; padding: 12px 16px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 190px;">
+    <div style="background: #FFFFFF; border: 1px solid rgba(11, 36, 23, 0.2); border-left: 5px solid var(--deep-forest); border-radius: 12px; padding: 10px 14px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between;">
       <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-          <h2 style="font-size: 14.5px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 6px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+          <h2 style="font-size: 14px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 6px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
             Membership Fees
           </h2>
-          <span class="badge-pill" style="font-size: 10px; padding: 2px 8px; background: var(--deep-forest); color: white;">PPAI Members</span>
+          <span class="badge-pill" style="font-size: 9.5px; padding: 1px 7px; background: var(--deep-forest); color: white;">PPAI Members</span>
         </div>
 
-        <table style="width: 100%; border-collapse: collapse; font-size: 11.5px; margin-top: 2px;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 2px;">
           <thead>
             <tr>
-              <th style="text-align: left; padding: 3px 6px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10.5px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Category</th>
-              <th style="text-align: center; padding: 3px 6px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10.5px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Inland</th>
-              <th style="text-align: center; padding: 3px 6px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10.5px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Foreign</th>
+              <th style="text-align: left; padding: 3px 5px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Category</th>
+              <th style="text-align: center; padding: 3px 5px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Inland</th>
+              <th style="text-align: center; padding: 3px 5px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Foreign</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Life</td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px;">&#x20B9; 5,000</span></td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px; background: #f0f4f8; color: var(--text-main);">US$ 1,000</span></td>
+              <td style="padding: 2.5px 5px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Life</td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px;">&#x20B9; 5,000</span></td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px; background: #f0f4f8; color: var(--text-main);">US$ 1,000</span></td>
             </tr>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Ordinary (Annual)</td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px;">&#x20B9; 1,000</span></td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px; background: #f0f4f8; color: var(--text-main);">US$ 100</span></td>
+              <td style="padding: 2.5px 5px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Ordinary (Annual)</td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px;">&#x20B9; 1,000</span></td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px; background: #f0f4f8; color: var(--text-main);">US$ 100</span></td>
             </tr>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Institutional (Annual)</td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px;">&#x20B9; 5,000</span></td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px; background: #f0f4f8; color: var(--text-main);">US$ 50</span></td>
+              <td style="padding: 2.5px 5px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Institutional (Annual)</td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px;">&#x20B9; 5,000</span></td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px; background: #f0f4f8; color: var(--text-main);">US$ 50</span></td>
             </tr>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Students</td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px;">&#x20B9; 500</span></td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee; color: var(--text-muted);">-</td>
+              <td style="padding: 2.5px 5px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Students</td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px;">&#x20B9; 500</span></td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee; color: var(--text-muted);">-</td>
             </tr>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-main);">Admission fee (New)</td>
-              <td style="padding: 3px 6px; text-align: center;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px;">&#x20B9; 50</span></td>
-              <td style="padding: 3px 6px; text-align: center;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px; background: #f0f4f8; color: var(--text-main);">US$ 15</span></td>
+              <td style="padding: 2.5px 5px; font-weight: 700; color: var(--text-main);">Admission fee (New)</td>
+              <td style="padding: 2.5px 5px; text-align: center;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px;">&#x20B9; 50</span></td>
+              <td style="padding: 2.5px 5px; text-align: center;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px; background: #f0f4f8; color: var(--text-main);">US$ 15</span></td>
             </tr>
           </tbody>
         </table>
@@ -66,123 +66,123 @@
     </div>
 
     <!-- Card 2: Journal Subscription -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 12px; padding: 12px 16px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 190px;">
+    <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 12px; padding: 10px 14px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between;">
       <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-          <h2 style="font-size: 14.5px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 6px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+          <h2 style="font-size: 14px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 6px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             Journal Subscriptions
           </h2>
-          <span class="badge-pill" style="font-size: 10px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Non-Members</span>
+          <span class="badge-pill" style="font-size: 9.5px; padding: 1px 7px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Non-Members</span>
         </div>
 
-        <p style="font-size: 11.5px; color: var(--text-main); margin-bottom: 5px; line-height: 1.3;">
+        <p style="font-size: 11px; color: var(--text-main); margin-bottom: 4px; line-height: 1.25;">
           Subscription rates applicable to non-members (Libraries/Institution) for the <strong>Indian Journal of Plant Protection</strong>.
         </p>
 
-        <table style="width: 100%; border-collapse: collapse; font-size: 11.5px; margin-top: 2px;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 2px;">
           <thead>
             <tr>
-              <th style="text-align: left; padding: 3px 6px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10.5px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Subscription Type</th>
-              <th style="text-align: center; padding: 3px 6px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10.5px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Inland</th>
-              <th style="text-align: center; padding: 3px 6px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10.5px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Foreign</th>
+              <th style="text-align: left; padding: 3px 5px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Subscription Type</th>
+              <th style="text-align: center; padding: 3px 5px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Inland</th>
+              <th style="text-align: center; padding: 3px 5px; background: rgba(0,178,114,0.08); color: var(--deep-forest); font-weight: 700; font-size: 10px; border-bottom: 1.5px solid rgba(0,178,114,0.2);">Foreign</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Annual Subscription</td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px;">&#x20B9; 4,000</span></td>
-              <td style="padding: 3px 6px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px; background: #f0f4f8; color: var(--text-main);">US$ 20</span></td>
+              <td style="padding: 2.5px 5px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Annual Subscription</td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px;">&#x20B9; 4,000</span></td>
+              <td style="padding: 2.5px 5px; text-align: center; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px; background: #f0f4f8; color: var(--text-main);">US$ 20</span></td>
             </tr>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-main);">Single Copy</td>
-              <td style="padding: 3px 6px; text-align: center;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px;">&#x20B9; 1,000</span></td>
-              <td style="padding: 3px 6px; text-align: center;"><span class="badge-pill" style="font-size: 10.5px; padding: 1px 7px; background: #f0f4f8; color: var(--text-main);">US$ 75</span></td>
+              <td style="padding: 2.5px 5px; font-weight: 700; color: var(--text-main);">Single Copy</td>
+              <td style="padding: 2.5px 5px; text-align: center;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px;">&#x20B9; 1,000</span></td>
+              <td style="padding: 2.5px 5px; text-align: center;"><span class="badge-pill" style="font-size: 10px; padding: 1px 6px; background: #f0f4f8; color: var(--text-main);">US$ 75</span></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 3px; margin-top: 6px;">
-        <div style="font-size: 10.5px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 3px 6px; border-radius: 6px;">
+      <div style="display: flex; flex-direction: column; gap: 2px; margin-top: 4px;">
+        <div style="font-size: 10px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 3px 6px; border-radius: 6px;">
           ✓ Earlier published issues are also supplied based on availability.
         </div>
       </div>
     </div>
 
     <!-- Card 3: Application Procedure (Step-by-Step) -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 12px; padding: 12px 16px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 190px;">
+    <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 12px; padding: 10px 14px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between;">
       <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-          <h2 style="font-size: 14.5px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 6px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+          <h2 style="font-size: 14px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 6px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
             Application Procedure
           </h2>
-          <span class="badge-pill" style="font-size: 10px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Contact Details</span>
+          <span class="badge-pill" style="font-size: 9.5px; padding: 1px 7px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Contact Details</span>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 2px;">
+        <div style="display: flex; flex-direction: column; gap: 3px; margin-top: 2px;">
           <div style="display: flex; align-items: flex-start; gap: 6px;">
-            <span class="badge-pill" style="font-size: 9.5px; padding: 1px 5px; min-width: 16px; text-align: center; flex-shrink: 0;">1</span>
-            <span style="font-size: 11.5px; line-height: 1.3; color: var(--text-main);">Download application form &amp; tick category with full postal address &amp; phone.</span>
+            <span class="badge-pill" style="font-size: 9px; padding: 1px 4px; min-width: 14px; text-align: center; flex-shrink: 0;">1</span>
+            <span style="font-size: 11px; line-height: 1.25; color: var(--text-main);">Download application form &amp; tick category with full postal address &amp; phone.</span>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 6px;">
-            <span class="badge-pill" style="font-size: 9.5px; padding: 1px 5px; min-width: 16px; text-align: center; flex-shrink: 0;">2</span>
-            <span style="font-size: 11.5px; line-height: 1.3; color: var(--text-main);">Demand Draft in favour of <strong>"Treasurer or Secretary, PPAI"</strong> payable at Hyderabad.</span>
+            <span class="badge-pill" style="font-size: 9px; padding: 1px 4px; min-width: 14px; text-align: center; flex-shrink: 0;">2</span>
+            <span style="font-size: 11px; line-height: 1.25; color: var(--text-main);">Demand Draft in favour of <strong>"Treasurer or Secretary, PPAI"</strong> payable at Hyderabad.</span>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 6px;">
-            <span class="badge-pill" style="font-size: 9.5px; padding: 1px 5px; min-width: 16px; text-align: center; flex-shrink: 0;">3</span>
-            <span style="font-size: 11.5px; line-height: 1.3; color: var(--text-main);">For online payment, mention Transaction Ref No to correlate and generate receipt.</span>
+            <span class="badge-pill" style="font-size: 9px; padding: 1px 4px; min-width: 14px; text-align: center; flex-shrink: 0;">3</span>
+            <span style="font-size: 11px; line-height: 1.25; color: var(--text-main);">For online payment, mention Transaction Ref No to correlate and generate receipt.</span>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 6px;">
-            <span class="badge-pill" style="font-size: 9.5px; padding: 1px 5px; min-width: 16px; text-align: center; flex-shrink: 0;">4</span>
-            <span style="font-size: 11.5px; line-height: 1.3; color: var(--text-main);"><strong>Mail to:</strong> General Secretary, PPAI, NBPGR - RS, Rajendranagar, Hyderabad-500030.</span>
+            <span class="badge-pill" style="font-size: 9px; padding: 1px 4px; min-width: 14px; text-align: center; flex-shrink: 0;">4</span>
+            <span style="font-size: 11px; line-height: 1.25; color: var(--text-main);"><strong>Mail to:</strong> General Secretary, PPAI, NBPGR - RS, Rajendranagar, Hyderabad-500030.</span>
           </div>
         </div>
       </div>
 
-      <div style="margin-top: 6px;">
-        <a href="mailto:ijpp1972@yahoo.co.in?subject=PPAI%20Membership%20Application" class="btn-action" style="width: 100%; justify-content: center; padding: 5px; font-size: 11.5px;">
+      <div style="margin-top: 4px;">
+        <a href="mailto:ijpp1972@yahoo.co.in?subject=PPAI%20Membership%20Application" class="btn-action" style="width: 100%; justify-content: center; padding: 4px 8px; font-size: 11px;">
           Email Application (ijpp1972@yahoo.co.in)
         </a>
       </div>
     </div>
 
     <!-- Card 4: Bank Details for Remittance -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(11, 36, 23, 0.2); border-left: 5px solid var(--deep-forest); border-radius: 12px; padding: 12px 16px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 190px;">
+    <div style="background: #FFFFFF; border: 1px solid rgba(11, 36, 23, 0.2); border-left: 5px solid var(--deep-forest); border-radius: 12px; padding: 10px 14px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between;">
       <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-          <h2 style="font-size: 14.5px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 6px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M5 6l7-3 7 3"/><path d="M4 10v11"/><path d="M20 10v11"/><path d="M8 14v4"/><path d="M12 14v4"/><path d="M16 14v4"/></svg>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+          <h2 style="font-size: 14px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 6px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M5 6l7-3 7 3"/><path d="M4 10v11"/><path d="M20 10v11"/><path d="M8 14v4"/><path d="M12 14v4"/><path d="M16 14v4"/></svg>
             Bank Account Details of PPAI
           </h2>
-          <span class="badge-pill" style="font-size: 10px; padding: 2px 8px; background: var(--deep-forest); color: white;">Savings A/c</span>
+          <span class="badge-pill" style="font-size: 9.5px; padding: 1px 7px; background: var(--deep-forest); color: white;">Savings A/c</span>
         </div>
 
-        <table style="width: 100%; border-collapse: collapse; font-size: 11.5px; margin-top: 2px;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 2px;">
           <tbody>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-muted); font-size: 11px; width: 120px; border-bottom: 1px solid #eee;">Account Name</td>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Plant Protection Association of India</td>
+              <td style="padding: 2px 4px; font-weight: 700; color: var(--text-muted); font-size: 10.5px; width: 110px; border-bottom: 1px solid #eee;">Account Name</td>
+              <td style="padding: 2px 4px; font-weight: 700; color: var(--text-main); border-bottom: 1px solid #eee;">Plant Protection Association of India</td>
             </tr>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-muted); font-size: 11px; border-bottom: 1px solid #eee;">Account Number</td>
-              <td style="padding: 3px 6px; border-bottom: 1px solid #eee;"><strong style="color: var(--vibrant-green); font-size: 13px; letter-spacing: 0.5px;">52114974468</strong></td>
+              <td style="padding: 2px 4px; font-weight: 700; color: var(--text-muted); font-size: 10.5px; border-bottom: 1px solid #eee;">Account Number</td>
+              <td style="padding: 2px 4px; border-bottom: 1px solid #eee;"><strong style="color: var(--vibrant-green); font-size: 12px; letter-spacing: 0.5px;">52114974468</strong></td>
             </tr>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-muted); font-size: 11px; border-bottom: 1px solid #eee;">Bank &amp; Branch</td>
-              <td style="padding: 3px 6px; color: var(--text-main); border-bottom: 1px solid #eee;">State Bank of India. Budwel Branch, Extension Counter, Rajendranagar, Hyderabad - 500030.</td>
+              <td style="padding: 2px 4px; font-weight: 700; color: var(--text-muted); font-size: 10.5px; border-bottom: 1px solid #eee;">Bank &amp; Branch</td>
+              <td style="padding: 2px 4px; color: var(--text-main); border-bottom: 1px solid #eee;">State Bank of India. Budwel Branch, Extension Counter, Rajendranagar, Hyderabad - 500030.</td>
             </tr>
             <tr>
-              <td style="padding: 3px 6px; font-weight: 700; color: var(--text-muted); font-size: 11px;">IFSC Code</td>
-              <td style="padding: 3px 6px;"><strong style="color: var(--vibrant-green); font-size: 13px; letter-spacing: 0.5px;">SBIN0020378</strong></td>
+              <td style="padding: 2px 4px; font-weight: 700; color: var(--text-muted); font-size: 10.5px;">IFSC Code</td>
+              <td style="padding: 2px 4px;"><strong style="color: var(--vibrant-green); font-size: 12px; letter-spacing: 0.5px;">SBIN0020378</strong></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 3px; margin-top: 6px;">
-        <div style="font-size: 10.5px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.05); padding: 3px 6px; border-radius: 6px;">
+      <div style="display: flex; flex-direction: column; gap: 2px; margin-top: 4px;">
+        <div style="font-size: 10px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.05); padding: 3px 6px; border-radius: 6px;">
           ✓ For NEFT / RTGS / IMPS Online Transfer
         </div>
       </div>
