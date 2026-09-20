@@ -3,86 +3,132 @@
 {% block title %}About Us - Plant Protection Association of India (PPAI){% endblock %}
 
 {% block content %}
-<div class="container inner-section">
-  <div class="inner-title-bar">
+<div class="container inner-section" style="padding-top: 14px; padding-bottom: 20px;">
+  <!-- Header Title Bar -->
+  <div class="inner-title-bar" style="margin-bottom: 12px; padding-bottom: 8px;">
     <h1>
       <span class="badge-pill" style="font-size: 11px; padding: 3px 10px;">The Society</span>
       About PPAI — Plant Protection Association of India
     </h1>
-    <span class="subtitle">Est. 1972 | 54 Years of Scientific Service</span>
+    <span class="subtitle">Registered under Societies Registration Act 1350 Fasli (No. S399 of 1949-50)</span>
   </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
-    <!-- History & Registration -->
-    <div class="card-box" style="padding: 18px 20px;">
-      <h2 style="font-size: 16px; margin-bottom: 8px;">1.0 Background &amp; Registration Particulars</h2>
-      <p style="font-size: 12.5px; line-height: 1.45; color: var(--text-main); margin-bottom: 10px;">
-        PPAI is a non-profit scientific organization established in 1972 at CPPTI Hyderabad. Registered under the AP (Telangana Area) Public Societies Registration Act, 1350 Fasli (Act I of 1350 F., Regn. No. S399 of 1949-50).
-      </p>
+  <!-- Web Designer 2-Column Creative Viewport Layout (100% First Fold - No Scroll) -->
+  <div style="display: grid; grid-template-columns: 1.05fr 1fr; gap: 16px; align-items: stretch;">
+    
+    <!-- Left Column: Story Narrative & Key Highlights (NO TABLES) -->
+    <div class="card-box" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(135deg, #FFFFFF 0%, #F4FAF6 100%);">
+      <div>
+        <h2 style="font-size: 17px; color: var(--deep-forest); margin-bottom: 10px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 6px;">
+          Legacy &amp; Scientific Vision
+        </h2>
+        
+        <p style="font-size: 13px; line-height: 1.55; color: var(--text-main); margin-bottom: 10px;">
+          Established in 1972 at the Central Plant Protection Training Institute (CPPTI), Hyderabad, the <strong>Plant Protection Association of India (PPAI)</strong> is a premier non-profit scientific society dedicated to promoting plant protection research, education, and sustainable crop protection technologies across the nation.
+        </p>
+        
+        <p style="font-size: 13px; line-height: 1.55; color: var(--text-main); margin-bottom: 12px;">
+          Founded under the visionary leadership of founder-member and first President <strong>Dr. K. K. Nirula</strong>, the Association operates from the ICAR-National Bureau of Plant Genetic Resources (NBPGR) Regional Station, Rajendranagar, Hyderabad. Completing over 50 years of distinguished service, PPAI publishes the quarterly double-blind peer-reviewed <strong>Indian Journal of Plant Protection (IJPP)</strong>.
+        </p>
+      </div>
 
-      <table class="data-table" style="font-size: 12px; margin: 0;">
-        <tbody>
-          <tr>
-            <td><strong>Society Name</strong></td>
-            <td>Plant Protection Association of India (PPAI)</td>
-          </tr>
-          <tr>
-            <td><strong>Est. &amp; Regn. Date</strong></td>
-            <td>4th December 1972 (Act I of 1350 F.)</td>
-          </tr>
-          <tr>
-            <td><strong>Operating Office</strong></td>
-            <td>ICAR-NBPGR RS, Rajendranagar, Hyderabad – 500030</td>
-          </tr>
-          <tr>
-            <td><strong>Governance</strong></td>
-            <td>Executive Council &amp; Editorial Board (Elected 2-Year Term)</td>
-          </tr>
-          <tr>
-            <td><strong>Official Journal</strong></td>
-            <td>Indian Journal of Plant Protection (IJPP) — Quarterly</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- 4 Highlight Stat Cards (No Tables) -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px;">
+        <div style="background: rgba(0, 178, 114, 0.08); border: 1px solid rgba(0, 178, 114, 0.2); border-radius: 10px; padding: 10px; text-align: center;">
+          <div style="font-size: 18px; font-weight: 800; color: var(--vibrant-green);">1972</div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest);">Year Established</div>
+        </div>
+
+        <div style="background: rgba(11, 36, 23, 0.05); border: 1px solid rgba(11, 36, 23, 0.12); border-radius: 10px; padding: 10px; text-align: center;">
+          <div style="font-size: 18px; font-weight: 800; color: var(--deep-forest);">50+</div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest);">Years of Service</div>
+        </div>
+
+        <div style="background: rgba(11, 36, 23, 0.05); border: 1px solid rgba(11, 36, 23, 0.12); border-radius: 10px; padding: 10px; text-align: center;">
+          <div style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin-top: 2px;">ICAR-NBPGR RS</div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--text-muted);">Rajendranagar, HYD</div>
+        </div>
+
+        <div style="background: rgba(0, 178, 114, 0.08); border: 1px solid rgba(0, 178, 114, 0.2); border-radius: 10px; padding: 10px; text-align: center;">
+          <div style="font-size: 13px; font-weight: 800; color: var(--vibrant-green); margin-top: 2px;">IJPP Journal</div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest);">Quarterly Publication</div>
+        </div>
+      </div>
     </div>
 
-    <!-- Objectives Table -->
-    <div class="card-box" style="padding: 18px 20px;">
-      <h2 style="font-size: 16px; margin-bottom: 8px;">1.2 Aims &amp; Core Objectives</h2>
-      <table class="data-table" style="font-size: 12px; margin: 0;">
-        <thead>
-          <tr>
-            <th style="width: 32px;">#</th>
-            <th>Objective Statement</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="badge-pill" style="font-size: 10.5px;">1</span></td>
-            <td>Promote research &amp; education in plant protection across India.</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill" style="font-size: 10.5px;">2</span></td>
-            <td>Publish quarterly peer-reviewed Indian Journal of Plant Protection.</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill" style="font-size: 10.5px;">3</span></td>
-            <td>Organize lectures, symposia, and seminars for crop protection scientists.</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill" style="font-size: 10.5px;">4</span></td>
-            <td>Confer prestigious awards for outstanding research contributions.</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill" style="font-size: 10.5px;">5</span></td>
-            <td>Facilitate national &amp; international professional collaboration.</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill" style="font-size: 10.5px;">6</span></td>
-            <td>Advance sustainable adoption of eco-friendly IPM technologies.</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Right Column: 6 Objective Feature Cards Grid (NO TABLES) -->
+    <div class="card-box" style="padding: 20px;">
+      <h2 style="font-size: 17px; color: var(--deep-forest); margin-bottom: 10px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 6px;">
+        Aims &amp; Core Objectives
+      </h2>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <!-- Obj 1 -->
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 12px; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--vibrant-green); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">1</span>
+            <h3 style="font-size: 12.5px; font-weight: 700; color: var(--deep-forest); margin: 0;">Research &amp; Education</h3>
+          </div>
+          <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.35; margin: 0;">
+            Promoting scientific research, education, and innovation in plant protection.
+          </p>
+        </div>
+
+        <!-- Obj 2 -->
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 12px; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--vibrant-green); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">2</span>
+            <h3 style="font-size: 12.5px; font-weight: 700; color: var(--deep-forest); margin: 0;">IJPP Publishing</h3>
+          </div>
+          <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.35; margin: 0;">
+            Disseminating peer-reviewed crop protection research via IJPP journal.
+          </p>
+        </div>
+
+        <!-- Obj 3 -->
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 12px; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--vibrant-green); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">3</span>
+            <h3 style="font-size: 12.5px; font-weight: 700; color: var(--deep-forest); margin: 0;">Scientific Symposia</h3>
+          </div>
+          <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.35; margin: 0;">
+            Organizing national seminars, lectures, and technical workshops.
+          </p>
+        </div>
+
+        <!-- Obj 4 -->
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 12px; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--vibrant-green); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">4</span>
+            <h3 style="font-size: 12.5px; font-weight: 700; color: var(--deep-forest); margin: 0;">National Network</h3>
+          </div>
+          <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.35; margin: 0;">
+            Maintaining an active network among plant protection workers in India.
+          </p>
+        </div>
+
+        <!-- Obj 5 -->
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 12px; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--vibrant-green); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">5</span>
+            <h3 style="font-size: 12.5px; font-weight: 700; color: var(--deep-forest); margin: 0;">Global Collaboration</h3>
+          </div>
+          <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.35; margin: 0;">
+            Fostering closer collaboration with international scientific bodies.
+          </p>
+        </div>
+
+        <!-- Obj 6 -->
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 12px; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--vibrant-green); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">6</span>
+            <h3 style="font-size: 12.5px; font-weight: 700; color: var(--deep-forest); margin: 0;">IPM Technology</h3>
+          </div>
+          <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.35; margin: 0;">
+            Advancing the adoption of eco-friendly crop protection practices.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

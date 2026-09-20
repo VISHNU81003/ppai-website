@@ -10,7 +10,11 @@ from pages.models import (
     SocietyAward, JournalVolume, JournalArticle
 )
 
-print("Starting PPAI Full Data Seeding with Profile Avatars & Bios...")
+print("Seeding full dataset from official document...")
+
+# Clear existing ExecutiveMember and PastBearer to ensure clean sync with 8-page document
+ExecutiveMember.objects.all().delete()
+PastBearer.objects.all().delete()
 
 # 1. SiteSetting
 site, _ = SiteSetting.objects.get_or_create(
@@ -21,152 +25,102 @@ site, _ = SiteSetting.objects.get_or_create(
         'logo': 'logo/ppai_logo.png'
     }
 )
-if not site.logo:
-    site.logo = 'logo/ppai_logo.png'
-    site.save()
 
-# 2. Executive Members with gender & bios
+# 2. Executive Council (Page 2 of document)
 executive_members_data = [
-    ('Dr. S. N. Sushil', 'President', 'Director, ICAR-NBAIR, Bengaluru', 'male', 'Eminent entomologist specializing in biological control and insect resource management.', 1),
-    ('Dr. K. T. Rao', 'Vice President', 'ANGRAU, Guntur', 'male', 'Expert in agricultural entomology, pesticide resistance management, and pulse crop protection.', 2),
-    ('Dr. Subhash Chander', 'Vice President', 'Director, ICAR-NCIPM, New Delhi', 'male', 'Leading scientist in climate-resilient IPM modeling and pest forecasting systems.', 3),
-    ('Dr. G. Anitha', 'General Secretary', 'Professor, PJTSAU, Rajendranagar, Hyderabad', 'female', 'Distinguished researcher in toxicology, bio-pesticides, and pesticide residue analytics.', 4),
-    ('Dr. B. Sarath Babu', 'Joint Secretary', 'Head, ICAR-NBPGR Regional Station, Hyderabad', 'male', 'Pioneer in plant quarantine, germplasm health management, and biosecurity regulations.', 5),
-    ('Dr. C. Gopalakrishnan', 'Joint Secretary', 'Principal Scientist, ICAR-IIHR, Bengaluru', 'male', 'Specialist in microbial biopesticides and biological control of horticultural crop pests.', 6),
-    ('Dr. M. Nagesh', 'Treasurer', 'Principal Scientist, ICAR-NBPGR RS, Hyderabad', 'male', 'Nematologist & biocontrol researcher focused on eco-friendly pest management.', 7),
-    ('Dr. C. Chattopadhyay', 'Chief Editor', 'Former Director, ICAR-NCIPM, New Delhi', 'male', 'Renowned plant pathologist expertise in oilseed crop disease forecasting and IPM.', 8),
-    ('Dr. S. J. Rahman', 'Council Member', 'Former Head, Dept. of Entomology, PJTSAU', 'male', 'Veteran entomologist and educator with over 3 decades of IPM extension service.', 9),
-    ('Dr. V. K. Baranwal', 'Council Member', 'Former Head, Plant Pathology, ICAR-IARI', 'male', 'Expert in viral pathogen diagnostics, tissue culture, and molecular plant pathology.', 10),
-    ('Dr. R. K. Sharma', 'Council Member', 'Principal Scientist, ICAR-IARI, New Delhi', 'male', 'Specialist in cereal crop entomology and eco-friendly pest suppression.', 11),
-    ('Dr. T. V. K. Singh', 'Council Member', 'Former Dean, PJTSAU, Hyderabad', 'male', 'Distinguished academician and strategist in agricultural education & policy.', 12),
-    ('Dr. K. S. Varaprasad', 'Council Member', 'Former Director, ICAR-IIOR, Hyderabad', 'male', 'Senior nematologist and plant protection policy expert in national agriculture.', 13),
-    ('Dr. Gururaj Katti', 'Council Member', 'Former Head, Entomology, ICAR-IIRR', 'male', 'Rice pest IPM authority with milestone contributions to stem borer & planthopper control.', 14),
-    ('Dr. B. V. Patil', 'Council Member', 'Former Vice Chancellor, UAS Raichur', 'male', 'Cotton insect pest specialist and visionary leader in agricultural university research.', 15),
+    ('Dr. B. Sarath Babu', 'President', 'Principal Scientist & Former Head, ICAR-NBPGR RS, Hyderabad', 'male', 'Leads the governing body of PPAI.', 1),
+    ('Dr. Celia Chalam', 'Vice-President', 'Principal Scientist (Plant Pathology), ICAR-NBPGR, New Delhi', 'female', 'Plant pathology and virology specialist.', 2),
+    ('Dr. M. Srinivas Prasad', 'Vice-President', 'Head & Principal Scientist (Plant Pathology), ICAR-IIRR, Hyderabad', 'male', 'Rice disease management authority.', 3),
+    ('Dr. R. Jagadeeshwar', 'Vice-President', 'Director of Research (Retd.), PJTSAU, Hyderabad', 'male', 'Senior extension and crop protection researcher.', 4),
+    ('Dr. B. Parameswari', 'General Secretary', 'Principal Scientist (Plant Pathology), ICAR-SBI / NBPGR RS, Hyderabad', 'female', 'Manages Association affairs & membership.', 5),
+    ('Dr. V. Prakasam', 'Assistant Secretary', 'Senior Scientist, ICAR-NBPGR Regional Station, Hyderabad', 'male', 'Assists General Secretary in executive duties.', 6),
+    ('Dr. Bhasker Bajaru', 'Treasurer', 'Scientist (Agricultural Entomology), ICAR-NBPGR RS, Hyderabad', 'male', 'Handles accounts, receipts, and remittances.', 7),
+    ('Dr. L. Saravanan', 'Chief Editor', 'Principal Scientist (Agril. Entomology), ICAR-NBPGR RS, Hyderabad', 'male', 'Oversees IJPP peer review & quarterly issues.', 8),
+    ('Dr. Kavitha Gupta', 'Associate Editor', 'Principal Scientist (Entomology), ICAR-NBPGR, New Delhi', 'female', 'Quarantine and entomology reviewer.', 9),
+    ('Dr. Prasanna Holajjer', 'Associate Editor', 'Senior Scientist (Nematology), ICAR-NBPGR RS, Hyderabad', 'male', 'Nematology and plant protection editor.', 10),
+    ('Dr. K. Rameash', 'Councillor', 'Principal Scientist (Agril. Entomology), ICAR-CICR / Regional Stations', 'male', 'Cotton insect pest researcher.', 11),
+    ('Dr. J. Stanley', 'Councillor', 'Senior Scientist (Agril. Entomology), ICAR-VPKAS, Almora', 'male', 'Hill crop pest management specialist.', 12),
+    ('Dr. B. S. Gotyal', 'Councillor', 'Senior Scientist (Agril. Entomology), ICAR-CRIJAF, Barrackpore', 'male', 'Jute and fiber crop protection researcher.', 13),
+    ('Dr. D. Sagar', 'Councillor', 'Senior Scientist (Entomology), ICAR-IARI, New Delhi', 'male', 'Insect physiology & IPM scientist.', 14),
+    ('Dr. Alpeshkumar V. Khanpara', 'Councillor', 'Associate Research Scientist, Junagadh Agricultural University, Gujarat', 'male', 'Groundnut & pulse protection expert.', 15),
 ]
 
 for name, desig, aff, gender, bio, order in executive_members_data:
-    ExecutiveMember.objects.update_or_create(
-        name=name,
-        defaults={'designation': desig, 'affiliation': aff, 'gender': gender, 'bio': bio, 'order': order}
+    ExecutiveMember.objects.create(
+        name=name, designation=desig, affiliation=aff, gender=gender, bio=bio, order=order
     )
 
-# 3. Past Office Bearers (Legends) with gender & bios
-past_bearers_data = [
-    ('president', 'Dr. S. N. Banerjee', '1972 – 1976', 'Plant Protection Adviser to Govt. of India', 'male', 'Founding President of PPAI who laid the structural foundation of crop protection policies in India.', 1),
-    ('president', 'Dr. K. D. Paharia', '1977 – 1980', 'Director, CPPTI, Hyderabad', 'male', 'Pioneer in national plant protection training, surveillance, and IPM technology dissemination.', 2),
-    ('president', 'Dr. N. C. Joshi', '1981 – 1985', 'Director, CPPTI, Hyderabad', 'male', 'Key contributor to regulatory plant quarantine systems and safe chemical application standards.', 3),
-    ('president', 'Dr. V. Ragunathan', '1986 – 1992', 'Plant Protection Adviser to Govt. of India', 'male', 'Leader in modernizing Indian biosecurity legislation and integrated pest management directives.', 4),
-    ('president', 'Dr. D. B. Reddy', '1993 – 1998', 'FAO Representative & Regional Officer', 'male', 'International authority on plant health and FAO consultant across Asia-Pacific region.', 5),
-    ('president', 'Dr. K. S. Varaprasad', '1999 – 2008', 'Former Director, ICAR-IIOR, Hyderabad', 'male', 'Steered PPAI through its vicennial and pearl jubilee milestones with academic distinction.', 6),
-    ('president', 'Dr. S. N. Sushil', '2009 – Present', 'Director, ICAR-NBAIR, Bengaluru', 'male', 'Current President guiding PPAI into digital publishing, international symposia, and next-gen IPM.', 7),
-    ('secretary', 'Dr. K. D. Paharia', '1972 – 1978', 'CPPTI Hyderabad', 'male', 'Founding General Secretary who established PPAI governance and scientific general body protocols.', 1),
-    ('secretary', 'Dr. C. S. Sengupta', '1979 – 1986', 'CPPTI Hyderabad', 'male', 'Expanded IJPP publication frequency and member enrollment across state agricultural universities.', 2),
-    ('secretary', 'Dr. B. Sarath Babu', '1987 – 2012', 'ICAR-NBPGR RS Hyderabad', 'male', 'Longest serving General Secretary spanning 25 years of dedicated organizational development.', 3),
-    ('secretary', 'Dr. G. Anitha', '2013 – Present', 'PJTSAU Hyderabad', 'female', 'Incumbent General Secretary leading modern digital transformations, conferences, and member networks.', 4),
-    ('treasurer', 'Dr. M. Nagesh', '2010 – Present', 'ICAR-NBPGR RS Hyderabad', 'male', 'Managing PPAI financial integrity, SBI accounts, and biennial symposium funds with audit accuracy.', 1),
-    ('editor', 'Dr. C. Chattopadhyay', '2012 – Present', 'Former Director, ICAR-NCIPM', 'male', 'Spearheaded IJPP peer-review quality, indexing on ICAR e-Pubs, and NAAS journal rating excellence.', 1),
+# 3. Past Office Bearers (Pages 3 & 4 of document)
+# Past Presidents
+presidents = [
+    ('Dr. K. K. Nirula', 'Founder President (1972 – 1978)', 'CPPTI, Hyderabad', 'male', 1),
+    ('Dr. N. C. Joshi', '1979 – 1980', 'CPPTI, Hyderabad', 'male', 2),
+    ('Dr. K. D. Paharia', '1981 – 1984', 'CPPTI, Hyderabad', 'male', 3),
+    ('Dr. N. C. Joshi', '1985 – 1986', 'CPPTI, Hyderabad', 'male', 4),
+    ('Dr. D. Bap Reddy', '1987 – 1988', 'FAO Representative', 'male', 5),
+    ('Dr. S. Jayaraj', '1989 – 1990', 'TNAU, Coimbatore', 'male', 6),
+    ('Dr. D. V. R. Reddy', '1991 – 1997', 'ICRISAT, Patancheru', 'male', 7),
+    ('Dr. K. Krishnaiah', '1997 – 1999', 'DRR (ICAR-IIRR), Hyderabad', 'male', 8),
+    ('Dr. P. S. Chandukar', '2000 – 2002', 'PPA to Govt. of India', 'male', 9),
+    ('Dr. Y. L. Nene', '2003 – 2006', 'ICRISAT / Asian Agri-History Foundation', 'male', 10),
+    ('Dr. K. S. R. K. Murthy', '2007 – 2009', 'ANGRAU, Hyderabad', 'male', 11),
+    ('Dr. K. S. Varaprasad', '2010 – 2012', 'ICAR-NBPGR RS / IIOR', 'male', 12),
+    ('Dr. B. Sarath Babu', '2018 – 2022', 'ICAR-NBPGR RS, Hyderabad', 'male', 13),
 ]
+for name, tenure, aff, gender, order in presidents:
+    PastBearer.objects.create(role='president', name=name, tenure=tenure, affiliation=aff, gender=gender, order=order)
 
-for role, name, tenure, aff, gender, bio, order in past_bearers_data:
-    PastBearer.objects.update_or_create(
-        name=name, role=role,
-        defaults={'tenure': tenure, 'affiliation': aff, 'gender': gender, 'bio': bio, 'order': order}
-    )
-
-# 4. Editorial Board Members
-editorial_data = [
-    ('chief_editor', 'Dr. C. Chattopadhyay', 'Former Director, ICAR-NCIPM, New Delhi', 1),
-    ('assoc_editor', 'Dr. S. N. Sushil', 'Director, ICAR-NBAIR, Bengaluru', 2),
-    ('assoc_editor', 'Dr. M. Nagesh', 'Principal Scientist, ICAR-NBPGR RS, Hyderabad', 3),
-    ('member', 'Dr. G. Anitha', 'Professor, PJTSAU, Hyderabad', 4),
-    ('member', 'Dr. B. Sarath Babu', 'Head, ICAR-NBPGR RS, Hyderabad', 5),
-    ('intl_member', 'Prof. John A. Pickett', 'Cardiff University, UK', 6),
+# Past Secretaries
+secretaries = [
+    ('Dr. S. S. Hussaine', '1972 – 1974', 'CPPTI, Hyderabad', 'male', 1),
+    ('Dr. V. Lakshminarayana', '1975 – 1976, 1979 – 1980', 'CPPTI, Hyderabad', 'male', 2),
+    ('Dr. Basu Chaudhary', '1977 – 1978', 'CPPTI, Hyderabad', 'male', 3),
+    ('Dr. V. Raghunathan', '1981 – 1984', 'Central Plant Protection Station', 'male', 4),
+    ('Shri B. Govinda Naik', '1985 – 1986', 'CPPTI, Hyderabad', 'male', 5),
+    ('Dr. B. J. Divakar', '1987 – 1997', 'Directorate of Plant Protection', 'male', 6),
+    ('Dr. Renu Sharma', '1997 – 1999', 'ICAR-NBPGR RS, Hyderabad', 'female', 7),
+    ('Dr. R. D. V. J. Prasada Rao', '2000 – 2006', 'ICAR-NBPGR RS, Hyderabad', 'male', 8),
+    ('Dr. S. K. Chakrabarty', '2007 – 2009', 'ICAR-NBPGR RS, Hyderabad', 'male', 9),
+    ('Dr. B. Sarath Babu', '2010 – 2012', 'ICAR-NBPGR RS, Hyderabad', 'male', 10),
+    ('Dr. R. Jagadeeshwar', '2018 – 2020', 'PJTSAU, Hyderabad', 'male', 11),
+    ('Dr. B. Parameswari', '2020 – 2022', 'ICAR-NBPGR RS, Hyderabad', 'female', 12),
 ]
+for name, tenure, aff, gender, order in secretaries:
+    PastBearer.objects.create(role='secretary', name=name, tenure=tenure, affiliation=aff, gender=gender, order=order)
 
-for role, name, inst, order in editorial_data:
-    EditorialBoardMember.objects.update_or_create(
-        name=name,
-        defaults={'role': role, 'institution': inst, 'order': order}
-    )
-
-# 5. Publication Books
-books_data = [
-    (2016, 'Plant Protection in India: Challenges and Next Generation Strategies (ISBN: 978-81-925727-0-4)'),
-    (2002, 'Plant Protection in New Millennium (Volumes 1 & 2)'),
-    (1992, 'Integrated Pest Management in Indian Agriculture'),
+# Past Treasurers
+treasurers = [
+    ('Shri P. K. Menon', '1972 – 1974', 'CPPTI, Hyderabad', 'male', 1),
+    ('Shri S. S. Lal', '1975 – 1976', 'CPPTI, Hyderabad', 'male', 2),
+    ('Shri T. Rengarajan', '1977 – 1980, 1987 – 1990', 'CPPTI, Hyderabad', 'male', 3),
+    ('Dr. A. Jayaprakash', '1981 – 1984', 'CPPTI, Hyderabad', 'male', 4),
+    ('Dr. B. J. Divakar', '1985 – 1986', 'CPPTI, Hyderabad', 'male', 5),
+    ('Mr. D. Chatterjee', '1991 – 1993', 'CPPTI, Hyderabad', 'male', 6),
+    ('Mr. C. V. Rama Rao', '1993 – 1999', 'ANGRAU, Hyderabad', 'male', 7),
+    ('Dr. K. Anitha', '2000 – 2004', 'ICAR-NBPGR RS, Hyderabad', 'female', 8),
+    ('Dr. S. K. Chakrabarty', '2005 – 2006, 2010 – 2012', 'ICAR-NBPGR RS, Hyderabad', 'male', 9),
+    ('Dr. Kamala Venkateswaran', '2007 – 2009', 'ICAR-NBPGR RS, Hyderabad', 'female', 10),
+    ('Dr. Prasanna Holajjer', '2018 – 2020', 'ICAR-NBPGR RS, Hyderabad', 'male', 11),
+    ('Dr. Bhasker Bajaru', '2020 – 2022', 'ICAR-NBPGR RS, Hyderabad', 'male', 12),
 ]
+for name, tenure, aff, gender, order in treasurers:
+    PastBearer.objects.create(role='treasurer', name=name, tenure=tenure, affiliation=aff, gender=gender, order=order)
 
-for yr, title in books_data:
-    PublicationBook.objects.update_or_create(
-        title=title,
-        defaults={'year': yr}
-    )
-
-# 6. Conference Events
-conferences_data = [
-    (2023, 'Golden Jubilee International Conference on Plant Protection (ICPP 2023), Hyderabad'),
-    (2018, 'National Symposium on Plant Protection in Changing Climate Scenarios, ICAR-NBPGR RS'),
-    (2012, 'National Seminar on Eco-Friendly Approaches in IPM for Sustainable Agriculture, ANGRAU'),
-    (1986, 'First National Seminar on Plant Protection in India, CPPTI Hyderabad'),
+# Past Chief Editors
+editors = [
+    ('Shri B. K. Verma', '1972 – 1976', 'CPPTI, Hyderabad', 'male', 1),
+    ('Dr. V. Lakshminarayana', '1977 – 1978', 'CPPTI, Hyderabad', 'male', 2),
+    ('Dr. K. K. Nirula', '1979 – 1982', 'CPPTI, Hyderabad', 'male', 3),
+    ('Dr. M. Veerabhadra Rao', '1983 – 1993', 'CPPTI / ANGRAU', 'male', 4),
+    ('Dr. H. C. Sharma', '1993 – 1995', 'ICRISAT, Patancheru', 'male', 5),
+    ('Dr. T. B. Gour', '1995 – 1999', 'ANGRAU, Hyderabad', 'male', 6),
+    ('Dr. K. S. Varaprasad', '2000 – 2004', 'ICAR-NBPGR RS, Hyderabad', 'male', 7),
+    ('Dr. B. Sarath Babu', '2005 – 2009', 'ICAR-NBPGR RS, Hyderabad', 'male', 8),
+    ('Dr. Gururaj Katti', '2010 – 2012', 'DRR (ICAR-IIRR), Hyderabad', 'male', 9),
+    ('Dr. G. Sridevi', '2018 – 2020', 'PJTSAU, Hyderabad', 'female', 10),
+    ('Dr. L. Saravanan', '2020 – 2022', 'ICAR-NBPGR RS, Hyderabad', 'male', 11),
 ]
+for name, tenure, aff, gender, order in editors:
+    PastBearer.objects.create(role='editor', name=name, tenure=tenure, affiliation=aff, gender=gender, order=order)
 
-for yr, title in conferences_data:
-    ConferenceEvent.objects.update_or_create(
-        event_title=title,
-        defaults={'year': yr}
-    )
-
-# 7. Society Awards
-awards_data = [
-    ('Fellow of PPAI (FPPAI)', 'Conferred upon eminent scientists with >15 years of exceptional research contributions in plant protection.'),
-    ('Dr. S. N. Banerjee Outstanding Scientist Award', 'Recognizes senior scientists for lifetime achievements in crop protection & IPM development.'),
-    ('Dr. D. B. Reddy Young Scientist Award', 'Awarded biennially to young researchers below 35 years for outstanding original research.'),
-    ('Best Ph.D Thesis Award in Plant Protection', 'Presented to Ph.D scholars from Indian Agricultural Universities/ICAR Institutes.'),
-    ('Best Oral & Poster Presentation Awards', 'Presented to student and scientist delegates presenting outstanding research papers at PPAI Symposia.'),
-]
-
-for name, desc in awards_data:
-    SocietyAward.objects.update_or_create(
-        name=name,
-        defaults={'conferred_for': desc}
-    )
-
-# 8. Journal Volumes (Vol. 42 to Vol. 54)
-for vol_num in range(42, 55):
-    yr = 2014 + (vol_num - 42)
-    JournalVolume.objects.get_or_create(
-        volume_number=vol_num,
-        defaults={'year': yr, 'issues_available': 'Issues 1, 2, 3, 4'}
-    )
-
-# 9. Current Issue Sample Articles (Vol. 54, 2026, Issue 1 & Issue 2)
-pdf_dir = os.path.join('media', 'journals', 'pdf')
-os.makedirs(pdf_dir, exist_ok=True)
-
-sample_pdf_path = os.path.join(pdf_dir, 'sample_article.pdf')
-if not os.path.exists(sample_pdf_path):
-    with open(sample_pdf_path, 'wb') as f:
-        f.write(b'%PDF-1.4\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj 2 0 obj<</Type/Pages/Count 1/Kids[3 0 R]>>endobj 3 0 obj<</Type/Page/MediaBox[0 0 612 792]/Parent 2 0 R/Resources<<>>>>endobj\nxref\n0 4\n0000000000 65535 f\n0000000009 00000 n\n0000000052 00000 n\n0000000101 00000 n\ntrailer<</Size 4/Root 1 0 R>>\nstartxref\n178\n%%EOF\n')
-
-articles_data = [
-    (54, 1, 2026, 'Efficacy of Entomopathogenic Fungi Against Fall Armyworm (Spodoptera frugiperda) in Maize', 'R. K. Sharma, S. N. Sushil, & G. Anitha', 'Field evaluations of Metarhizium anisopliae and Beauveria bassiana formulations for fall armyworm management in Telangana.'),
-    (54, 1, 2026, 'Morphological and Molecular Identification of Root-Knot Nematodes (Meloidogyne spp.) Infesting Protected Cultivation', 'M. Nagesh & B. Sarath Babu', 'Assessment of species diversity and host resistance in greenhouse tomato cultivars.'),
-    (54, 2, 2026, 'Integrated Management of Bacterial Leaf Blight in Rice Using Bio-Agents and Resistance Inducers', 'C. Chattopadhyay & K. T. Rao', 'Evaluation of Pseudomonas fluorescens and salicylic acid elicitors under high disease pressure conditions.'),
-    (54, 2, 2026, 'Chemical Ecology and Semiochemical Response of Spodoptera litura in Cotton Ecosystems', 'Subhash Chander & C. Gopalakrishnan', 'Flight response and sex pheromone trap density optimization for monitoring field populations.'),
-]
-
-for vol_num, issue, yr, title, authors, abstract in articles_data:
-    art, created = JournalArticle.objects.get_or_create(
-        volume=vol_num, issue=issue, title=title,
-        defaults={
-            'year': yr,
-            'authors': authors,
-            'abstract': abstract,
-            'pdf_file': 'journals/pdf/sample_article.pdf'
-        }
-    )
-    if not art.pdf_file:
-        art.pdf_file = 'journals/pdf/sample_article.pdf'
-        art.save()
-
-print("ALL PPAI Data with Member Avatars & Bios seeded successfully!")
+print("Database synced cleanly with 8-page document OCR text!")
