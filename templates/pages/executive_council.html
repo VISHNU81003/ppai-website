@@ -6,19 +6,12 @@
 <div class="container inner-section">
   <!-- Title Bar -->
   <div class="inner-title-bar">
-    <h1>
-      <span class="badge-pill" style="font-size: 11px; padding: 3px 10px;">The Society</span>
-      Executive Council Members (2025 – 2027)
-    </h1>
-    <span class="subtitle">15 Elected Office Bearers &amp; Councillors</span>
+    <h1 style="font-size: 24px; font-weight: 800; color: var(--deep-forest);">Executive Council</h1>
+    <span class="subtitle">Elected Office Bearers &amp; Councillors (2025 – 2027)</span>
   </div>
 
-  <!-- Executive Council Grid (Page 2 of document) -->
-  <div class="card-box" style="margin-bottom: 24px; padding: 20px;">
-    <h2 style="font-size: 17px; color: var(--deep-forest); margin-bottom: 14px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 6px;">
-      Present Executive Council
-    </h2>
-    
+  <!-- Executive Council Grid (All 15 Members from Page 2 of Document) -->
+  <div class="card-box" style="padding: 20px;">
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px;">
       {% if council_members %}
         {% for m in council_members %}
@@ -51,50 +44,11 @@
             <h3 style="font-size: 14.5px; font-weight: 800; color: var(--deep-forest); margin-bottom: 4px; line-height: 1.25;">{{ m.name }}</h3>
 
             <!-- Affiliation -->
-            <p style="font-size: 11.5px; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; line-height: 1.35;">{{ m.affiliation }}</p>
+            <p style="font-size: 11.5px; color: var(--text-muted); font-weight: 600; margin-bottom: 4px; line-height: 1.35;">{{ m.affiliation }}</p>
           </div>
         </div>
         {% endfor %}
       {% endif %}
-    </div>
-  </div>
-
-  <!-- 2.1 Duties of Office Bearers (Document Page 2) -->
-  <div class="card-box" style="padding: 20px;">
-    <h2 style="font-size: 17px; color: var(--deep-forest); margin-bottom: 12px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 6px;">
-      2.1 Duties of the Office Bearers
-    </h2>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
-      <div style="background: rgba(0,178,114,0.05); border: 1px solid rgba(0,178,114,0.15); border-radius: 10px; padding: 12px;">
-        <strong style="color: var(--deep-forest); font-size: 13px; display: block; margin-bottom: 3px;">President</strong>
-        <p style="font-size: 12px; color: var(--text-main); margin: 0;">Chairs all meetings of the Governing Body and the General Body.</p>
-      </div>
-
-      <div style="background: rgba(0,178,114,0.05); border: 1px solid rgba(0,178,114,0.15); border-radius: 10px; padding: 12px;">
-        <strong style="color: var(--deep-forest); font-size: 13px; display: block; margin-bottom: 3px;">Vice-President</strong>
-        <p style="font-size: 12px; color: var(--text-main); margin: 0;">Performs the functions of the President in his or her absence.</p>
-      </div>
-
-      <div style="background: rgba(0,178,114,0.05); border: 1px solid rgba(0,178,114,0.15); border-radius: 10px; padding: 12px;">
-        <strong style="color: var(--deep-forest); font-size: 13px; display: block; margin-bottom: 3px;">General Secretary</strong>
-        <p style="font-size: 12px; color: var(--text-main); margin: 0;">Conducts affairs of the Association; receives membership applications &amp; nominations.</p>
-      </div>
-
-      <div style="background: rgba(0,178,114,0.05); border: 1px solid rgba(0,178,114,0.15); border-radius: 10px; padding: 12px;">
-        <strong style="color: var(--deep-forest); font-size: 13px; display: block; margin-bottom: 3px;">Joint / Assistant Secretary</strong>
-        <p style="font-size: 12px; color: var(--text-main); margin: 0;">Performs all duties as desired by President &amp; General Secretary.</p>
-      </div>
-
-      <div style="background: rgba(0,178,114,0.05); border: 1px solid rgba(0,178,114,0.15); border-radius: 10px; padding: 12px;">
-        <strong style="color: var(--deep-forest); font-size: 13px; display: block; margin-bottom: 3px;">Treasurer</strong>
-        <p style="font-size: 12px; color: var(--text-main); margin: 0;">Maintains accounts and handles receipts and remittances of the Association.</p>
-      </div>
-
-      <div style="background: rgba(0,178,114,0.05); border: 1px solid rgba(0,178,114,0.15); border-radius: 10px; padding: 12px;">
-        <strong style="color: var(--deep-forest); font-size: 13px; display: block; margin-bottom: 3px;">Councillors</strong>
-        <p style="font-size: 12px; color: var(--text-main); margin: 0;">Assist in formulating Association activities and keep members informed.</p>
-      </div>
     </div>
   </div>
 </div>
