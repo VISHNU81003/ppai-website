@@ -4,215 +4,120 @@
 {% block title %}Current Issue - Indian Journal of Plant Protection (IJPP){% endblock %}
 
 {% block content %}
-<div class="container inner-section" style="padding: 16px 20px 24px 20px; margin-bottom: 0px;">
+<div class="container inner-section" style="padding: 14px 20px 20px 20px; margin-bottom: 0px;">
   <!-- Title Bar -->
-  <div class="inner-title-bar" style="margin-bottom: 12px; padding-bottom: 4px;">
-    <h1 style="font-size: 22px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 10px;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+  <div class="inner-title-bar" style="margin-bottom: 10px; padding-bottom: 4px;">
+    <h1 style="font-size: 20px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 8px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       Current Issue — Indian Journal of Plant Protection
     </h1>
-    <span class="badge-pill" style="font-size: 11px; padding: 3px 10px; background: var(--deep-forest); color: white;">Volume 54, Number 1 (March 2026) | Print ISSN: 0253-4355</span>
+    <span class="badge-pill" style="font-size: 10.5px; padding: 2px 10px; background: var(--deep-forest); color: white;">Volume 54, Number 1 (March 2026) | Print ISSN: 0253-4355</span>
   </div>
 
-  <!-- 2-Column Responsive Dashboard -->
-  <div style="display: grid; grid-template-columns: 240px 1fr; gap: 18px; align-items: start;">
+  <!-- Unified Main Card Container -->
+  <div class="card-box" style="padding: 16px 18px;">
     
-    <!-- Left Column: Journal Cover & Digital Actions -->
-    <div class="card-box" style="padding: 16px; text-align: center;">
-      <div style="position: relative; margin-bottom: 12px; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 16px rgba(11,36,23,0.12); border: 1px solid var(--border-color); background: #FAFDFB;">
-        <img src="{% static 'images/journal_cover.png' %}" alt="Indian Journal of Plant Protection Vol 54 Cover" style="width: 100%; height: auto; max-height: 280px; object-fit: contain; display: block;">
-      </div>
-      
-      <div style="font-size: 12px; font-weight: 800; color: var(--deep-forest); margin-bottom: 4px;">
-        Vol. 54, No. 1 (March 2026)
-      </div>
-      <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.35;">
-        Published Quarterly by Plant Protection Association of India
-      </p>
-
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-action" style="justify-content: center; padding: 8px 12px; font-size: 12px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View Full Vol. 54 on ICAR
-        </a>
-        <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-outline" style="justify-content: center; padding: 7px 12px; font-size: 11.5px; background: #FFF;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download PDF (10.2 MB)
-        </a>
-      </div>
-    </div>
-
-    <!-- Right Column: Chief Editor's Message & Table of Contents -->
-    <div style="display: flex; flex-direction: column; gap: 14px;">
-      
-      <!-- Chief Editor's Overview Box -->
-      <div class="card-box" style="padding: 16px 18px; border-left: 5px solid var(--vibrant-green); background: linear-gradient(135deg, rgba(0,178,114,0.04) 0%, rgba(11,36,23,0.01) 100%);">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 6px;">
-          <div>
-            <span style="font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--vibrant-green);">Chief Editor's Message</span>
-            <h2 style="font-size: 15.5px; font-weight: 800; color: var(--deep-forest); margin: 2px 0 0 0; border: none; padding: 0;">
-              Advancing the Frontiers of Plant Health: A Call for Technological Synergy
-            </h2>
-          </div>
-          <span class="badge-pill" style="font-size: 10px; padding: 2px 8px; background: var(--deep-forest); color: white;">Prof. T. V. K. Singh</span>
-        </div>
-        <p style="font-size: 12px; line-height: 1.5; color: var(--text-main); margin: 0;">
-          It is with great pride that I present the March 2026 issue of the <em>Indian Journal of Plant Protection (IJPP)</em>, featuring seven original research articles and one short communication exploring crop health, biosecurity, and IPM innovations.
+    <!-- Top Chief Editor Overview Header -->
+    <div style="background: linear-gradient(135deg, rgba(0,178,114,0.05) 0%, rgba(11,36,23,0.01) 100%); border: 1px solid rgba(0,178,114,0.2); border-left: 4px solid var(--vibrant-green); border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <div>
+        <h2 style="font-size: 14.5px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px 0; border: none; padding: 0;">
+          Advancing the Frontiers of Plant Health: A Call for Technological Synergy
+        </h2>
+        <p style="font-size: 11.5px; color: var(--text-main); margin: 0; line-height: 1.35;">
+          Chief Editor: <strong>Prof. T. V. K. Singh</strong> | Featuring 7 original research papers &amp; 1 short communication.
         </p>
       </div>
+      <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" rel="noopener" class="btn-action" style="padding: 6px 14px; font-size: 11.5px; white-space: nowrap;">
+        Read Issue on ICAR e-Pubs
+      </a>
+    </div>
 
-      <!-- Table of Contents Container -->
-      <div class="card-box" style="padding: 18px 20px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 2px solid rgba(0, 178, 114, 0.18); padding-bottom: 6px;">
-          <h2 style="font-size: 16px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 8px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-            Table of Contents — March 2026 (Vol. 54, No. 1)
-          </h2>
-          <span style="font-size: 11px; font-weight: 700; color: var(--vibrant-green);">8 Papers</span>
-        </div>
-
-        <!-- Scrollable Table / List of 8 Articles -->
-        <div style="display: flex; flex-direction: column; gap: 8px; max-height: 380px; overflow-y: auto; padding-right: 4px;">
-          
-          <!-- Article 1 -->
-          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-left: 3px solid var(--vibrant-green); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
-                <span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span>
-                <span style="font-size: 10.5px; font-weight: 700; color: var(--text-muted);">pp. 1–4</span>
-              </div>
-              <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px 0;">
-                Kusmi lac Production in Central Narmada Valley, Madhya Pradesh, facts and factors
-              </h3>
-              <p style="font-size: 11px; color: var(--text-muted); margin: 0; font-weight: 600;">
-                Brajesh Kumar Namdev, Moni Thomas and Anil Kurmi
-              </p>
-            </div>
-            <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 4px 10px; font-size: 10.5px; white-space: nowrap;">Read</a>
-          </div>
-
-          <!-- Article 2 -->
-          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-left: 3px solid var(--deep-forest); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
-                <span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span>
-                <span style="font-size: 10.5px; font-weight: 700; color: var(--text-muted);">pp. 5–9</span>
-              </div>
-              <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px 0;">
-                Management of Alternaria leaf disease of groundnut using fungicides
-              </h3>
-              <p style="font-size: 11px; color: var(--text-muted); margin: 0; font-weight: 600;">
-                K S Jadon, P P Thirumalaisamy, Prasanna Holajjer, V G Koradia and R D Padavi
-              </p>
-            </div>
-            <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 4px 10px; font-size: 10.5px; white-space: nowrap;">Read</a>
-          </div>
-
-          <!-- Article 3 -->
-          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-left: 3px solid var(--vibrant-green); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
-                <span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span>
-                <span style="font-size: 10.5px; font-weight: 700; color: var(--text-muted);">pp. 10–14</span>
-              </div>
-              <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px 0;">
-                Assessing the impact of Pseudocercospora leaf spot infection on commercially important silkworm cocoon characters
-              </h3>
-              <p style="font-size: 11px; color: var(--text-muted); margin: 0; font-weight: 600;">
-                Siraj Monir and Mohan Kumar Biswas
-              </p>
-            </div>
-            <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 4px 10px; font-size: 10.5px; white-space: nowrap;">Read</a>
-          </div>
-
-          <!-- Article 4 -->
-          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-left: 3px solid var(--deep-forest); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
-                <span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span>
-                <span style="font-size: 10.5px; font-weight: 700; color: var(--text-muted);">pp. 15–18</span>
-              </div>
-              <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px 0;">
-                Evaluation of Triazole and Strobilurin group Fungicides and their combinations against rice Leaf Blast under Nursery Conditions
-              </h3>
-              <p style="font-size: 11px; color: var(--text-muted); margin: 0; font-weight: 600;">
-                B Bhaskar, R Sarada Jayalakshmi Devi, S Vijay Kumar, C P D Rajan and M Srinivas Prasad
-              </p>
-            </div>
-            <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 4px 10px; font-size: 10.5px; white-space: nowrap;">Read</a>
-          </div>
-
-          <!-- Article 5 -->
-          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-left: 3px solid var(--vibrant-green); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
-                <span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span>
-                <span style="font-size: 10.5px; font-weight: 700; color: var(--text-muted);">pp. 19–26</span>
-              </div>
-              <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px 0;">
-                Sustainable management of mulberry root rot using marine algal bioactive compounds
-              </h3>
-              <p style="font-size: 11px; color: var(--text-muted); margin: 0; font-weight: 600;">
-                Anu S, Gayathri V M, Kirubanathy P, Mounica Clementina C, Nandhini Maragatham P U et al.
-              </p>
-            </div>
-            <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 4px 10px; font-size: 10.5px; white-space: nowrap;">Read</a>
-          </div>
-
-          <!-- Article 6 -->
-          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-left: 3px solid var(--deep-forest); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
-                <span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span>
-                <span style="font-size: 10.5px; font-weight: 700; color: var(--text-muted);">pp. 27–38</span>
-              </div>
-              <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px 0;">
-                Field Efficacy of new insecticide molecules against Spodoptera frugiperda (J.E Smith) and dissipation studies
-              </h3>
-              <p style="font-size: 11px; color: var(--text-muted); margin: 0; font-weight: 600;">
-                Supriya G B, G Sridevi, and T Uma Maheswari
-              </p>
-            </div>
-            <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 4px 10px; font-size: 10.5px; white-space: nowrap;">Read</a>
-          </div>
-
-          <!-- Article 7 -->
-          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-left: 3px solid var(--vibrant-green); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
-                <span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span>
-                <span style="font-size: 10.5px; font-weight: 700; color: var(--text-muted);">pp. 39–42</span>
-              </div>
-              <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px 0;">
-                Determination of Economic Injury Level of mustard aphid (Lipaphis erysimi) on mustard
-              </h3>
-              <p style="font-size: 11px; color: var(--text-muted); margin: 0; font-weight: 600;">
-                Asma Sherwani and Malik Mukhtar
-              </p>
-            </div>
-            <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 4px 10px; font-size: 10.5px; white-space: nowrap;">Read</a>
-          </div>
-
-          <!-- Article 8 -->
-          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-left: 3px solid var(--deep-forest); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-            <div>
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
-                <span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px; background: var(--deep-forest); color: white;">Short Comm</span>
-                <span style="font-size: 10.5px; font-weight: 700; color: var(--text-muted);">pp. 43–45</span>
-              </div>
-              <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px 0;">
-                Occurrence of banana bunchy top virus in tissue-cultured and conventional banana cultivars in Arunachal Pradesh
-              </h3>
-              <p style="font-size: 11px; color: var(--text-muted); margin: 0; font-weight: 600;">
-                Raghuveer Singh and Amrita Banerjee
-              </p>
-            </div>
-            <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 4px 10px; font-size: 10.5px; white-space: nowrap;">Read</a>
-          </div>
-
-        </div>
-      </div>
-
+    <!-- Table of Contents Section -->
+    <div style="border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
+      <table class="data-table" style="font-size: 11.5px; margin: 0; width: 100%; border: none;">
+        <thead style="background: var(--deep-forest); color: white;">
+          <tr>
+            <th style="width: 75px; color: white; background: var(--deep-forest);">Article</th>
+            <th style="color: white; background: var(--deep-forest);">Title &amp; Authors</th>
+            <th style="width: 70px; color: white; background: var(--deep-forest); text-align: center;">Pages</th>
+            <th style="width: 110px; text-align: right; color: white; background: var(--deep-forest);">ICAR Portal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span></td>
+            <td>
+              <strong style="color: var(--deep-forest);">Kusmi lac Production in Central Narmada Valley, Madhya Pradesh, facts and factors</strong>
+              <div style="font-size: 10.5px; color: var(--text-muted); font-weight: 600;">Brajesh Kumar Namdev, Moni Thomas and Anil Kurmi</div>
+            </td>
+            <td style="text-align: center; font-weight: 700;">1–4</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 2px 8px; font-size: 10px;">Read Article</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span></td>
+            <td>
+              <strong style="color: var(--deep-forest);">Management of Alternaria leaf disease of groundnut using fungicides</strong>
+              <div style="font-size: 10.5px; color: var(--text-muted); font-weight: 600;">K S Jadon, P P Thirumalaisamy, Prasanna Holajjer, V G Koradia and R D Padavi</div>
+            </td>
+            <td style="text-align: center; font-weight: 700;">5–9</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 2px 8px; font-size: 10px;">Read Article</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span></td>
+            <td>
+              <strong style="color: var(--deep-forest);">Assessing the impact of Pseudocercospora leaf spot infection on commercially important silkworm cocoon characters</strong>
+              <div style="font-size: 10.5px; color: var(--text-muted); font-weight: 600;">Siraj Monir and Mohan Kumar Biswas</div>
+            </td>
+            <td style="text-align: center; font-weight: 700;">10–14</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 2px 8px; font-size: 10px;">Read Article</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span></td>
+            <td>
+              <strong style="color: var(--deep-forest);">Evaluation of Triazole and Strobilurin group Fungicides and their combinations against rice Leaf Blast under Nursery Conditions</strong>
+              <div style="font-size: 10.5px; color: var(--text-muted); font-weight: 600;">B Bhaskar, R Sarada Jayalakshmi Devi, S Vijay Kumar, C P D Rajan and M Srinivas Prasad</div>
+            </td>
+            <td style="text-align: center; font-weight: 700;">15–18</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 2px 8px; font-size: 10px;">Read Article</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span></td>
+            <td>
+              <strong style="color: var(--deep-forest);">Sustainable management of mulberry root rot using marine algal bioactive compounds</strong>
+              <div style="font-size: 10.5px; color: var(--text-muted); font-weight: 600;">Anu S, Gayathri V M, Kirubanathy P, Mounica Clementina C, Nandhini Maragatham P U et al.</div>
+            </td>
+            <td style="text-align: center; font-weight: 700;">19–26</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 2px 8px; font-size: 10px;">Read Article</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span></td>
+            <td>
+              <strong style="color: var(--deep-forest);">Field Efficacy of new insecticide molecules against Spodoptera frugiperda (J.E Smith) and dissipation studies</strong>
+              <div style="font-size: 10.5px; color: var(--text-muted); font-weight: 600;">Supriya G B, G Sridevi, and T Uma Maheswari</div>
+            </td>
+            <td style="text-align: center; font-weight: 700;">27–38</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 2px 8px; font-size: 10px;">Read Article</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px;">Full Paper</span></td>
+            <td>
+              <strong style="color: var(--deep-forest);">Determination of Economic Injury Level of mustard aphid (Lipaphis erysimi) on mustard</strong>
+              <div style="font-size: 10.5px; color: var(--text-muted); font-weight: 600;">Asma Sherwani and Malik Mukhtar</div>
+            </td>
+            <td style="text-align: center; font-weight: 700;">39–42</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 2px 8px; font-size: 10px;">Read Article</a></td>
+          </tr>
+          <tr>
+            <td><span class="badge-pill" style="font-size: 9.5px; padding: 1px 6px; background: var(--deep-forest); color: white;">Short Comm</span></td>
+            <td>
+              <strong style="color: var(--deep-forest);">Occurrence of banana bunchy top virus in tissue-cultured and conventional banana cultivars in Arunachal Pradesh</strong>
+              <div style="font-size: 10.5px; color: var(--text-muted); font-weight: 600;">Raghuveer Singh and Amrita Banerjee</div>
+            </td>
+            <td style="text-align: center; font-weight: 700;">43–45</td>
+            <td style="text-align: right;"><a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-outline" style="padding: 2px 8px; font-size: 10px;">Read Article</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
