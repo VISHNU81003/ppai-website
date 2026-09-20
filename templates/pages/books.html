@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container inner-section" style="padding: 16px 20px 24px 20px; margin-bottom: 0px;">
   <!-- Title Bar -->
-  <div class="inner-title-bar" style="margin-bottom: 14px; padding-bottom: 6px;">
+  <div class="inner-title-bar" style="margin-bottom: 12px; padding-bottom: 4px;">
     <h1 style="font-size: 22px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 10px;">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       Books &amp; Special Publications
@@ -13,98 +13,119 @@
     <span class="badge-pill" style="font-size: 11px; padding: 3px 10px; background: var(--deep-forest); color: white;">PPAI Monograph &amp; Symposia Series</span>
   </div>
 
-  <!-- Unified Main Container Box -->
-  <div class="card-box" style="padding: 22px 20px;">
+  <!-- Unified Main Card Box (100% First Fold Visible) -->
+  <div class="card-box" style="padding: 18px 20px;">
     
-    <!-- 3-Column Card Grid Matching Society Dashboard Architecture -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; align-items: stretch;">
+    <!-- 3-Column Human-Designed Book Cards Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; align-items: stretch;">
       
-      <!-- Book 1: 2016 -->
-      <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;">
+      <!-- Book 1 (2016) -->
+      <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 4px solid var(--vibrant-green); border-radius: 12px; padding: 14px 16px; box-shadow: 0 3px 10px rgba(11,36,23,0.03); display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;">
         <div>
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-            <h2 style="font-size: 15.5px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 8px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              Plant Health Management for Food Security
-            </h2>
-            <span class="badge-pill" style="font-size: 10.5px; padding: 3px 10px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Published 2016</span>
+          <!-- Visual Book Cover Badge & Header -->
+          <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
+            <!-- Stylish Cover Visual Box -->
+            <div style="width: 48px; height: 62px; background: linear-gradient(135deg, var(--deep-forest) 0%, #164e32 100%); border-radius: 6px; border: 1.5px solid var(--vibrant-green); display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 8px rgba(11,36,23,0.15); text-align: center; color: white; padding: 4px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <span style="font-size: 8.5px; font-weight: 800; color: #D4AF37; margin-top: 2px;">2016</span>
+            </div>
+
+            <div>
+              <span class="badge-pill" style="font-size: 9.5px; padding: 2px 7px; background: rgba(0,178,114,0.12); color: var(--vibrant-green); margin-bottom: 3px;">PPAI Monograph</span>
+              <h2 style="font-size: 14px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; line-height: 1.25;">
+                Plant Health Management for Food Security
+              </h2>
+            </div>
           </div>
 
-          <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin-bottom: 6px;">
+          <p style="font-size: 11.5px; line-height: 1.4; color: var(--text-main); margin-bottom: 4px;">
             <strong>Plant Health Management for Food Security: Issues and Approaches</strong> (2016).
           </p>
-
-          <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin: 0;">
+          <p style="font-size: 11.5px; line-height: 1.4; color: var(--text-muted); margin: 0;">
             Comprehensive scientific reference addressing emerging crop protection challenges, sustainable food security, bio-risk mitigation, and next-generation IPM paradigms in Indian agriculture.
           </p>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 12px;">
-          <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.05); padding: 4px 10px; border-radius: 6px;">
-            ✓ Published by Plant Protection Association of India (PPAI)
+        <div style="display: flex; flex-direction: column; gap: 3px; margin-top: 10px;">
+          <div style="font-size: 10.5px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.04); padding: 3px 8px; border-radius: 4px;">
+            ✓ Published by Plant Protection Association of India
           </div>
-          <div style="font-size: 11px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 4px 10px; border-radius: 6px;">
-            ✓ Key Focus: Food Security &amp; Sustainable Crop Protection
+          <div style="font-size: 10.5px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.06); padding: 3px 8px; border-radius: 4px;">
+            ✓ Focus on Food Security &amp; Next-Gen IPM Strategies
           </div>
         </div>
       </div>
 
-      <!-- Book 2: 2002 -->
-      <div style="background: #FFFFFF; border: 1px solid rgba(11, 36, 23, 0.2); border-left: 5px solid var(--deep-forest); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;">
+      <!-- Book 2 (2002) -->
+      <div style="background: #FFFFFF; border: 1px solid rgba(11, 36, 23, 0.2); border-left: 4px solid var(--deep-forest); border-radius: 12px; padding: 14px 16px; box-shadow: 0 3px 10px rgba(11,36,23,0.03); display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;">
         <div>
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-            <h2 style="font-size: 15.5px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 8px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
-              Resources Management in Plant Protection
-            </h2>
-            <span class="badge-pill" style="font-size: 10.5px; padding: 3px 10px; background: var(--deep-forest); color: white;">Published 2002</span>
+          <!-- Visual Book Cover Badge & Header -->
+          <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
+            <!-- Stylish Cover Visual Box -->
+            <div style="width: 48px; height: 62px; background: linear-gradient(135deg, #1A3828 0%, var(--deep-forest) 100%); border-radius: 6px; border: 1.5px solid #D4AF37; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 8px rgba(11,36,23,0.15); text-align: center; color: white; padding: 4px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+              <span style="font-size: 8.5px; font-weight: 800; color: #D4AF37; margin-top: 2px;">2002</span>
+            </div>
+
+            <div>
+              <span class="badge-pill" style="font-size: 9.5px; padding: 2px 7px; background: var(--deep-forest); color: white; margin-bottom: 3px;">Pearl Jubilee Set</span>
+              <h2 style="font-size: 14px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; line-height: 1.25;">
+                Resources Management in Plant Protection
+              </h2>
+            </div>
           </div>
 
-          <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin-bottom: 6px;">
+          <p style="font-size: 11.5px; line-height: 1.4; color: var(--text-main); margin-bottom: 4px;">
             <strong>Resources Management in Plant Protection (Volumes I &amp; II)</strong> (2002).
           </p>
-
-          <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin: 0;">
+          <p style="font-size: 11.5px; line-height: 1.4; color: var(--text-muted); margin: 0;">
             Two-volume landmark reference compiling extensive research on biological, botanical, chemical, and cultural resource management for sustainable pest control in the 21st century.
           </p>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 12px;">
-          <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.05); padding: 4px 10px; border-radius: 6px;">
-            ✓ 2-Volume Comprehensive Special Reference Set
+        <div style="display: flex; flex-direction: column; gap: 3px; margin-top: 10px;">
+          <div style="font-size: 10.5px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.04); padding: 3px 8px; border-radius: 4px;">
+            ✓ 2-Volume Landmark Special Reference Set
           </div>
-          <div style="font-size: 11px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 4px 10px; border-radius: 6px;">
+          <div style="font-size: 10.5px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.06); padding: 3px 8px; border-radius: 4px;">
             ✓ Pearl Jubilee Milestone Publication of PPAI
           </div>
         </div>
       </div>
 
-      <!-- Book 3: 1992 -->
-      <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;">
+      <!-- Book 3 (1992) -->
+      <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 4px solid var(--vibrant-green); border-radius: 12px; padding: 14px 16px; box-shadow: 0 3px 10px rgba(11,36,23,0.03); display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;">
         <div>
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-            <h2 style="font-size: 15.5px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 8px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              Pests &amp; Pest Management in India
-            </h2>
-            <span class="badge-pill" style="font-size: 10.5px; padding: 3px 10px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Published 1992</span>
+          <!-- Visual Book Cover Badge & Header -->
+          <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
+            <!-- Stylish Cover Visual Box -->
+            <div style="width: 48px; height: 62px; background: linear-gradient(135deg, var(--deep-forest) 0%, #164e32 100%); border-radius: 6px; border: 1.5px solid var(--vibrant-green); display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 8px rgba(11,36,23,0.15); text-align: center; color: white; padding: 4px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <span style="font-size: 8.5px; font-weight: 800; color: #D4AF37; margin-top: 2px;">1992</span>
+            </div>
+
+            <div>
+              <span class="badge-pill" style="font-size: 9.5px; padding: 2px 7px; background: rgba(0,178,114,0.12); color: var(--vibrant-green); margin-bottom: 3px;">Vicennial Monograph</span>
+              <h2 style="font-size: 14px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; line-height: 1.25;">
+                Pests &amp; Pest Management in India
+              </h2>
+            </div>
           </div>
 
-          <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin-bottom: 6px;">
+          <p style="font-size: 11.5px; line-height: 1.4; color: var(--text-main); margin-bottom: 4px;">
             <strong>Pests and Pest Management in India — The Changing Scenario</strong> (1992).
           </p>
-
-          <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin: 0;">
+          <p style="font-size: 11.5px; line-height: 1.4; color: var(--text-muted); margin: 0;">
             Historical synthesis analyzing shifts in pest dynamics, vector-borne crop diseases, pesticide resistance, and national plant protection policies across India.
           </p>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 12px;">
-          <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.05); padding: 4px 10px; border-radius: 6px;">
+        <div style="display: flex; flex-direction: column; gap: 3px; margin-top: 10px;">
+          <div style="font-size: 10.5px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.04); padding: 3px 8px; border-radius: 4px;">
             ✓ Historical Synthesis of Pest Dynamics &amp; Policy
           </div>
-          <div style="font-size: 11px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 4px 10px; border-radius: 6px;">
-            ✓ Vicennial Milestone Monograph of PPAI
+          <div style="font-size: 10.5px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.06); padding: 3px 8px; border-radius: 4px;">
+            ✓ Vicennial Anniversary Milestone Monograph
           </div>
         </div>
       </div>
