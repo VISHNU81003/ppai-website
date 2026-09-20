@@ -1,101 +1,102 @@
 {% extends "base.html" %}
 
-{% block title %}Legends of PPAI - Past Office Bearers (1972 – Present){% endblock %}
+{% block title %}Legends of PPAI - Plant Protection Association of India{% endblock %}
 
 {% block content %}
-<div class="container inner-section">
+<div class="container inner-section" style="padding-top: 14px; padding-bottom: 24px;">
   <!-- Title Bar -->
-  <div class="inner-title-bar">
+  <div class="inner-title-bar" style="margin-bottom: 12px; padding-bottom: 6px;">
     <h1 style="font-size: 24px; font-weight: 800; color: var(--deep-forest);">Legends of PPAI</h1>
-    <span class="subtitle">Past Office Bearers (1972 – Present)</span>
   </div>
 
-  <!-- 3.1 Past Presidents Grid (Document Page 3) -->
-  <div class="card-box" style="margin-bottom: 24px; padding: 20px;">
-    <h2 style="font-size: 16px; color: var(--deep-forest); margin-bottom: 12px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 5px;">
-      3.1 Past Presidents
+  <!-- FIRST FOLD SECTION: Past Presidents (100% Visible Without Scroll) -->
+  <div class="card-box" style="margin-bottom: 20px; padding: 16px 20px;">
+    <h2 style="font-size: 16.5px; color: var(--deep-forest); margin-bottom: 10px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 4px;">
+      Past Presidents
     </h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px;">
       {% if past_presidents %}
         {% for p in past_presidents %}
-        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 14px 12px; text-align: center; box-shadow: 0 2px 8px rgba(11,36,23,0.03);">
-          <div style="width: 64px; height: 64px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; background: rgba(0, 178, 114, 0.08); border: 2px solid var(--vibrant-green); display: flex; align-items: center; justify-content: center;">
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 12px 10px; text-align: center; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="width: 58px; height: 58px; border-radius: 50%; overflow: hidden; margin: 0 auto 6px; background: rgba(0, 178, 114, 0.08); border: 2px solid var(--vibrant-green); display: flex; align-items: center; justify-content: center;">
             {% if p.image %}
               <img src="{{ p.image.url }}" alt="{{ p.name }}" style="width: 100%; height: 100%; object-fit: cover;">
             {% else %}
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             {% endif %}
           </div>
-          <span class="badge-pill" style="margin-bottom: 6px; font-size: 10.5px; padding: 2px 8px; background: var(--deep-forest); color: white;">{{ p.tenure }}</span>
-          <h3 style="font-size: 13.5px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px;">{{ p.name }}</h3>
-          <p style="font-size: 11px; color: var(--text-muted); font-weight: 600; margin: 0;">{{ p.affiliation }}</p>
+          <span class="badge-pill" style="margin-bottom: 4px; font-size: 10px; padding: 2px 8px; background: var(--deep-forest); color: white;">{{ p.tenure }}</span>
+          <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px;">{{ p.name }}</h3>
+          <p style="font-size: 10.5px; color: var(--text-muted); font-weight: 600; margin: 0;">{{ p.affiliation }}</p>
         </div>
         {% endfor %}
       {% endif %}
     </div>
   </div>
 
-  <!-- 3.2 Past General Secretaries Grid (Document Page 3) -->
-  <div class="card-box" style="margin-bottom: 24px; padding: 20px;">
-    <h2 style="font-size: 16px; color: var(--deep-forest); margin-bottom: 12px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 5px;">
-      3.2 Past General Secretaries
+  <!-- SECONDARY SECTIONS: Scrollable Below -->
+
+  <!-- Past General Secretaries -->
+  <div class="card-box" style="margin-bottom: 20px; padding: 16px 20px;">
+    <h2 style="font-size: 16.5px; color: var(--deep-forest); margin-bottom: 10px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 4px;">
+      Past General Secretaries
     </h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px;">
       {% if past_secretaries %}
         {% for s in past_secretaries %}
-        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 14px 12px; text-align: center; box-shadow: 0 2px 8px rgba(11,36,23,0.03);">
-          <div style="width: 64px; height: 64px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; background: rgba(0, 178, 114, 0.08); border: 2px solid var(--vibrant-green); display: flex; align-items: center; justify-content: center;">
-            {% if s.image %}<img src="{{ s.image.url }}" alt="{{ s.name }}" style="width: 100%; height: 100%; object-fit: cover;">{% else %}<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5"><path d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path><path d="M18 21a6 6 0 0 0-12 0"></path><circle cx="12" cy="7" r="1.5" fill="var(--vibrant-green)"></circle></svg>{% endif %}
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 12px 10px; text-align: center; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="width: 58px; height: 58px; border-radius: 50%; overflow: hidden; margin: 0 auto 6px; background: rgba(0, 178, 114, 0.08); border: 2px solid var(--vibrant-green); display: flex; align-items: center; justify-content: center;">
+            {% if s.image %}<img src="{{ s.image.url }}" alt="{{ s.name }}" style="width: 100%; height: 100%; object-fit: cover;">{% else %}<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5"><path d="M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path><path d="M18 21a6 6 0 0 0-12 0"></path><circle cx="12" cy="7" r="1.5" fill="var(--vibrant-green)"></circle></svg>{% endif %}
           </div>
-          <span class="badge-pill" style="margin-bottom: 6px; font-size: 10.5px; padding: 2px 8px;">{{ s.tenure }}</span>
-          <h3 style="font-size: 13.5px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px;">{{ s.name }}</h3>
-          <p style="font-size: 11px; color: var(--text-muted); font-weight: 600; margin: 0;">{{ s.affiliation }}</p>
+          <span class="badge-pill" style="margin-bottom: 4px; font-size: 10px; padding: 2px 8px;">{{ s.tenure }}</span>
+          <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px;">{{ s.name }}</h3>
+          <p style="font-size: 10.5px; color: var(--text-muted); font-weight: 600; margin: 0;">{{ s.affiliation }}</p>
         </div>
         {% endfor %}
       {% endif %}
     </div>
   </div>
 
-  <!-- 3.3 Past Treasurers Grid (Document Page 4) -->
-  <div class="card-box" style="margin-bottom: 24px; padding: 20px;">
-    <h2 style="font-size: 16px; color: var(--deep-forest); margin-bottom: 12px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 5px;">
-      3.3 Past Treasurers
+  <!-- Past Treasurers -->
+  <div class="card-box" style="margin-bottom: 20px; padding: 16px 20px;">
+    <h2 style="font-size: 16.5px; color: var(--deep-forest); margin-bottom: 10px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 4px;">
+      Past Treasurers
     </h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px;">
       {% if past_treasurers %}
         {% for t in past_treasurers %}
-        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 14px 12px; text-align: center; box-shadow: 0 2px 8px rgba(11,36,23,0.03);">
-          <div style="width: 64px; height: 64px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; background: rgba(0, 178, 114, 0.08); border: 2px solid var(--vibrant-green); display: flex; align-items: center; justify-content: center;">
-            {% if t.image %}<img src="{{ t.image.url }}" alt="{{ t.name }}" style="width: 100%; height: 100%; object-fit: cover;">{% else %}<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>{% endif %}
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 12px 10px; text-align: center; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="width: 58px; height: 58px; border-radius: 50%; overflow: hidden; margin: 0 auto 6px; background: rgba(0, 178, 114, 0.08); border: 2px solid var(--vibrant-green); display: flex; align-items: center; justify-content: center;">
+            {% if t.image %}<img src="{{ t.image.url }}" alt="{{ t.name }}" style="width: 100%; height: 100%; object-fit: cover;">{% else %}<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>{% endif %}
           </div>
-          <span class="badge-pill" style="margin-bottom: 6px; font-size: 10.5px; padding: 2px 8px; background: rgba(234,179,8,0.15); color: #9A6500;">Treasurer | {{ t.tenure }}</span>
-          <h3 style="font-size: 13.5px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px;">{{ t.name }}</h3>
-          <p style="font-size: 11px; color: var(--text-muted); font-weight: 600; margin: 0;">{{ t.affiliation }}</p>
+          <span class="badge-pill" style="margin-bottom: 4px; font-size: 10px; padding: 2px 8px; background: rgba(234,179,8,0.15); color: #9A6500;">Treasurer | {{ t.tenure }}</span>
+          <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px;">{{ t.name }}</h3>
+          <p style="font-size: 10.5px; color: var(--text-muted); font-weight: 600; margin: 0;">{{ t.affiliation }}</p>
         </div>
         {% endfor %}
       {% endif %}
     </div>
   </div>
 
-  <!-- 3.4 Past Chief Editors Grid (Document Page 4) -->
-  <div class="card-box" style="padding: 20px;">
-    <h2 style="font-size: 16px; color: var(--deep-forest); margin-bottom: 12px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 5px;">
-      3.4 Past Chief Editors
+  <!-- Past Chief Editors -->
+  <div class="card-box" style="padding: 16px 20px;">
+    <h2 style="font-size: 16.5px; color: var(--deep-forest); margin-bottom: 10px; border-bottom: 2px solid rgba(0, 178, 114, 0.15); padding-bottom: 4px;">
+      Past Chief Editors
     </h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px;">
       {% if past_editors %}
         {% for e in past_editors %}
-        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 14px 12px; text-align: center; box-shadow: 0 2px 8px rgba(11,36,23,0.03);">
-          <div style="width: 64px; height: 64px; border-radius: 50%; overflow: hidden; margin: 0 auto 8px; background: rgba(0, 178, 114, 0.08); border: 2px solid var(--vibrant-green); display: flex; align-items: center; justify-content: center;">
-            {% if e.image %}<img src="{{ e.image.url }}" alt="{{ e.name }}" style="width: 100%; height: 100%; object-fit: cover;">{% else %}<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>{% endif %}
+        <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 12px 10px; text-align: center; box-shadow: 0 2px 6px rgba(11,36,23,0.03);">
+          <div style="width: 58px; height: 58px; border-radius: 50%; overflow: hidden; margin: 0 auto 6px; background: rgba(0, 178, 114, 0.08); border: 2px solid var(--vibrant-green); display: flex; align-items: center; justify-content: center;">
+            {% if e.image %}<img src="{{ e.image.url }}" alt="{{ e.name }}" style="width: 100%; height: 100%; object-fit: cover;">{% else %}<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>{% endif %}
           </div>
-          <span class="badge-pill" style="margin-bottom: 6px; font-size: 10.5px; padding: 2px 8px;">Chief Editor | {{ e.tenure }}</span>
-          <h3 style="font-size: 13.5px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px;">{{ e.name }}</h3>
-          <p style="font-size: 11px; color: var(--text-muted); font-weight: 600; margin: 0;">{{ e.affiliation }}</p>
+          <span class="badge-pill" style="margin-bottom: 4px; font-size: 10px; padding: 2px 8px;">Chief Editor | {{ e.tenure }}</span>
+          <h3 style="font-size: 13px; font-weight: 800; color: var(--deep-forest); margin: 0 0 2px;">{{ e.name }}</h3>
+          <p style="font-size: 10.5px; color: var(--text-muted); font-weight: 600; margin: 0;">{{ e.affiliation }}</p>
         </div>
         {% endfor %}
       {% endif %}
