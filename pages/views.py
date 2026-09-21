@@ -81,6 +81,10 @@ def conferences(request):
     context['events_list'] = ConferenceEvent.objects.all()
     return render(request, 'pages/conferences.html', context)
 
+def election(request):
+    context = get_common_context()
+    return render(request, 'pages/election.html', context)
+
 def contact(request):
     context = get_common_context()
     return render(request, 'pages/contact.html', context)

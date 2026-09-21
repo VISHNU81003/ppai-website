@@ -25,10 +25,11 @@ routes = [
     'awards/',
     'awards/nomination/',
     'conferences/',
+    'events/election/',
     'contact/'
 ]
 
-print("--- TESTING ALL 15 LOCAL ROUTES ---")
+print("--- TESTING ALL 16 LOCAL ROUTES ---")
 all_ok = True
 for r in routes:
     response = c.get('/' + r)
