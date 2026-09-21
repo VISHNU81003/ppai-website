@@ -86,9 +86,10 @@
     }
 
     .container {
-      max-width: 1280px;
+      width: 100%;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 4%;
+      padding: 0 clamp(16px, 3vw, 40px);
     }
 
     /* --- Clean Editorial Header --- */
@@ -617,6 +618,25 @@
     @media (max-width: 1080px) {
       .header-auth { display: none; }
       .mobile-menu-toggle { display: block; }
+    }
+
+    /* Large Screen Desktop Adaptations (1440px - 4K) */
+    @media (min-width: 1440px) {
+      .container {
+        max-width: 1420px;
+      }
+    }
+
+    @media (min-width: 1680px) {
+      .container {
+        max-width: 1600px;
+      }
+    }
+
+    @media (min-width: 2200px) {
+      .container {
+        max-width: 1920px;
+      }
     }
   </style>
   {% block extra_css %}{% endblock %}
