@@ -1,15 +1,35 @@
 import os
 import django
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+# Also check for .env in current directory or parent
+from pathlib import Path
+env_path = Path(__file__).resolve().parent / '.env'
+if env_path.exists():
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(dotenv_path=env_path)
+    except ImportError:
+        pass
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()
 
+from django.conf import settings
 from pages.models import (
     SiteSetting, CarouselSlide, ExecutiveMember, PastBearer,
     EditorialBoardMember, PublicationBook, ConferenceEvent,
     SocietyAward, JournalVolume, JournalArticle
 )
 
+db_engine = settings.DATABASES['default']['ENGINE'].split('.')[-1]
+db_name = settings.DATABASES['default']['NAME']
+print(f"Connected to Database Engine: [{db_engine}], Database: [{db_name}]")
 print("Seeding full dataset from official document...")
 
 # Clear existing ExecutiveMember and PastBearer to ensure clean sync with 8-page document
