@@ -1,116 +1,56 @@
 {% extends "base.html" %}
 
-{% block title %}Awards &amp; Election Nomination Guidelines — Plant Protection Association of India{% endblock %}
+{% block title %}Awards Nomination Guidelines — Plant Protection Association of India{% endblock %}
 
 {% block content %}
-<div class="container inner-section" style="padding: 16px 20px 24px 20px; margin-bottom: 30px;">
+<div class="container inner-section" style="padding: 16px 20px 24px 20px; margin-bottom: 220px; border-radius: 14px;">
   <!-- Title Bar -->
-  <div class="inner-title-bar" style="margin-bottom: 16px; padding-bottom: 6px;">
+  <div class="inner-title-bar" style="margin-bottom: 14px; padding-bottom: 6px;">
     <h1 style="font-size: 22px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 10px;">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      Nomination Guidelines
+      Awards Nomination Guidelines
     </h1>
   </div>
 
-  <!-- 2-Card Layout (Awards & Fellowship + Executive Council Election) -->
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch;">
-
-    <!-- Card 1: 7.1 Nomination for Awards & Fellowship -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 14px; padding: 20px 22px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <h2 style="font-size: 16px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            7.1 Nomination for Awards &amp; Fellowship
-          </h2>
-          <span class="badge-pill" style="font-size: 10.5px; padding: 3px 10px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Awards &amp; FPPAI</span>
-        </div>
-
-        <table style="width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 6px;">
-          <tbody>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; width: 140px; border-bottom: 1px solid #eee;">Who may be nominated</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">Members of the Association and scientists working in the field of plant protection, as per prescribed eligibility.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; border-bottom: 1px solid #eee;">Who may nominate</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">Members of the Association; proposals may also be submitted by the parent institution of the nominee.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; border-bottom: 1px solid #eee;">Addressed to</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">The General Secretary, Plant Protection Association of India, ICAR-NBPGR RS, Rajendranagar, Hyderabad &ndash; 500 030.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; border-bottom: 1px solid #eee;">Documents to enclose</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">Completed nomination proforma, bio-data of the nominee, list of publications, and statement of specific contribution.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; border-bottom: 1px solid #eee;">Call for nominations</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">Notified on the Awards page of www.ppaiorg.in along with the closing date for the year.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px;">Selection Protocol</td>
-              <td style="padding: 7px 8px; color: var(--text-main);">Nominations are scrutinised and decided by the Executive Council; presented at the AGM or conference.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 12px;">
-        <div style="font-size: 11px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 5px 10px; border-radius: 6px;">
-          ✓ Submit softcopy nominations to General Secretary: ijpp1972@yahoo.co.in
-        </div>
-      </div>
+  <!-- Single Full-Width Card (Nomination for Awards and Fellowship) -->
+  <div class="card-box" style="padding: 22px 24px;">
+    <div style="margin-bottom: 12px;">
+      <h2 style="font-size: 16.5px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        Nomination for Awards and Fellowship
+      </h2>
     </div>
 
-    <!-- Card 2: 7.2 Nomination for Election to Executive Council -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 14px; padding: 20px 22px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <h2 style="font-size: 16px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            7.2 Nomination for Election to Executive Council
-          </h2>
-          <span class="badge-pill" style="font-size: 10.5px; padding: 3px 10px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Biennial Election</span>
-        </div>
-
-        <table style="width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 6px;">
-          <tbody>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; width: 140px; border-bottom: 1px solid #eee;">Frequency of Election</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">The Executive Council and the Editorial Board are elected once in two years.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; border-bottom: 1px solid #eee;">Who may be nominated</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">Members of the Association in good standing.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; border-bottom: 1px solid #eee;">Addressed to</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">The General Secretary of the Association.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; border-bottom: 1px solid #eee;">Last Date</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">Not later than one month before the forthcoming General Body Meeting / Congress.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px; border-bottom: 1px solid #eee;">Circulation</td>
-              <td style="padding: 7px 8px; color: var(--text-main); border-bottom: 1px solid #eee;">The nominations received are circulated electronically to all members of the Association.</td>
-            </tr>
-            <tr>
-              <td style="padding: 7px 8px; font-weight: 700; color: var(--text-muted); font-size: 12px;">Election Procedure</td>
-              <td style="padding: 7px 8px; color: var(--text-main);">The new office bearers are elected by the members present at the General Body Meeting.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 12px;">
-        <div style="font-size: 11px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 5px 10px; border-radius: 6px;">
-          ✓ Governed by AP Public Societies Registration Act, 1350 Fasli
-        </div>
-      </div>
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin: 0;">
+        <tbody>
+          <tr>
+            <td style="padding: 10px 12px; font-weight: 700; color: var(--text-muted); font-size: 12.5px; width: 220px; border-bottom: 1px solid var(--border-color);">Who may be nominated</td>
+            <td style="padding: 10px 14px; color: var(--text-main); border-bottom: 1px solid var(--border-color); line-height: 1.5;">Members of the Association and scientists working in the field of plant protection, as per the eligibility prescribed for each award.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 12px; font-weight: 700; color: var(--text-muted); font-size: 12.5px; border-bottom: 1px solid var(--border-color);">Who may nominate</td>
+            <td style="padding: 10px 14px; color: var(--text-main); border-bottom: 1px solid var(--border-color); line-height: 1.5;">Members of the Association; proposals may also be submitted by the parent institution of the nominee.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 12px; font-weight: 700; color: var(--text-muted); font-size: 12.5px; border-bottom: 1px solid var(--border-color);">Nomination to be addressed to</td>
+            <td style="padding: 10px 14px; color: var(--text-main); border-bottom: 1px solid var(--border-color); line-height: 1.5;">The General Secretary, Plant Protection Association of India, ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad &ndash; 500 030.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 12px; font-weight: 700; color: var(--text-muted); font-size: 12.5px; border-bottom: 1px solid var(--border-color);">Documents to be enclosed</td>
+            <td style="padding: 10px 14px; color: var(--text-main); border-bottom: 1px solid var(--border-color); line-height: 1.5;">Completed nomination proforma, bio-data of the nominee, list of publications and a statement of the specific contribution for which the award is claimed.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 12px; font-weight: 700; color: var(--text-muted); font-size: 12.5px; border-bottom: 1px solid var(--border-color);">Call for nominations</td>
+            <td style="padding: 10px 14px; color: var(--text-main); border-bottom: 1px solid var(--border-color); line-height: 1.5;">Notified on the Awards page of the official portal, www.ppaiorg.in, along with the closing date for the year.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 12px; font-weight: 700; color: var(--text-muted); font-size: 12.5px;">Selection</td>
+            <td style="padding: 10px 14px; color: var(--text-main); line-height: 1.5;">Nominations are scrutinised and the awardees are decided by the Executive Council; awards are presented at the Annual General Body Meeting or at a conference of the Association.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
   </div>
 </div>
 {% endblock %}
