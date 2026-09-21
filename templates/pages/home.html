@@ -85,21 +85,21 @@
     }
 
     .container {
-      width: 100%;
-      max-width: 1400px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 clamp(16px, 3vw, 40px);
+      padding: 0 4%;
     }
 
     /* ===================================================================
-       RESPONSIVE FIRST FOLD WITH GRADIENT BACKGROUND
+       SINGLE-VIEWPORT FIRST FOLD WITH GRADIENT BACKGROUND
     =================================================================== */
     .viewport-fold {
-      min-height: 100vh;
-      min-height: 100dvh;
+      height: 100vh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      overflow: hidden;
       background: linear-gradient(180deg, #FFFFFF 0%, #E1F0E8 100%);
       position: relative;
     }
@@ -232,13 +232,12 @@
 
     .header-auth-socials .social-icon:hover {
       color: var(--surface-white);
-      transform: translateY(-2px);
     }
 
-    .header-auth-socials .social-icon.facebook:hover { background: #1877F2; border-color: #1877F2; color: #FFFFFF; }
-    .header-auth-socials .social-icon.youtube:hover { background: #FF0000; border-color: #FF0000; color: #FFFFFF; }
-    .header-auth-socials .social-icon.linkedin:hover { background: #0A66C2; border-color: #0A66C2; color: #FFFFFF; }
-    .header-auth-socials .social-icon.xtwitter:hover { background: #000000; border-color: #000000; color: #FFFFFF; }
+    .header-auth-socials .social-icon.facebook:hover { background: #1877F2; border-color: #1877F2; }
+    .header-auth-socials .social-icon.youtube:hover { background: #FF0000; border-color: #FF0000; }
+    .header-auth-socials .social-icon.linkedin:hover { background: #0A66C2; border-color: #0A66C2; }
+    .header-auth-socials .social-icon.xtwitter:hover { background: #000000; border-color: #000000; }
 
     .header-nav-bar {
       background: #FFFFFF;
@@ -452,10 +451,11 @@
       background: #FFFFFF;
       border: 5px solid #FFFFFF;
       aspect-ratio: 3 / 4;
-      width: 100%;
-      height: auto;
-      max-height: clamp(320px, 46vh, 540px);
-      max-width: clamp(280px, 24vw, 440px);
+      width: auto;
+      height: 100%;
+      max-height: calc(100vh - 210px);
+      max-height: calc(100dvh - 210px);
+      max-width: 360px;
       margin: 0 auto;
       position: relative;
     }
@@ -814,34 +814,29 @@
       font-size: 12px;
     }
 
-    /* Responsive Adaptations for All Screen Sizes */
+    /* Mobile Adaptations */
     @media (max-width: 1080px) {
       .viewport-fold {
         height: auto;
-        min-height: auto;
         overflow: visible;
       }
 
       .hero-inner {
         grid-template-columns: 1fr;
         gap: 24px;
-        padding-top: 16px;
-        padding-bottom: 20px;
       }
 
       .hero-carousel-container {
-        max-height: 340px;
+        max-height: 360px;
         width: 100%;
-        margin: 0 auto;
       }
 
       .f-pattern-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
+        grid-template-columns: 1fr;
       }
 
       .stem-card {
-        grid-column: auto;
+        grid-column: 1 / -1;
       }
 
       .header-auth {
@@ -850,135 +845,6 @@
 
       .mobile-menu-toggle {
         display: block;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .f-pattern-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .impact-inner {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-      }
-
-      .impact-inner .btn {
-        width: 100%;
-      }
-
-      .stats-grid {
-        gap: 8px;
-      }
-
-      .stat-number {
-        font-size: clamp(18px, 4.5vw, 26px);
-      }
-
-      .stat-label {
-        font-size: 10.5px;
-      }
-    }
-
-    /* Large Screen Desktop Adaptations (1440px - 4K) */
-    @media (min-width: 1440px) {
-      .container {
-        max-width: 1420px;
-      }
-
-      .hero-inner {
-        gap: 40px;
-      }
-
-      .hero h1 {
-        font-size: 44px;
-      }
-
-      .hero p {
-        font-size: 16.5px;
-        max-width: 650px;
-      }
-
-      .hero-carousel-container {
-        max-width: 420px;
-        max-height: 500px;
-      }
-
-      .f-pattern-grid {
-        gap: 28px;
-      }
-    }
-
-    @media (min-width: 1680px) {
-      .container {
-        max-width: 1600px;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-      }
-
-      .hero p {
-        font-size: 18px;
-        max-width: 720px;
-      }
-
-      .hero-search {
-        max-width: 560px;
-      }
-
-      .hero-carousel-container {
-        max-width: 460px;
-        max-height: 540px;
-      }
-
-      .stat-number {
-        font-size: 42px;
-      }
-
-      .stat-label {
-        font-size: 13.5px;
-      }
-
-      .f-pattern-grid {
-        gap: 32px;
-      }
-
-      .card-title {
-        font-size: 21px;
-      }
-
-      .card-desc {
-        font-size: 14.5px;
-      }
-    }
-
-    @media (min-width: 2200px) {
-      .container {
-        max-width: 1920px;
-      }
-
-      .hero h1 {
-        font-size: 56px;
-      }
-
-      .hero p {
-        font-size: 20px;
-        max-width: 820px;
-      }
-
-      .hero-carousel-container {
-        max-width: 520px;
-        max-height: 600px;
-      }
-
-      .stat-number {
-        font-size: 48px;
-      }
-
-      .stat-label {
-        font-size: 15px;
       }
     }
   </style>
@@ -1009,16 +875,16 @@
             <a href="{% url 'register' %}" class="btn-auth-register">Join New Member</a>
           </div>
           <div class="header-auth-socials">
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="social-icon facebook" title="Facebook" aria-label="Facebook">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="social-icon facebook" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
             </a>
-            <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="social-icon youtube" title="YouTube" aria-label="YouTube">
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="social-icon youtube" aria-label="YouTube">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.56 9.38.56 9.38.56s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
             </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="social-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="social-icon linkedin" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
             </a>
-            <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-icon xtwitter" title="X (formerly Twitter)" aria-label="X (formerly Twitter)">
+            <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-icon xtwitter" aria-label="X (formerly Twitter)">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2.3h3.2l-7 8 8.2 10.9h-6.4l-5-6.6-5.7 6.6H2l7.5-8.6L1.6 2.3H8.2l4.5 6 6.2-6zm-1.1 17.1h1.8L7.3 4.1H5.4l12.4 15.3z"/></svg>
             </a>
           </div>
