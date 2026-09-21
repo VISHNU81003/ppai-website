@@ -1,153 +1,501 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}About Us - Plant Protection Association of India (PPAI){% endblock %}
 
-{% block content %}
-<div class="container inner-section" style="padding: 16px 20px 24px 20px; margin-bottom: 0px; border-radius: 16px;">
-  <!-- Title Bar (No Subtitle) -->
-  <div class="inner-title-bar" style="margin-bottom: 12px; padding-bottom: 4px;">
-    <h1 style="font-size: 22px; font-weight: 800; color: var(--deep-forest); margin: 0;">About Us</h1>
-  </div>
+{% block extra_css %}
+<style>
+  /* ===================================================================
+     EDITORIAL NARRATIVE THEME - ABOUT US
+  =================================================================== */
+  .about-page-wrapper {
+    padding: clamp(16px, 2.8vh, 36px) 0 clamp(40px, 5vh, 64px) 0;
+    position: relative;
+  }
 
-  <!-- ===================================================================
-       MASTER WEBDESIGNER 4-CARD DASHBOARD (2x2 GRID PERFECTLY FILLING EMERALD CONTAINER)
-  =================================================================== -->
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch;">
-    
-    <!-- Card 1: Society Foundation & History (Realistic SVG Landmark Icon) -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 225px;">
-      <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-          <h2 style="font-size: 16px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 8px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/><path d="M10 10h4"/></svg>
-            Society Foundation &amp; History
-          </h2>
-          <span class="badge-pill" style="font-size: 10.5px; padding: 3px 10px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Established 1972</span>
-        </div>
+  /* Lead Hero Header */
+  .about-hero {
+    max-width: 1040px;
+    margin: 0 auto clamp(24px, 3.5vh, 44px) auto;
+    text-align: center;
+  }
 
-        <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin-bottom: 6px;">
-          The <strong>Plant Protection Association of India (PPAI)</strong> was founded on <strong>4th December 1972</strong> at Central Plant Protection Training Institute (CPPTI), Rajendranagar, Hyderabad. Registered under AP Public Societies Registration Act, 1350 Fasli (Registration No. S399 of 1949-50).
-        </p>
+  .about-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 178, 114, 0.1);
+    color: var(--vibrant-green);
+    border: 1px solid rgba(0, 178, 114, 0.2);
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    font-size: clamp(11.5px, 0.9vw, 13px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: clamp(12px, 1.8vh, 18px);
+  }
 
-        <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin: 0;">
-          Established under Founder President <strong>Dr. K. K. Nirula</strong>, PPAI operates its permanent national headquarters from <strong>ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad</strong>.
-        </p>
-      </div>
+  .about-hero h1 {
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 800;
+    color: var(--deep-forest);
+    line-height: 1.16;
+    letter-spacing: -0.03em;
+    margin-bottom: clamp(12px, 1.8vh, 18px);
+  }
 
-      <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 10px;">
-        <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.05); padding: 4px 10px; border-radius: 6px;">
-          ✓ Registered Under Societies Registration Act XXI (Registration No. S399)
-        </div>
-        <div style="font-size: 11px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 4px 10px; border-radius: 6px;">
-          ✓ Permanent Headquarters at ICAR-NBPGR Regional Station, Hyderabad
-        </div>
-      </div>
-    </div>
+  .about-lead {
+    font-size: clamp(15px, 1.15vw, 18px);
+    line-height: 1.68;
+    color: var(--text-main);
+    max-width: 900px;
+    margin: 0 auto clamp(16px, 2.2vh, 24px) auto;
+    font-weight: 500;
+  }
 
-    <!-- Card 2: Golden Jubilee & National Achievements (Realistic SVG Trophy Icon in Gold) -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(11, 36, 23, 0.2); border-left: 5px solid var(--deep-forest); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 225px;">
-      <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-          <h2 style="font-size: 16px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 8px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
-            Golden Jubilee &amp; Achievements
-          </h2>
-          <span class="badge-pill" style="font-size: 10.5px; padding: 3px 10px; background: var(--deep-forest); color: white;">50+ Years Milestone</span>
-        </div>
+  .about-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(8px, 1.2vw, 16px);
+  }
 
-        <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin-bottom: 6px;">
-          PPAI celebrated its <strong>Golden Jubilee (1972–2022)</strong> representing over 50 years of distinguished national service advancing crop health, entomology, pathology, nematology, weed science, and biosecurity regulations.
-        </p>
+  .about-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: clamp(12px, 0.9vw, 13.5px);
+    font-weight: 600;
+    color: var(--deep-forest);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(11, 36, 23, 0.08);
+  }
 
-        <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin: 0;">
-          The Association unites over 1,500 life member scientists, researchers, and academic leaders across ICAR institutes, State Agricultural Universities (SAUs), and plant health organizations across India.
-        </p>
-      </div>
+  .about-meta-tag svg {
+    width: 15px;
+    height: 15px;
+    color: var(--vibrant-green);
+    flex-shrink: 0;
+  }
 
-      <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 10px;">
-        <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.05); padding: 4px 10px; border-radius: 6px;">
-          ✓ Uniting Over 1,500 Life Member Agricultural Scientists Nationwide
-        </div>
-        <div style="font-size: 11px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 4px 10px; border-radius: 6px;">
-          ✓ Promoting Eco-Friendly Integrated Pest Management (IPM) Adoption
-        </div>
-      </div>
-    </div>
+  /* Highlights */
+  .hl-green {
+    color: var(--vibrant-green);
+    font-weight: 700;
+    background: rgba(0, 178, 114, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
 
-    <!-- Card 3: Official Journal (IJPP) (Realistic SVG Open Book Icon & ICAR e-Pubs Info) -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 225px;">
-      <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-          <h2 style="font-size: 16px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 8px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            Official Journal (IJPP)
-          </h2>
-          <span class="badge-pill" style="font-size: 10.5px; padding: 3px 10px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">Quarterly Publication</span>
-        </div>
+  .hl-gold {
+    color: #9A6700;
+    font-weight: 700;
+    background: rgba(234, 179, 8, 0.12);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
 
-        <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin-bottom: 6px;">
-          PPAI publishes the double-blind peer-reviewed <strong>Indian Journal of Plant Protection (IJPP)</strong> quarterly in March, June, September, and December (Print ISSN: 0253-4355), hosted digitally on the official ICAR e-Pubs portal.
-        </p>
+  .hl-deep {
+    color: var(--deep-forest);
+    font-weight: 800;
+  }
 
-        <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin: 0;">
-          IJPP publishes original research on applied plant protection and is indexed across Indian Citation Index (ICI), Chemical Abstracts, CABI Abstracts, FAO Agrindex, and UGC-CARE List.
-        </p>
-      </div>
+  /* Narrative Stream Flow (Zero Card Boxes) */
+  .narrative-stream {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 4vh, 48px);
+  }
 
-      <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 10px;">
-        <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.05); padding: 4px 10px; border-radius: 6px;">
-          ✓ Official Print ISSN 0253-4355 &amp; Digital Hosting on ICAR e-Pubs Portal
-        </div>
-        <div style="font-size: 11px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 4px 10px; border-radius: 6px;">
-          ✓ Indexed Across ICI, Chemical Abstracts, CABI, FAO Agrindex &amp; UGC-CARE
-        </div>
-      </div>
-    </div>
+  .narrative-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: clamp(16px, 2.5vw, 36px);
+    align-items: start;
+    position: relative;
+  }
 
-    <!-- Card 4: Objectives & Scientific Mandate (Rich Content, Realistic SVG Target/Compass Icon in Gold) -->
-    <div style="background: #FFFFFF; border: 1px solid rgba(11, 36, 23, 0.2); border-left: 5px solid var(--deep-forest); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 225px;">
-      <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-          <h2 style="font-size: 16px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 8px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-            Objectives &amp; Scientific Mandate
-          </h2>
-          <span class="badge-pill" style="font-size: 10.5px; padding: 3px 10px; background: var(--deep-forest); color: white;">6 Core Pillars</span>
-        </div>
+  .narrative-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 54px;
+    left: 40px;
+    bottom: -32px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(0, 178, 114, 0.35) 0%, rgba(0, 178, 114, 0.05) 100%);
+  }
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 4px;">
-          <div style="font-size: 11.5px; color: var(--text-main); font-weight: 700; display: flex; align-items: flex-start; gap: 5px; line-height: 1.3;">
-            <span style="color: var(--vibrant-green); font-weight: 800; flex-shrink: 0;">✓</span> Integrated Pest Management Advancement
-          </div>
-          <div style="font-size: 11.5px; color: var(--text-main); font-weight: 700; display: flex; align-items: flex-start; gap: 5px; line-height: 1.3;">
-            <span style="color: var(--vibrant-green); font-weight: 800; flex-shrink: 0;">✓</span> Peer-Reviewed Journal Dissemination
-          </div>
-          <div style="font-size: 11.5px; color: var(--text-main); font-weight: 700; display: flex; align-items: flex-start; gap: 5px; line-height: 1.3;">
-            <span style="color: var(--vibrant-green); font-weight: 800; flex-shrink: 0;">✓</span> National Symposia &amp; Scientific Forums
-          </div>
-          <div style="font-size: 11.5px; color: var(--text-main); font-weight: 700; display: flex; align-items: flex-start; gap: 5px; line-height: 1.3;">
-            <span style="color: var(--vibrant-green); font-weight: 800; flex-shrink: 0;">✓</span> Honors &amp; Fellow Recognition Awards
-          </div>
-          <div style="font-size: 11.5px; color: var(--text-main); font-weight: 700; display: flex; align-items: flex-start; gap: 5px; line-height: 1.3;">
-            <span style="color: var(--vibrant-green); font-weight: 800; flex-shrink: 0;">✓</span> Plant Biosecurity &amp; Quarantine Rules
-          </div>
-          <div style="font-size: 11.5px; color: var(--text-main); font-weight: 700; display: flex; align-items: flex-start; gap: 5px; line-height: 1.3;">
-            <span style="color: var(--vibrant-green); font-weight: 800; flex-shrink: 0;">✓</span> Young Scholar &amp; Student Mentorship
-          </div>
-        </div>
-      </div>
+  .narrative-num {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--deep-forest) 0%, #15472E 100%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    box-shadow: 0 8px 18px rgba(11, 36, 23, 0.15);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
 
-      <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 10px;">
-        <div style="font-size: 11px; font-weight: 700; color: var(--deep-forest); background: rgba(11,36,23,0.05); padding: 4px 10px; border-radius: 6px;">
-          ✓ Fostering Excellence, Fellow Awards &amp; Student Thesis Guidance
-        </div>
-        <div style="font-size: 11px; font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 4px 10px; border-radius: 6px;">
-          ✓ Safeguarding National Agricultural Health &amp; Sustainable Food Security
-        </div>
-      </div>
-    </div>
+  .narrative-item:nth-child(even) .narrative-num {
+    background: linear-gradient(135deg, var(--vibrant-green) 0%, #008855 100%);
+    box-shadow: 0 8px 18px rgba(0, 178, 114, 0.25);
+  }
 
-  </div>
-</div>
+  .narrative-body {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-lg);
+    padding: clamp(20px, 2.8vh, 32px) clamp(22px, 3vw, 36px);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+  }
+
+  .narrative-body:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .narrative-body h2 {
+    font-size: clamp(19px, 1.6vw, 24px);
+    font-weight: 800;
+    color: var(--deep-forest);
+    line-height: 1.25;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .narrative-tag {
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    background: rgba(0, 178, 114, 0.1);
+    color: var(--vibrant-green);
+  }
+
+  .narrative-p {
+    font-size: clamp(14.5px, 1.05vw, 16.5px);
+    line-height: 1.68;
+    color: var(--text-main);
+    margin-bottom: 14px;
+  }
+
+  .narrative-p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* Custom Clean Checklist Flow (NO black bullets) */
+  .narrative-check-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px 18px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(11, 36, 23, 0.08);
+  }
+
+  .narrative-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: clamp(13px, 0.95vw, 14.5px);
+    font-weight: 600;
+    color: var(--deep-forest);
+    line-height: 1.4;
+  }
+
+  .narrative-check-item .check-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(0, 178, 114, 0.14);
+    color: var(--vibrant-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Key Stats Strip (Fluidly integrated) */
+  .about-impact-strip {
+    margin-top: clamp(36px, 5vh, 56px);
+    padding: clamp(24px, 3vh, 36px) clamp(20px, 3vw, 40px);
+    background: linear-gradient(135deg, var(--deep-forest) 0%, #0F3320 100%);
+    border-radius: var(--radius-lg);
+    color: #FFFFFF;
+    box-shadow: 0 16px 36px rgba(11, 36, 23, 0.15);
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+  }
+
+  .impact-num {
+    font-size: clamp(26px, 2.6vw, 38px);
+    font-weight: 800;
+    color: var(--vibrant-green);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .impact-lbl {
+    font-size: clamp(11.5px, 0.9vw, 13px);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* Responsive Adaptations */
+  @media (max-width: 1080px) {
+    .narrative-item {
+      grid-template-columns: 50px 1fr;
+      gap: 16px;
+    }
+
+    .narrative-item:not(:last-child)::after {
+      left: 25px;
+    }
+
+    .narrative-num {
+      width: 42px;
+      height: 42px;
+      font-size: 15px;
+      border-radius: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .narrative-item {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .narrative-item:not(:last-child)::after {
+      display: none;
+    }
+
+    .narrative-num {
+      margin: 0;
+      width: 36px;
+      height: 36px;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+
+    .impact-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 14px;
+    }
+  }
+</style>
 {% endblock %}
 
+{% block content %}
+<div class="container about-page-wrapper">
+
+  <!-- Editorial Lead Hero Section -->
+  <section class="about-hero">
+    <div class="about-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.84L19.5 19h-15L12 5.84zM11 10h2v5h-2zm0 6h2v2h-2z"/></svg>
+      50+ Years of National Service • Since 1972
+    </div>
+    <h1>Plant Protection Association of India</h1>
+    <p class="about-lead">
+      Founded on <mark class="hl-green">4th December 1972</mark> at the Central Plant Protection Training Institute (CPPTI), Hyderabad under Founder President <mark class="hl-gold">Dr. K. K. Nirula</mark>, PPAI is India's leading registered scientific society uniting over <mark class="hl-deep">1,500+ life member agricultural scientists</mark> committed to crop biosecurity, eco-friendly pest management, and sustainable food systems.
+    </p>
+
+    <div class="about-meta-row">
+      <div class="about-meta-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Regn. No. S399 (Societies Registration Act XXI of 1860)
+      </div>
+      <div class="about-meta-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Headquarters: ICAR-NBPGR Regional Station, Hyderabad
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Narrative Stream (One by One Seamless Flow) -->
+  <div class="narrative-stream">
+
+    <!-- 01: Genesis & Foundations -->
+    <div class="narrative-item">
+      <div class="narrative-num">01</div>
+      <div class="narrative-body">
+        <h2>
+          <span>Genesis &amp; Founding Legacy</span>
+          <span class="narrative-tag">Established 1972</span>
+        </h2>
+        <p class="narrative-p">
+          The <span class="hl-deep">Plant Protection Association of India (PPAI)</span> was formally established on <mark class="hl-green">December 4, 1972</mark> at the Central Plant Protection Training Institute (CPPTI), Rajendranagar, Hyderabad. Registered under the Andhra Pradesh Public Societies Registration Act, 1350 Fasli (Registration No. S399), PPAI has served as the national nexus for plant health practitioners for more than five decades.
+        </p>
+        <p class="narrative-p">
+          Steered by Founder President <mark class="hl-gold">Dr. K. K. Nirula</mark> and eminent visionary entomologists and pathologists, the Association established its permanent national headquarters at the <span class="hl-deep">ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad</span>, maintaining strong collaboration across national and international agricultural councils.
+        </p>
+
+        <div class="narrative-check-grid">
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span>Registered Scientific Society under Act XXI of 1860</span>
+          </div>
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span>Permanent Secretarial Base at ICAR-NBPGR Regional Station</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02: Golden Jubilee & National Scientific Community -->
+    <div class="narrative-item">
+      <div class="narrative-num">02</div>
+      <div class="narrative-body">
+        <h2>
+          <span>Golden Jubilee &amp; Scientific Community</span>
+          <span class="narrative-tag">50+ Years Milestone</span>
+        </h2>
+        <p class="narrative-p">
+          Celebrating its landmark <mark class="hl-gold">Golden Jubilee (1972–2022)</mark>, PPAI represents fifty years of dedicated service to Indian agriculture. The Association unites a multidisciplinary community of over <mark class="hl-green">1,500 life member scientists</mark>, academic scholars, extension officers, and industry specialists spanning Entomology, Plant Pathology, Nematology, Weed Science, and Agricultural Chemistry.
+        </p>
+        <p class="narrative-p">
+          Through biennial national symposia, policy advisory panels, and collaborative research initiatives with <span class="hl-deep">ICAR institutes</span> and <span class="hl-deep">State Agricultural Universities (SAUs)</span>, PPAI accelerates the adoption of bio-intensive Integrated Pest Management (IPM), minimizing pesticide residue and strengthening crop resilience.
+        </p>
+
+        <div class="narrative-check-grid">
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span>1,500+ Life Member Agricultural Scientists Across India</span>
+          </div>
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span>Advisory Partnerships with ICAR &amp; State Agricultural Universities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03: The Official Voice — Indian Journal of Plant Protection -->
+    <div class="narrative-item">
+      <div class="narrative-num">03</div>
+      <div class="narrative-body">
+        <h2>
+          <span>The Official Journal: IJPP</span>
+          <span class="narrative-tag">Print ISSN: 0253-4355</span>
+        </h2>
+        <p class="narrative-p">
+          PPAI publishes the premier double-blind peer-reviewed <span class="hl-deep">Indian Journal of Plant Protection (IJPP)</span> quarterly in March, June, September, and December. Hosted digitally on the official <mark class="hl-green">ICAR e-Pubs Portal</mark>, IJPP serves as an authoritative medium for groundbreaking original research, critical reviews, and short communications.
+        </p>
+        <p class="narrative-p">
+          IJPP maintains rigorous international editorial standards and is thoroughly indexed in <mark class="hl-gold">UGC-CARE List</mark>, <span class="hl-deep">Indian Citation Index (ICI)</span>, <span class="hl-deep">Chemical Abstracts</span>, <span class="hl-deep">CABI Abstracts</span>, and <span class="hl-deep">FAO Agrindex</span>, ensuring widespread global visibility for Indian agricultural discoveries.
+        </p>
+
+        <div class="narrative-check-grid">
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span>Digital Journal Access on Official ICAR e-Pubs Platform</span>
+          </div>
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span>Indexed in UGC-CARE, CABI, ICI, Chemical Abstracts &amp; FAO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04: Objectives & Mandate -->
+    <div class="narrative-item">
+      <div class="narrative-num">04</div>
+      <div class="narrative-body">
+        <h2>
+          <span>Scientific Mandate &amp; Core Objectives</span>
+          <span class="narrative-tag">6 Strategic Pillars</span>
+        </h2>
+        <p class="narrative-p">
+          The mission of the Plant Protection Association of India is guided by six foundational pillars designed to foster scientific discovery, safeguard biodiversity, and nurture future agricultural researchers:
+        </p>
+
+        <div class="narrative-check-grid">
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span><strong class="hl-deep">IPM Advancement:</strong> Developing sustainable, eco-friendly crop protection packages</span>
+          </div>
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span><strong class="hl-deep">Scientific Dissemination:</strong> Publishing quarterly IJPP volumes and technical monographs</span>
+          </div>
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span><strong class="hl-deep">National Symposia:</strong> Organizing biennial conferences and policy brainstorming summits</span>
+          </div>
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span><strong class="hl-deep">Honors &amp; Fellowships:</strong> Recognizing lifetime scientific excellence and Fellow PPAI awards</span>
+          </div>
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span><strong class="hl-deep">Biosecurity &amp; Quarantine:</strong> Advising national agencies on invasive pest prevention</span>
+          </div>
+          <div class="narrative-check-item">
+            <span class="check-icon">✓</span>
+            <span><strong class="hl-deep">Scholar Mentorship:</strong> Sponsoring Best M.Sc./Ph.D. Thesis awards and youth guidance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Integrated Society Milestones Strip -->
+  <div class="about-impact-strip">
+    <div class="impact-grid">
+      <div>
+        <div class="impact-num">1972</div>
+        <div class="impact-lbl">Year Established</div>
+      </div>
+      <div>
+        <div class="impact-num">1,500+</div>
+        <div class="impact-lbl">Life Member Scientists</div>
+      </div>
+      <div>
+        <div class="impact-num">54+</div>
+        <div class="impact-lbl">Journal Volumes Published</div>
+      </div>
+      <div>
+        <div class="impact-num">50+</div>
+        <div class="impact-lbl">Years of Golden Jubilee Legacy</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
