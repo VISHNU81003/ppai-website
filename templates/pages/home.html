@@ -85,21 +85,21 @@
     }
 
     .container {
-      max-width: 1280px;
+      width: 100%;
+      max-width: 1360px;
       margin: 0 auto;
-      padding: 0 4%;
+      padding: 0 clamp(16px, 3.2vw, 40px);
     }
 
     /* ===================================================================
-       SINGLE-VIEWPORT FIRST FOLD WITH GRADIENT BACKGROUND
+       RESPONSIVE FIRST FOLD WITH GRADIENT BACKGROUND
     =================================================================== */
     .viewport-fold {
-      height: 100vh;
-      height: 100dvh;
+      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
       background: linear-gradient(180deg, #FFFFFF 0%, #E1F0E8 100%);
       position: relative;
     }
@@ -443,19 +443,17 @@
       background: var(--vibrant-green-hover);
     }
 
-    /* Dynamic Scaling Carousel */
+    /* Dynamic Scaling Carousel with Fixed 3:2 Aspect Ratio */
     .hero-carousel-container {
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: 0 14px 32px rgba(11, 36, 23, 0.08);
       background: #FFFFFF;
-      border: 5px solid #FFFFFF;
-      aspect-ratio: 3 / 4;
-      width: auto;
-      height: 100%;
-      max-height: calc(100vh - 210px);
-      max-height: calc(100dvh - 210px);
-      max-width: 360px;
+      border: 4px solid #FFFFFF;
+      aspect-ratio: 3 / 2;
+      width: 100%;
+      max-width: clamp(280px, 30vw, 480px);
+      height: auto;
       margin: 0 auto;
       position: relative;
     }
@@ -814,29 +812,33 @@
       font-size: 12px;
     }
 
-    /* Mobile Adaptations */
+    /* Responsive Adaptations for Small to Big Screens */
     @media (max-width: 1080px) {
       .viewport-fold {
         height: auto;
+        min-height: auto;
         overflow: visible;
       }
 
       .hero-inner {
         grid-template-columns: 1fr;
         gap: 24px;
+        padding-top: 16px;
+        padding-bottom: 20px;
       }
 
       .hero-carousel-container {
-        max-height: 360px;
-        width: 100%;
+        max-width: clamp(280px, 70vw, 440px);
+        margin: 0 auto;
       }
 
       .f-pattern-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
 
       .stem-card {
-        grid-column: 1 / -1;
+        grid-column: auto;
       }
 
       .header-auth {
@@ -845,6 +847,63 @@
 
       .mobile-menu-toggle {
         display: block;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .f-pattern-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-carousel-container {
+        max-width: 100%;
+      }
+
+      .impact-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .impact-inner .btn {
+        width: 100%;
+      }
+
+      .stats-grid {
+        gap: 8px;
+      }
+
+      .stat-number {
+        font-size: clamp(18px, 4.5vw, 26px);
+      }
+
+      .stat-label {
+        font-size: 10.5px;
+      }
+    }
+
+    /* Large Screen Desktop Adaptations */
+    @media (min-width: 1440px) {
+      .container {
+        max-width: 1440px;
+      }
+
+      .hero-inner {
+        gap: 44px;
+      }
+
+      .hero-carousel-container {
+        max-width: 500px;
+      }
+    }
+
+    @media (min-width: 1920px) {
+      .container {
+        max-width: 1600px;
+      }
+
+      .hero-carousel-container {
+        max-width: 540px;
       }
     }
   </style>
