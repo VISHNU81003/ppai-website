@@ -85,6 +85,51 @@ def election(request):
     context = get_common_context()
     return render(request, 'pages/election.html', context)
 
+def register(request):
+    context = get_common_context()
+    return render(request, 'pages/register.html', context)
+
+def login_view(request):
+    context = get_common_context()
+    return render(request, 'pages/login.html', context)
+
+def search_view(request):
+    query = request.GET.get('q', '').strip().lower()
+    if not query:
+        return render(request, 'pages/home.html', get_common_context())
+    if any(w in query for w in ['journal', 'volume', 'issue', 'article', 'paper', 'current']):
+        return render(request, 'pages/journal_current.html', get_common_context())
+    elif any(w in query for w in ['archive', 'past issue', 'back volume']):
+        return render(request, 'pages/journal_archives.html', get_common_context())
+    elif any(w in query for w in ['editorial', 'board', 'editor', 'reviewer']):
+        return render(request, 'pages/editorial_board.html', get_common_context())
+    elif any(w in query for w in ['guideline', 'author', 'manuscript', 'submission', 'format']):
+        return render(request, 'pages/author_guidelines.html', get_common_context())
+    elif any(w in query for w in ['book', 'monograph', 'special publication']):
+        return render(request, 'pages/books.html', get_common_context())
+    elif any(w in query for w in ['fee', 'membership info', 'subscription', 'student fee', 'life member']):
+        return render(request, 'pages/membership_info.html', get_common_context())
+    elif any(w in query for w in ['directory', 'member list', 'fellow list']):
+        return render(request, 'pages/membership_directory.html', get_common_context())
+    elif any(w in query for w in ['register', 'registration', 'join']):
+        return render(request, 'pages/register.html', get_common_context())
+    elif any(w in query for w in ['login', 'signin', 'portal']):
+        return render(request, 'pages/login.html', get_common_context())
+    elif any(w in query for w in ['award', 'honor', 'medal', 'prasada', 'dodla', 'sarada', 'fppai']):
+        return render(request, 'pages/awards.html', get_common_context())
+    elif any(w in query for w in ['nomination', 'nominate']):
+        return render(request, 'pages/awards_nomination.html', get_common_context())
+    elif any(w in query for w in ['conference', 'seminar', 'symposi', 'workshop', 'event']):
+        return render(request, 'pages/conferences.html', get_common_context())
+    elif any(w in query for w in ['election', 'council election', 'vote']):
+        return render(request, 'pages/election.html', get_common_context())
+    elif any(w in query for w in ['council', 'executive', 'president', 'secretary', 'treasurer']):
+        return render(request, 'pages/executive_council.html', get_common_context())
+    elif any(w in query for w in ['legend', 'past president', 'past secretary', 'founder', 'nirula']):
+        return render(request, 'pages/legends.html', get_common_context())
+    else:
+        return render(request, 'pages/about.html', get_common_context())
+
 def contact(request):
     context = get_common_context()
     return render(request, 'pages/contact.html', context)

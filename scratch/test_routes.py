@@ -26,10 +26,13 @@ routes = [
     'awards/nomination/',
     'conferences/',
     'events/election/',
+    'register/',
+    'login/',
+    'search/?q=journal',
     'contact/'
 ]
 
-print("--- TESTING ALL 16 LOCAL ROUTES ---")
+print("--- TESTING ALL 19 LOCAL ROUTES ---")
 all_ok = True
 for r in routes:
     response = c.get('/' + r)
@@ -38,6 +41,6 @@ for r in routes:
         all_ok = False
 
 if all_ok:
-    print("\nSUCCESS: All 15 routes resolved with HTTP 200 OK locally!")
+    print("\nSUCCESS: All 19 routes resolved with HTTP 200 OK locally!")
 else:
     print("\nFAILURE: Some routes returned error codes.")

@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Membership Registration — Plant Protection Association of India{% endblock %}
+
+{% block content %}
+<div class="container inner-section" style="padding: 16px 20px 24px 20px; margin-bottom: 200px; border-radius: 14px; display: flex; justify-content: center;">
+  
+  <!-- Centered Registration Card (Matching Reference Example) -->
+  <div class="card-box" style="width: 100%; max-width: 520px; padding: 26px 30px; border: 1px solid rgba(0, 178, 114, 0.25); border-top: 5px solid var(--vibrant-green); border-radius: 14px; box-shadow: var(--shadow-soft);">
+    
+    <!-- Top Institute Header -->
+    <div style="text-align: center; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border-color);">
+      {% if site_settings and site_settings.logo %}
+        <img src="{{ site_settings.logo.url }}" alt="PPAI Logo" style="height: 48px; width: auto; margin-bottom: 6px;">
+      {% else %}
+        <img src="{% static 'images/ppai_logo.png' %}" alt="PPAI Logo" style="height: 48px; width: auto; margin-bottom: 6px;">
+      {% endif %}
+      <h2 style="font-size: 15px; font-weight: 800; color: var(--deep-forest); margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">
+        Plant Protection Association of India
+      </h2>
+      <p style="font-size: 11px; color: var(--text-muted); margin: 2px 0 0 0;">
+        ICAR-NBPGR RS, Rajendranagar, Hyderabad &ndash; 500 030<br>
+        E-mail: ijpp1972@yahoo.co.in | Website: www.ppaiorg.in
+      </p>
+    </div>
+
+    <!-- Main Title -->
+    <h1 style="font-size: 20px; font-weight: 800; color: var(--deep-forest); text-align: center; margin: 0 0 16px 0;">
+      Membership Registration
+    </h1>
+
+    <form method="POST" action="" onsubmit="event.preventDefault(); alert('Registration submitted successfully! You will receive confirmation on your registered email.');">
+      {% csrf_token %}
+      
+      <!-- Radio Selection: Inland / Foreign Member -->
+      <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 18px;">
+        <label style="display: flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: var(--deep-forest); cursor: pointer;">
+          <input type="radio" name="member_type" value="inland" checked onchange="updateFeeOptions()" style="accent-color: var(--vibrant-green);">
+          Inland Member
+        </label>
+        <label style="display: flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: var(--deep-forest); cursor: pointer;">
+          <input type="radio" name="member_type" value="foreign" onchange="updateFeeOptions()" style="accent-color: var(--vibrant-green);">
+          Foreign Member
+        </label>
+      </div>
+
+      <!-- Registration Fee Selector & Cost Display -->
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-size: 12.5px; font-weight: 700; color: var(--deep-forest); margin-bottom: 6px;">
+          Registration Fee
+        </label>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <select id="feeCategory" onchange="updateCost()" style="flex: 1; padding: 9px 12px; font-size: 13px; border: 1.5px solid rgba(0,178,114,0.35); border-radius: 8px; outline: none; background: #FFFFFF; font-family: inherit; color: var(--text-main);">
+            <!-- Options dynamically populated by JS -->
+          </select>
+          <div style="white-space: nowrap; font-size: 13px; font-weight: 800; color: var(--deep-forest);">
+            Cost: <span id="costDisplay" style="color: var(--vibrant-green); font-size: 14px;">INR 5,050.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration Details Header -->
+      <div style="font-size: 13.5px; font-weight: 800; color: var(--deep-forest); margin-bottom: 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border-color);">
+        Registration Details
+      </div>
+
+      <!-- Form Inputs -->
+      <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px;">
+        <div>
+          <input type="email" placeholder="Email Address" required style="width: 100%; padding: 10px 12px; font-size: 13px; border: none; border-bottom: 1.5px solid #d1d5db; outline: none; transition: border-color 0.2s; font-family: inherit;" onfocus="this.style.borderBottomColor='var(--vibrant-green)'" onblur="this.style.borderBottomColor='#d1d5db'">
+        </div>
+        <div>
+          <input type="tel" placeholder="Contact (Mobile Number)" required style="width: 100%; padding: 10px 12px; font-size: 13px; border: none; border-bottom: 1.5px solid #d1d5db; outline: none; transition: border-color 0.2s; font-family: inherit;" onfocus="this.style.borderBottomColor='var(--vibrant-green)'" onblur="this.style.borderBottomColor='#d1d5db'">
+        </div>
+        <div>
+          <input type="password" placeholder="Password" required style="width: 100%; padding: 10px 12px; font-size: 13px; border: none; border-bottom: 1.5px solid #d1d5db; outline: none; transition: border-color 0.2s; font-family: inherit;" onfocus="this.style.borderBottomColor='var(--vibrant-green)'" onblur="this.style.borderBottomColor='#d1d5db'">
+        </div>
+        <div>
+          <input type="password" placeholder="Confirm Password" required style="width: 100%; padding: 10px 12px; font-size: 13px; border: none; border-bottom: 1.5px solid #d1d5db; outline: none; transition: border-color 0.2s; font-family: inherit;" onfocus="this.style.borderBottomColor='var(--vibrant-green)'" onblur="this.style.borderBottomColor='#d1d5db'">
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" style="width: 100%; padding: 12px; background: var(--vibrant-green); color: white; border: none; border-radius: 8px; font-size: 13.5px; font-weight: 800; cursor: pointer; letter-spacing: 0.5px; transition: background 0.2s; text-transform: uppercase;">
+        Save &amp; Continue
+      </button>
+
+      <!-- Bottom Login Link -->
+      <div style="text-align: center; margin-top: 16px; font-size: 12.5px; color: var(--text-main);">
+        Already Registered? <a href="{% url 'login' %}" style="color: var(--vibrant-green); font-weight: 700; text-decoration: underline;">Click here to login</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<script>
+  const inlandOptions = [
+    { label: "Life Member", cost: "INR 5,050.00" },
+    { label: "Ordinary Membership (Annual)", cost: "INR 1,050.00" },
+    { label: "Institutional Membership (Annual)", cost: "INR 5,050.00" },
+    { label: "Annual Membership - Student", cost: "INR 550.00" }
+  ];
+
+  const foreignOptions = [
+    { label: "Life Member", cost: "US$ 1,015.00" },
+    { label: "Ordinary Membership (Annual)", cost: "US$ 115.00" },
+    { label: "Institutional Membership (Annual)", cost: "US$ 65.00" }
+  ];
+
+  function updateFeeOptions() {
+    const isForeign = document.querySelector('input[name="member_type"]:checked').value === 'foreign';
+    const select = document.getElementById('feeCategory');
+    const options = isForeign ? foreignOptions : inlandOptions;
+    
+    select.innerHTML = '';
+    options.forEach((opt, idx) => {
+      const el = document.createElement('option');
+      el.value = opt.cost;
+      el.textContent = opt.label;
+      select.appendChild(el);
+    });
+    updateCost();
+  }
+
+  function updateCost() {
+    const select = document.getElementById('feeCategory');
+    document.getElementById('costDisplay').textContent = select.value;
+  }
+
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', updateFeeOptions);
+</script>
+{% endblock %}

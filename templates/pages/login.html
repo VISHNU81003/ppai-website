@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Member Login — Plant Protection Association of India{% endblock %}
+
+{% block content %}
+<div class="container inner-section" style="padding: 24px 20px 30px 20px; margin-bottom: 220px; border-radius: 14px; display: flex; justify-content: center;">
+  
+  <!-- Centered Login Card -->
+  <div class="card-box" style="width: 100%; max-width: 440px; padding: 28px 30px; border: 1px solid rgba(0, 178, 114, 0.25); border-top: 5px solid var(--vibrant-green); border-radius: 14px; box-shadow: var(--shadow-soft);">
+    
+    <!-- Top Institute Header -->
+    <div style="text-align: center; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border-color);">
+      {% if site_settings and site_settings.logo %}
+        <img src="{{ site_settings.logo.url }}" alt="PPAI Logo" style="height: 48px; width: auto; margin-bottom: 6px;">
+      {% else %}
+        <img src="{% static 'images/ppai_logo.png' %}" alt="PPAI Logo" style="height: 48px; width: auto; margin-bottom: 6px;">
+      {% endif %}
+      <h2 style="font-size: 14px; font-weight: 800; color: var(--deep-forest); margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">
+        Plant Protection Association of India
+      </h2>
+      <p style="font-size: 11px; color: var(--text-muted); margin: 2px 0 0 0;">
+        Official Member Portal
+      </p>
+    </div>
+
+    <!-- Main Title -->
+    <h1 style="font-size: 20px; font-weight: 800; color: var(--deep-forest); text-align: center; margin: 0 0 18px 0;">
+      Member Login
+    </h1>
+
+    <form method="POST" action="" onsubmit="event.preventDefault(); alert('Login submitted successfully!');">
+      {% csrf_token %}
+
+      <!-- Form Inputs -->
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: var(--deep-forest); margin-bottom: 4px;">
+            Email Address / Member ID
+          </label>
+          <input type="text" placeholder="Enter your registered email" required style="width: 100%; padding: 10px 12px; font-size: 13px; border: none; border-bottom: 1.5px solid #d1d5db; outline: none; transition: border-color 0.2s; font-family: inherit;" onfocus="this.style.borderBottomColor='var(--vibrant-green)'" onblur="this.style.borderBottomColor='#d1d5db'">
+        </div>
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: var(--deep-forest); margin-bottom: 4px;">
+            Password
+          </label>
+          <input type="password" placeholder="Enter password" required style="width: 100%; padding: 10px 12px; font-size: 13px; border: none; border-bottom: 1.5px solid #d1d5db; outline: none; transition: border-color 0.2s; font-family: inherit;" onfocus="this.style.borderBottomColor='var(--vibrant-green)'" onblur="this.style.borderBottomColor='#d1d5db'">
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" style="width: 100%; padding: 12px; background: var(--vibrant-green); color: white; border: none; border-radius: 8px; font-size: 13.5px; font-weight: 800; cursor: pointer; letter-spacing: 0.5px; transition: background 0.2s; text-transform: uppercase;">
+        Login
+      </button>
+
+      <!-- Bottom Register Link -->
+      <div style="text-align: center; margin-top: 18px; font-size: 12.5px; color: var(--text-main);">
+        New Member? <a href="{% url 'register' %}" style="color: var(--vibrant-green); font-weight: 700; text-decoration: underline;">Click here to register</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
