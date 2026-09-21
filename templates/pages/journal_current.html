@@ -6,119 +6,170 @@
 {% block extra_css %}
 <style>
   /* ===================================================================
-     CURRENT ISSUE - MODERN DASHBOARD WITH ENHANCED COVER & COMPACT TOC
+     CURRENT ISSUE - COMPACT TABLE ON LEFT & EXPANDED COVER ON RIGHT
   =================================================================== */
   .current-issue-layout {
     display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 20px;
-    align-items: stretch;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
   }
 
-  .cover-card {
-    padding: 18px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(11,36,23,0.06);
-  }
-
-  .cover-img-wrapper {
-    position: relative;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 6px 16px rgba(11,36,23,0.12);
-    border: 1px solid var(--border-color);
-    background: #FAFDFB;
-  }
-
-  .cover-img-wrapper img {
-    width: 100%;
-    height: auto;
-    max-height: 420px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-  }
-
+  /* Left Column: Compact Table adapting to text */
   .toc-card {
-    padding: 16px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 16px 18px;
     background: white;
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(11,36,23,0.06);
+    box-shadow: 0 2px 8px rgba(11,36,23,0.05);
+    width: fit-content;
+    max-width: 100%;
   }
 
-  /* Table styling adapted snugly to content */
+  .toc-header-bar {
+    margin-bottom: 12px;
+    border-bottom: 2px solid #bce4cc;
+    padding-bottom: 6px;
+  }
+
+  .toc-header-bar h2 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--deep-forest);
+    margin: 0;
+  }
+
+  /* Table with outer lines and mild green upper column */
   .toc-table {
     font-size: 12px;
     margin: 0;
     width: 100%;
     border-collapse: collapse;
+    border: 1px solid #d0e5d8;
+    border-radius: 6px;
+    overflow: hidden;
   }
 
   .toc-table thead th {
-    background: var(--deep-forest);
-    color: white;
-    padding: 8px 10px;
+    background: #e8f5ec;
+    color: #0b3d20;
+    padding: 9px 12px;
     font-size: 12px;
     font-weight: 700;
+    border-bottom: 2px solid #c2e2cf;
+    text-align: left;
   }
 
-  /* Mild Green Issue Column & Pill Badge */
-  .toc-table th.col-issue {
-    width: 65px;
+  .toc-table thead th.col-issue {
+    width: 60px;
     text-align: center;
-    background: var(--deep-forest);
-    color: white;
+  }
+
+  .toc-table thead th.col-pages {
+    width: 65px;
+    text-align: right;
+  }
+
+  .toc-table tbody tr {
+    border-bottom: 1px solid #edf4f0;
+  }
+
+  .toc-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .toc-table td {
+    padding: 7px 10px;
+    vertical-align: middle;
   }
 
   .toc-table td.col-issue {
-    width: 65px;
     text-align: center;
-    background: #eef7f2;
-    padding: 6px 4px;
-    border-right: 1px solid rgba(11, 36, 23, 0.06);
-  }
-
-  .issue-badge {
-    display: inline-block;
     font-size: 11px;
-    font-weight: 700;
-    padding: 2px 9px;
-    background: #d8f1e1;
-    color: #0b6838;
-    border-radius: 9999px;
-    letter-spacing: 0.01em;
-    line-height: 1.4;
+    color: var(--text-muted);
+    font-weight: 600;
   }
 
   .toc-table td.col-content {
-    padding: 7px 12px;
+    padding: 7px 14px;
   }
 
-  .toc-table th.col-pages,
+  .toc-table td.col-content strong {
+    color: var(--deep-forest);
+    font-size: 12.5px;
+    line-height: 1.35;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .toc-table td.col-content div {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
   .toc-table td.col-pages {
-    width: 60px;
     text-align: right;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--deep-forest);
     white-space: nowrap;
-    padding: 7px 10px;
+    padding-right: 12px;
   }
 
-  @media (max-width: 900px) {
+  /* Right Column: Expanded Cover Page */
+  .cover-card {
+    padding: 20px 24px;
+    text-align: center;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(11,36,23,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cover-img-wrapper {
+    position: relative;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(11,36,23,0.14);
+    border: 1px solid var(--border-color);
+    background: #FAFDFB;
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .cover-img-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .cover-action-btns {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  @media (max-width: 980px) {
     .current-issue-layout {
       grid-template-columns: 1fr;
     }
+    .toc-card {
+      width: 100%;
+    }
     .cover-img-wrapper img {
-      max-height: 340px;
+      max-height: 380px;
     }
   }
 </style>
@@ -134,132 +185,126 @@
     </h1>
   </div>
 
-  <!-- 2-Column Dashboard Layout -->
+  <!-- 2-Column Dashboard Layout: Table on Left & Large Cover on Right -->
   <div class="current-issue-layout">
     
-    <!-- Left Column: Enlarged Journal Cover & Action Buttons -->
-    <div class="cover-card">
-      <div>
-        <div class="cover-img-wrapper">
-          <img src="{% static 'images/journal_cover.png' %}" alt="Indian Journal of Plant Protection Vol 54 Cover">
-        </div>
-        
-        <div style="font-size: 13.5px; font-weight: 800; color: var(--deep-forest); margin-bottom: 2px;">
-          Vol. 54, No. 1 (March 2026)
-        </div>
-        <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.35;">
-          Quarterly Scientific Journal of PPAI
-        </p>
+    <!-- Left Column: Snug Table of Contents adapting to text -->
+    <div class="toc-card">
+      <div class="toc-header-bar">
+        <h2>Table of Contents</h2>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 8px;">
+      <table class="data-table toc-table">
+        <thead>
+          <tr>
+            <th class="col-issue">Issue</th>
+            <th>Article Title &amp; Authors</th>
+            <th class="col-pages">Pages</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Articles 1-8 -->
+          <tr>
+            <td class="col-issue">No. 1</td>
+            <td class="col-content">
+              <strong>Kusmi lac Production in Central Narmada Valley, Madhya Pradesh, facts and factors</strong>
+              <div>Brajesh Kumar Namdev, Moni Thomas and Anil Kurmi</div>
+            </td>
+            <td class="col-pages">1–4</td>
+          </tr>
+          <tr>
+            <td class="col-issue">No. 1</td>
+            <td class="col-content">
+              <strong>Management of Alternaria leaf disease of groundnut using fungicides</strong>
+              <div>K S Jadon, P P Thirumalaisamy, Prasanna Holajjer, V G Koradia and R D Padavi</div>
+            </td>
+            <td class="col-pages">5–9</td>
+          </tr>
+          <tr>
+            <td class="col-issue">No. 1</td>
+            <td class="col-content">
+              <strong>Assessing the impact of Pseudocercospora leaf spot infection on silkworm cocoon characters</strong>
+              <div>Siraj Monir and Mohan Kumar Biswas</div>
+            </td>
+            <td class="col-pages">10–14</td>
+          </tr>
+          <tr>
+            <td class="col-issue">No. 1</td>
+            <td class="col-content">
+              <strong>Evaluation of Triazole and Strobilurin group Fungicides against rice Leaf Blast</strong>
+              <div>B Bhaskar, R Sarada Jayalakshmi Devi, S Vijay Kumar, C P D Rajan and M Srinivas Prasad</div>
+            </td>
+            <td class="col-pages">15–18</td>
+          </tr>
+          <tr>
+            <td class="col-issue">No. 1</td>
+            <td class="col-content">
+              <strong>Sustainable management of mulberry root rot using marine algal bioactive compounds</strong>
+              <div>Anu S, Gayathri V M, Kirubanathy P, Mounica Clementina C, Nandhini Maragatham P U et al.</div>
+            </td>
+            <td class="col-pages">19–26</td>
+          </tr>
+          <tr>
+            <td class="col-issue">No. 1</td>
+            <td class="col-content">
+              <strong>Field Efficacy of new insecticide molecules against Spodoptera frugiperda and dissipation</strong>
+              <div>Supriya G B, G Sridevi, and T Uma Maheswari</div>
+            </td>
+            <td class="col-pages">27–38</td>
+          </tr>
+          <tr>
+            <td class="col-issue">No. 1</td>
+            <td class="col-content">
+              <strong>Determination of Economic Injury Level of mustard aphid (Lipaphis erysimi) on mustard</strong>
+              <div>Asma Sherwani and Malik Mukhtar</div>
+            </td>
+            <td class="col-pages">39–42</td>
+          </tr>
+          <tr>
+            <td class="col-issue">No. 1</td>
+            <td class="col-content">
+              <strong>Occurrence of banana bunchy top virus in tissue-cultured banana cultivars in Arunachal Pradesh</strong>
+              <div>Raghuveer Singh and Amrita Banerjee</div>
+            </td>
+            <td class="col-pages">43–45</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Right Column: Enlarged Journal Cover Page & Action Buttons -->
+    <div class="cover-card">
+      <div class="cover-img-wrapper">
+        <img src="{% static 'images/journal_cover.png' %}" alt="Indian Journal of Plant Protection Vol 54 Cover">
+      </div>
+      
+      <div style="font-size: 14px; font-weight: 800; color: var(--deep-forest); margin-top: 4px; margin-bottom: 2px;">
+        Vol. 54, No. 1 (March 2026)
+      </div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.35;">
+        Quarterly Scientific Journal of PPAI
+      </p>
+
+      <div class="cover-action-btns">
         {% if issue_1_articles.first and issue_1_articles.first.pdf_file %}
-          <a href="{{ issue_1_articles.first.pdf_file.url }}" target="_blank" class="btn-action" style="justify-content: center; padding: 8px 12px; font-size: 12px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <a href="{{ issue_1_articles.first.pdf_file.url }}" target="_blank" class="btn-action" style="justify-content: center; padding: 10px 14px; font-size: 13px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             View Full Vol. 54 PDF
           </a>
-          <a href="{{ issue_1_articles.first.pdf_file.url }}" download="IJPP_Vol54_2026_Complete.pdf" class="btn-outline" style="justify-content: center; padding: 7px 12px; font-size: 11.5px; background: #FFF;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <a href="{{ issue_1_articles.first.pdf_file.url }}" download="IJPP_Vol54_2026_Complete.pdf" class="btn-outline" style="justify-content: center; padding: 9px 14px; font-size: 12.5px; background: #FFF;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download Vol. 54 PDF
           </a>
         {% else %}
-          <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-action" style="justify-content: center; padding: 8px 12px; font-size: 12px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <a href="https://epubs.icar.org.in/index.php/IJPP" target="_blank" class="btn-action" style="justify-content: center; padding: 10px 14px; font-size: 13px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             View Full Vol. 54 PDF
           </a>
-          <a href="https://epubs.icar.org.in/index.php/IJPP" download class="btn-outline" style="justify-content: center; padding: 7px 12px; font-size: 11.5px; background: #FFF;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <a href="https://epubs.icar.org.in/index.php/IJPP" download class="btn-outline" style="justify-content: center; padding: 9px 14px; font-size: 12.5px; background: #FFF;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download Vol. 54 PDF
           </a>
         {% endif %}
-      </div>
-    </div>
-
-    <!-- Right Column: Snug Table of Contents -->
-    <div class="toc-card">
-      <div>
-        <div style="margin-bottom: 10px; border-bottom: 2px solid rgba(0, 178, 114, 0.2); padding-bottom: 6px;">
-          <h2 style="font-size: 16px; font-weight: 800; color: var(--deep-forest); margin: 0; border: none; padding: 0;">
-            Table of Contents
-          </h2>
-        </div>
-
-        <table class="data-table toc-table">
-          <thead>
-            <tr>
-              <th class="col-issue">Issue</th>
-              <th>Article Title &amp; Authors</th>
-              <th class="col-pages">Pages</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Articles 1-8 -->
-            <tr>
-              <td class="col-issue"><span class="issue-badge">No. 1</span></td>
-              <td class="col-content">
-                <strong style="color: var(--deep-forest); font-size: 12.5px; line-height: 1.35; display: block; margin-bottom: 2px;">Kusmi lac Production in Central Narmada Valley, Madhya Pradesh, facts and factors</strong>
-                <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Brajesh Kumar Namdev, Moni Thomas and Anil Kurmi</div>
-              </td>
-              <td class="col-pages" style="font-weight: 700; font-size: 12px;">1–4</td>
-            </tr>
-            <tr>
-              <td class="col-issue"><span class="issue-badge">No. 1</span></td>
-              <td class="col-content">
-                <strong style="color: var(--deep-forest); font-size: 12.5px; line-height: 1.35; display: block; margin-bottom: 2px;">Management of Alternaria leaf disease of groundnut using fungicides</strong>
-                <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">K S Jadon, P P Thirumalaisamy, Prasanna Holajjer, V G Koradia and R D Padavi</div>
-              </td>
-              <td class="col-pages" style="font-weight: 700; font-size: 12px;">5–9</td>
-            </tr>
-            <tr>
-              <td class="col-issue"><span class="issue-badge">No. 1</span></td>
-              <td class="col-content">
-                <strong style="color: var(--deep-forest); font-size: 12.5px; line-height: 1.35; display: block; margin-bottom: 2px;">Assessing the impact of Pseudocercospora leaf spot infection on silkworm cocoon characters</strong>
-                <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Siraj Monir and Mohan Kumar Biswas</div>
-              </td>
-              <td class="col-pages" style="font-weight: 700; font-size: 12px;">10–14</td>
-            </tr>
-            <tr>
-              <td class="col-issue"><span class="issue-badge">No. 1</span></td>
-              <td class="col-content">
-                <strong style="color: var(--deep-forest); font-size: 12.5px; line-height: 1.35; display: block; margin-bottom: 2px;">Evaluation of Triazole and Strobilurin group Fungicides against rice Leaf Blast</strong>
-                <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">B Bhaskar, R Sarada Jayalakshmi Devi, S Vijay Kumar, C P D Rajan and M Srinivas Prasad</div>
-              </td>
-              <td class="col-pages" style="font-weight: 700; font-size: 12px;">15–18</td>
-            </tr>
-            <tr>
-              <td class="col-issue"><span class="issue-badge">No. 1</span></td>
-              <td class="col-content">
-                <strong style="color: var(--deep-forest); font-size: 12.5px; line-height: 1.35; display: block; margin-bottom: 2px;">Sustainable management of mulberry root rot using marine algal bioactive compounds</strong>
-                <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Anu S, Gayathri V M, Kirubanathy P, Mounica Clementina C, Nandhini Maragatham P U et al.</div>
-              </td>
-              <td class="col-pages" style="font-weight: 700; font-size: 12px;">19–26</td>
-            </tr>
-            <tr>
-              <td class="col-issue"><span class="issue-badge">No. 1</span></td>
-              <td class="col-content">
-                <strong style="color: var(--deep-forest); font-size: 12.5px; line-height: 1.35; display: block; margin-bottom: 2px;">Field Efficacy of new insecticide molecules against Spodoptera frugiperda and dissipation</strong>
-                <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Supriya G B, G Sridevi, and T Uma Maheswari</div>
-              </td>
-              <td class="col-pages" style="font-weight: 700; font-size: 12px;">27–38</td>
-            </tr>
-            <tr>
-              <td class="col-issue"><span class="issue-badge">No. 1</span></td>
-              <td class="col-content">
-                <strong style="color: var(--deep-forest); font-size: 12.5px; line-height: 1.35; display: block; margin-bottom: 2px;">Determination of Economic Injury Level of mustard aphid (Lipaphis erysimi) on mustard</strong>
-                <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Asma Sherwani and Malik Mukhtar</div>
-              </td>
-              <td class="col-pages" style="font-weight: 700; font-size: 12px;">39–42</td>
-            </tr>
-            <tr>
-              <td class="col-issue"><span class="issue-badge">No. 1</span></td>
-              <td class="col-content">
-                <strong style="color: var(--deep-forest); font-size: 12.5px; line-height: 1.35; display: block; margin-bottom: 2px;">Occurrence of banana bunchy top virus in tissue-cultured banana cultivars in Arunachal Pradesh</strong>
-                <div style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Raghuveer Singh and Amrita Banerjee</div>
-              </td>
-              <td class="col-pages" style="font-weight: 700; font-size: 12px;">43–45</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
 
