@@ -355,11 +355,11 @@
 
     .hero-inner {
       display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
-      gap: clamp(12px, 1.8vw, 24px);
+      grid-template-columns: 1.22fr 0.78fr;
+      gap: clamp(24px, 3.2vw, 48px);
       align-items: center;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1260px;
       margin: 0 auto;
     }
 
@@ -367,7 +367,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: clamp(28px, 4vw, 64px);
+      padding-left: clamp(16px, 2.5vw, 40px);
     }
 
     .hero-badge {
@@ -445,17 +445,17 @@
       background: var(--vibrant-green-hover);
     }
 
-    /* Dynamic Scaling Carousel with 3:4 Ratio (Edge-to-Edge Cover) */
+    /* Dynamic Scaling Carousel with 3:4 Ratio (High-Resolution Size) */
     .hero-carousel-container {
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(11, 36, 23, 0.12);
+      box-shadow: 0 18px 40px rgba(11, 36, 23, 0.14);
       background: #FFFFFF;
       aspect-ratio: 3 / 4;
       width: 100%;
-      max-width: clamp(220px, 19vw, 280px);
+      max-width: clamp(260px, 23vw, 340px);
       height: auto;
-      margin: 0;
+      margin: 0 auto;
       position: relative;
     }
 
@@ -909,12 +909,12 @@
       }
 
       .hero-inner {
-        max-width: 1260px;
-        gap: 28px;
+        max-width: 1320px;
+        gap: 40px;
       }
 
       .hero-carousel-container {
-        max-width: 290px;
+        max-width: 340px;
       }
     }
 
@@ -924,12 +924,12 @@
       }
 
       .hero-inner {
-        max-width: 1320px;
-        gap: 32px;
+        max-width: 1400px;
+        gap: 48px;
       }
 
       .hero-carousel-container {
-        max-width: 300px;
+        max-width: 360px;
       }
     }
   </style>
