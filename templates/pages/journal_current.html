@@ -61,19 +61,18 @@
     margin-bottom: clamp(12px, 1.8vh, 18px);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 6px 24px rgba(11,36,23,0.14);
-    border: 1px solid var(--border-color);
-    background: #FAFDFB;
+    box-shadow: 0 8px 24px rgba(11,36,23,0.16);
+    border: 1px solid rgba(11,36,23,0.12);
+    background: transparent;
     width: 100%;
+    display: block;
   }
 
   .cover-img-wrapper img {
     width: 100%;
     height: auto;
-    max-height: clamp(360px, 48vh, 520px);
-    object-fit: contain;
     display: block;
-    margin: 0 auto;
+    object-fit: cover;
     transition: transform 0.3s ease;
   }
 
