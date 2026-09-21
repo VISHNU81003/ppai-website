@@ -6,127 +6,124 @@
 {% block extra_css %}
 <style>
   /* ===================================================================
-     NATURAL EDITORIAL THEME - ABOUT US (ZERO CARDS, PURE FLOW)
+     MINIMALIST LINE-SEPARATED EDITORIAL THEME - ABOUT US
   =================================================================== */
-  .about-viewport-wrap {
-    min-height: calc(100vh - 120px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: clamp(24px, 4vh, 48px) 0;
-  }
-
-  .about-container {
-    max-width: 1200px;
+  .about-stream-wrapper {
+    max-width: 960px;
     margin: 0 auto;
-    width: 100%;
-    padding: 0 clamp(24px, 4vw, 56px);
+    padding: clamp(32px, 5vh, 60px) clamp(20px, 4vw, 40px) clamp(60px, 8vh, 100px) clamp(20px, 4vw, 40px);
   }
 
-  /* Header Group */
-  .about-header-group {
-    margin-bottom: clamp(24px, 3.5vh, 40px);
+  /* Section Divider Line Alone */
+  .story-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0, 178, 114, 0.3) 0%, rgba(11, 36, 23, 0.1) 50%, rgba(0, 178, 114, 0.05) 100%);
+    margin: clamp(32px, 4.5vh, 48px) 0;
   }
 
-  .about-badge {
+  /* Top Hero Statement */
+  .story-hero {
+    margin-bottom: clamp(28px, 4vh, 40px);
+  }
+
+  .story-badge {
     display: inline-block;
     background: rgba(0, 178, 114, 0.12);
     color: var(--vibrant-green);
     padding: 4px 14px;
     border-radius: var(--radius-pill);
     font-weight: 800;
-    font-size: clamp(11px, 0.9vw, 12.5px);
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
   }
 
-  .about-title {
-    font-size: clamp(26px, 2.8vw, 42px);
+  .story-hero h1 {
+    font-size: clamp(30px, 3.4vw, 48px);
     font-weight: 800;
     color: var(--deep-forest);
-    line-height: 1.18;
+    line-height: 1.15;
     letter-spacing: -0.03em;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
 
-  .about-subtitle {
-    font-size: clamp(13px, 1vw, 15px);
+  .story-hero-lead {
+    font-size: clamp(17px, 1.3vw, 21px);
+    line-height: 1.65;
+    color: var(--text-main);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .story-meta-text {
+    font-size: clamp(13px, 0.95vw, 14.5px);
     color: var(--text-muted);
     font-weight: 600;
     line-height: 1.5;
   }
 
-  /* Natural Two-Column Flow */
-  .about-flow-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: clamp(32px, 5vw, 64px);
-    align-items: start;
-  }
-
-  .about-main-narrative {
+  /* One by One Story Sections */
+  .story-section {
     display: flex;
     flex-direction: column;
-    gap: clamp(14px, 2vh, 20px);
+    gap: 12px;
   }
 
-  .about-p {
-    font-size: clamp(15px, 1.1vw, 16.5px);
-    line-height: 1.75;
+  .story-tag {
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--vibrant-green);
+  }
+
+  .story-heading {
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 800;
+    color: var(--deep-forest);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .story-body-p {
+    font-size: clamp(15.5px, 1.1vw, 17.5px);
+    line-height: 1.8;
     color: var(--text-main);
-    margin: 0;
+    margin: 0 0 12px 0;
   }
 
-  .about-p strong {
+  .story-body-p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .story-body-p strong {
     color: var(--deep-forest);
     font-weight: 700;
   }
 
-  /* Side Context Section */
-  .about-side-narrative {
+  /* Clean Key Pillar Rows (Line & Space Separated, NO black bullets) */
+  .story-pillars {
     display: flex;
     flex-direction: column;
-    gap: clamp(20px, 3vh, 28px);
-    padding-left: clamp(16px, 2.5vw, 32px);
-    border-left: 2px solid rgba(0, 178, 114, 0.2);
+    gap: 14px;
+    margin-top: 10px;
   }
 
-  .about-side-block h3 {
-    font-size: clamp(17px, 1.3vw, 20px);
-    font-weight: 800;
-    color: var(--deep-forest);
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-
-  .about-side-block p {
-    font-size: clamp(14px, 1vw, 15.5px);
-    line-height: 1.68;
-    color: var(--text-muted);
-    margin: 0;
-  }
-
-  /* Clean Key Pillar Items (NO black bullets) */
-  .about-pillars-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 8px;
-  }
-
-  .about-pillar-item {
+  .story-pillar-row {
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    font-size: clamp(14px, 1vw, 15.5px);
-    line-height: 1.5;
+    gap: 12px;
+    font-size: clamp(15.5px, 1.1vw, 17.5px);
+    line-height: 1.7;
     color: var(--text-main);
   }
 
-  .pillar-bullet {
-    width: 6px;
-    height: 6px;
+  .story-dot {
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: var(--vibrant-green);
     flex-shrink: 0;
@@ -134,111 +131,113 @@
     top: -2px;
   }
 
-  /* Responsive Adaptations across all screen sizes */
-  @media (max-width: 1080px) {
-    .about-viewport-wrap {
-      min-height: auto;
-      padding: 32px 0 48px 0;
-    }
-
-    .about-flow-grid {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-
-    .about-side-narrative {
-      padding-left: 0;
-      border-left: none;
-      border-top: 2px solid rgba(0, 178, 114, 0.2);
-      padding-top: 24px;
-    }
-  }
-
+  /* Responsive Adjustments */
   @media (max-width: 768px) {
-    .about-viewport-wrap {
-      padding: 20px 0 36px 0;
+    .about-stream-wrapper {
+      padding: 24px 16px 48px 16px;
     }
 
-    .about-header-group {
-      margin-bottom: 20px;
+    .story-divider {
+      margin: 24px 0;
     }
 
-    .about-flow-grid {
-      gap: 24px;
+    .story-pillar-row {
+      gap: 10px;
     }
   }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="about-viewport-wrap">
-  <div class="about-container">
+<div class="about-stream-wrapper">
 
-    <!-- Header & Identification -->
-    <header class="about-header-group">
-      <span class="about-badge">Since 1972 • Golden Jubilee Legacy</span>
-      <h1 class="about-title">Plant Protection Association of India</h1>
-      <p class="about-subtitle">
-        (Regn. No. S399 of 1949-50 under the Societies Registration Act XXI of 1860) &bull; National Headquarters: ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad
-      </p>
-    </header>
+  <!-- 1. Hero Overview -->
+  <section class="story-hero">
+    <span class="story-badge">Since 1972 • 50+ Years Legacy</span>
+    <h1>Plant Protection Association of India</h1>
+    <p class="story-hero-lead">
+      A scientific, non-profit society established in 1972, dedicated to advancing plant health, sustainable crop biosecurity, and agricultural science nationwide.
+    </p>
+    <p class="story-meta-text">
+      (Regn. No. S399 of 1949-50 under the Societies Registration Act XXI of 1860) &bull; National Headquarters: ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad
+    </p>
+  </section>
 
-    <!-- Natural Editorial Content Flow (Zero Cards) -->
-    <div class="about-flow-grid">
+  <!-- Line Divider -->
+  <hr class="story-divider">
 
-      <!-- Left / Main Editorial Narrative -->
-      <div class="about-main-narrative">
-        <p class="about-p">
-          The <strong>Plant Protection Association of India (PPAI)</strong> is a scientific, non-profit society established on <strong>4th December 1972</strong> at the Central Plant Protection Training Institute (CPPTI), Rajendranagar, Hyderabad. Registered under the Andhra Pradesh Public Societies Registration Act, 1350 Fasli (Registration No. S399), PPAI was founded under the visionary leadership of its Founder President, <strong>Dr. K. K. Nirula</strong>.
-        </p>
+  <!-- 2. Genesis & Foundation -->
+  <section class="story-section">
+    <span class="story-tag">01 / Foundation &amp; History</span>
+    <h2 class="story-heading">Genesis &amp; Founding Leadership</h2>
+    <p class="story-body-p">
+      The <strong>Plant Protection Association of India (PPAI)</strong> was founded on <strong>4th December 1972</strong> at the Central Plant Protection Training Institute (CPPTI), Rajendranagar, Hyderabad. Registered under the Andhra Pradesh Public Societies Registration Act, 1350 Fasli (Registration No. S399), the Association was established under the leadership of Founder President <strong>Dr. K. K. Nirula</strong> alongside visionary agricultural scientists.
+    </p>
+    <p class="story-body-p">
+      Headquartered permanently at the <strong>ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad</strong>, PPAI operates as an autonomous national body collaborating with government, academic, and research organizations to safeguard India's agricultural ecosystem.
+    </p>
+  </section>
 
-        <p class="about-p">
-          Over more than five decades of distinguished national service, the Association has grown into India's premier multidisciplinary forum for plant health researchers. Celebrating its landmark <strong>Golden Jubilee (1972–2022)</strong>, PPAI unites over <strong>1,900 life member agricultural scientists</strong>, academicians, and extension specialists across ICAR institutes, State Agricultural Universities (SAUs), and plant health organizations throughout India.
-        </p>
+  <!-- Line Divider -->
+  <hr class="story-divider">
 
-        <p class="about-p">
-          PPAI is dedicated to advancing plant protection science through eco-friendly Integrated Pest Management (IPM), strengthening biosecurity regulations, organizing national symposia, and mentoring the next generation of agricultural scholars through honors, fellowships, and academic thesis awards.
-        </p>
+  <!-- 3. Golden Jubilee & Scientific Community -->
+  <section class="story-section">
+    <span class="story-tag">02 / Golden Jubilee &amp; Community</span>
+    <h2 class="story-heading">Over 50 Years of National Scientific Service</h2>
+    <p class="story-body-p">
+      Celebrating its landmark <strong>Golden Jubilee (1972–2022)</strong>, PPAI represents more than fifty years of distinguished service to Indian agriculture. Today, the Association unites over <strong>1,900 life member agricultural scientists</strong>, academic researchers, and plant protection specialists across ICAR institutes, State Agricultural Universities (SAUs), and premier research institutions nationwide.
+    </p>
+    <p class="story-body-p">
+      The society serves as a multidisciplinary platform encompassing Entomology, Plant Pathology, Nematology, Weed Science, Plant Biosecurity, and Agricultural Chemistry, fostering collaborative research and eco-friendly crop protection packages.
+    </p>
+  </section>
+
+  <!-- Line Divider -->
+  <hr class="story-divider">
+
+  <!-- 4. Official Publication (IJPP) -->
+  <section class="story-section">
+    <span class="story-tag">03 / Official Publication</span>
+    <h2 class="story-heading">Indian Journal of Plant Protection</h2>
+    <p class="story-body-p">
+      PPAI publishes the premier double-blind peer-reviewed <strong>Indian Journal of Plant Protection (IJPP)</strong> quarterly in March, June, September, and December (Print ISSN: <strong>0253-4355</strong>). Hosted digitally on the official <strong>ICAR ePubs portal</strong>, IJPP provides global open-access dissemination for original research, scientific reviews, and critical findings in plant health.
+    </p>
+    <p class="story-body-p">
+      The journal is indexed in prestigious global and national databases including the <strong>UGC-CARE List</strong>, <strong>CABI Abstracts</strong>, <strong>Indian Citation Index (ICI)</strong>, <strong>Chemical Abstracts</strong>, and <strong>FAO Agrindex</strong>.
+    </p>
+  </section>
+
+  <!-- Line Divider -->
+  <hr class="story-divider">
+
+  <!-- 5. Scientific Mandate & Core Objectives -->
+  <section class="story-section">
+    <span class="story-tag">04 / Scientific Mandate</span>
+    <h2 class="story-heading">Core Objectives &amp; Mission</h2>
+    <p class="story-body-p">
+      Guided by its founding mandate, the Association focuses on key strategic goals to advance plant protection science and food security:
+    </p>
+    
+    <div class="story-pillars">
+      <div class="story-pillar-row">
+        <span class="story-dot"></span>
+        <span><strong>Integrated Pest Management:</strong> Promoting bio-intensive, eco-friendly crop protection practices to reduce pesticide reliance.</span>
       </div>
-
-      <!-- Right / Supporting Editorial Column -->
-      <div class="about-side-narrative">
-
-        <!-- Journal Info -->
-        <div class="about-side-block">
-          <h3>Indian Journal of Plant Protection</h3>
-          <p>
-            The official double-blind peer-reviewed quarterly journal of PPAI (Print ISSN: 0253-4355), published regularly in March, June, September, and December. Digitally hosted on the official ICAR ePubs portal and indexed in the UGC-CARE List, CABI Abstracts, Indian Citation Index (ICI), Chemical Abstracts, and FAO Agrindex.
-          </p>
-        </div>
-
-        <!-- Scientific Mandate -->
-        <div class="about-side-block">
-          <h3>Scientific Mandate &amp; Objectives</h3>
-          <div class="about-pillars-list">
-            <div class="about-pillar-item">
-              <span class="pillar-bullet"></span>
-              <span>Advancing sustainable and bio-intensive Integrated Pest Management (IPM).</span>
-            </div>
-            <div class="about-pillar-item">
-              <span class="pillar-bullet"></span>
-              <span>Disseminating peer-reviewed agricultural research across entomology and pathology.</span>
-            </div>
-            <div class="about-pillar-item">
-              <span class="pillar-bullet"></span>
-              <span>Convening national conferences and technical policy consultations.</span>
-            </div>
-            <div class="about-pillar-item">
-              <span class="pillar-bullet"></span>
-              <span>Recognizing scientific leadership through Fellow PPAI awards and scholar thesis grants.</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="story-pillar-row">
+        <span class="story-dot"></span>
+        <span><strong>Scientific Dissemination:</strong> Publishing quarterly IJPP issues, technical bulletins, and conference proceedings.</span>
       </div>
-
+      <div class="story-pillar-row">
+        <span class="story-dot"></span>
+        <span><strong>National Symposia:</strong> Convening biennial national conferences, policy workshops, and scientist-farmer dialogues.</span>
+      </div>
+      <div class="story-pillar-row">
+        <span class="story-dot"></span>
+        <span><strong>Academic Recognition:</strong> Honoring distinguished scientists with Fellow PPAI awards and sponsoring Best M.Sc./Ph.D. Thesis awards for young researchers.</span>
+      </div>
     </div>
+  </section>
 
-  </div>
 </div>
 {% endblock %}
