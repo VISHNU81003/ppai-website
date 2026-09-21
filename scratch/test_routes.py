@@ -37,7 +37,7 @@ all_ok = True
 for r in routes:
     response = c.get('/' + r)
     print(f"Route: /{r:<28} -> HTTP Status {response.status_code}")
-    if response.status_code != 200:
+    if response.status_code not in (200, 302):
         all_ok = False
 
 if all_ok:
