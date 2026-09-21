@@ -1,65 +1,101 @@
 {% extends "base.html" %}
 
-{% block title %}Events &amp; Conferences - PPAI{% endblock %}
+{% block title %}Conferences, Seminars and Symposia — Plant Protection Association of India{% endblock %}
 
 {% block content %}
-<div class="container inner-section">
-  <div class="inner-title-bar">
-    <h1>
-      <span class="badge-pill" style="font-size: 11px; padding: 3px 10px;">Events</span>
-      Conferences, Symposia &amp; Workshops
+<div class="container inner-section" style="padding: 12px 18px 16px 18px; margin-bottom: 0px; border-radius: 14px; display: flex; flex-direction: column; min-height: calc(100vh - 128px); box-sizing: border-box;">
+  <!-- Title Bar -->
+  <div class="inner-title-bar" style="margin-bottom: 8px; padding-bottom: 4px; flex-shrink: 0;">
+    <h1 style="font-size: 20px; font-weight: 800; color: var(--deep-forest); margin: 0; display: flex; align-items: center; gap: 8px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--vibrant-green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Conferences, Seminars and Symposia
     </h1>
-    <span class="subtitle">National &amp; International Symposia (1986 – 2026)</span>
   </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
-    <!-- Upcoming Event Banner -->
-    <div class="card-box" style="padding: 18px 20px; border-left: 4px solid var(--vibrant-green); background: linear-gradient(135deg, rgba(0,178,114,0.06) 0%, rgba(11,36,23,0.02) 100%);">
-      <span class="badge-pill" style="margin-bottom: 6px; font-size: 11px;">Upcoming Symposium 2026</span>
-      <h2 style="font-size: 16px; margin-bottom: 6px; border-bottom: none; padding-bottom: 0;">National Symposium on Next-Gen Plant Protection Technologies</h2>
-      <p style="font-size: 12px; color: var(--text-main); margin-bottom: 8px;">
-        <strong>Date:</strong> November 18–20, 2026 | <strong>Venue:</strong> ICAR-NBPGR RS, Rajendranagar, Hyderabad
+  <!-- Unified Main Container Box -->
+  <div class="card-box" style="padding: 16px 20px; border: 1px solid rgba(0, 178, 114, 0.25); border-left: 5px solid var(--vibrant-green); flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+    <div>
+      <p style="font-size: 12.5px; color: var(--text-main); margin: 0 0 10px 0; line-height: 1.45;">
+        The Society organises seminars, symposia and workshops on various themes. It also arranges popular lectures by eminent scientists for the benefit of its members and conducts an Annual General Body Meeting with a technical session.
       </p>
-      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
-        Themes: AI &amp; Robotics in IPM, Biopesticides, Climate-Smart Protection, Transboundary Pests.
-      </p>
-      <a href="{% url 'contact' %}" class="btn-action" style="padding: 6px 14px; font-size: 12px;">Register Interest / Contact Organizing Committee</a>
+
+      <!-- Scrollable Table with Sticky Green Header -->
+      <div style="border: 1px solid rgba(0, 178, 114, 0.2); border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(11,36,23,0.03);">
+        <div style="max-height: 340px; overflow-y: auto;">
+          <table class="data-table" style="font-size: 12px; margin: 0; width: 100%; border-collapse: collapse;">
+            <thead style="position: sticky; top: 0; z-index: 10; background: var(--deep-forest); color: white;">
+              <tr>
+                <th style="width: 100px; color: white; background: var(--deep-forest); padding: 8px 12px; font-size: 11.5px; font-weight: 700;">Year</th>
+                <th style="color: white; background: var(--deep-forest); padding: 8px 14px; font-size: 11.5px; font-weight: 700;">Conference, Seminar &amp; Symposia Event</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">2023</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;"><strong>International Conference on Plant Health Management (ICPHM 2023)</strong> &mdash; Innovation and Sustainability, at PJTSAU, Hyderabad</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">2019</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">Associated in organising the <strong>XIX International Plant Protection Congress (IPPC 2019)</strong></td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">2019</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;"><strong>Red Palm Weevil Symposium</strong> &mdash; Outsmarting the Red Palm Weevil: A Global Challenge, during IPPC 2019</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">2018</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">Brainstorming session on <strong>Emerging Plant Protection Technologies: Opportunities and Challenges</strong></td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">2016</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">Conference on <strong>National Priorities in Plant Health Management</strong></td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">2012</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">International Conference on <strong>Plant Health Management for Food Security</strong></td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">2007</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">Use of Organic Waste Utilization and Eco-friendly Technologies for Crop Protection</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">2002</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">Resources Management in Plant Protection During 21st Century</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">1997</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">Plant Protection Towards Sustainability</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">1995</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">National Symposium on Integrated Pest Management and Environment</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">1994</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">National Workshop on Use of Pheromones in Integrated Pest Management</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">1992</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">National Seminar on Changing Scenario in Pests and Pest Management</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">1988</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4; border-bottom: 1px solid #eee;">National Workshop on Plant Protection in Horticultural Crops</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px;"><span class="badge-pill" style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,178,114,0.12); color: var(--vibrant-green);">1986</span></td>
+                <td style="padding: 8px 14px; color: var(--text-main); line-height: 1.4;">National Seminar on Plant Protection in Field Crops</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
-    <!-- History Table -->
-    <div class="card-box" style="padding: 18px 20px;">
-      <h2 style="font-size: 16px; margin-bottom: 8px;">5.0 History of PPAI Symposia</h2>
-      <table class="data-table" style="font-size: 12px; margin: 0;">
-        <thead>
-          <tr>
-            <th style="width: 50px;">Year</th>
-            <th>Conference / Symposium Theme</th>
-            <th>Venue</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="badge-pill">2023</span></td>
-            <td><strong>Golden Jubilee International Conference on Plant Protection</strong></td>
-            <td>PJTSAU, Hyderabad</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill">2018</span></td>
-            <td><strong>National Symposium on Plant Protection in Changing Climate</strong></td>
-            <td>ICAR-NBPGR RS</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill">2012</span></td>
-            <td><strong>National Seminar on Eco-Friendly Approaches in IPM</strong></td>
-            <td>ANGRAU, Hyderabad</td>
-          </tr>
-          <tr>
-            <td><span class="badge-pill">1986</span></td>
-            <td><strong>First National Seminar on Plant Protection in India</strong></td>
-            <td>CPPTI, Hyderabad</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Bottom Status Bar -->
+    <div style="margin-top: 8px; display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: var(--text-muted);">
+      <span style="font-weight: 700; color: var(--vibrant-green); background: rgba(0,178,114,0.08); padding: 3px 8px; border-radius: 6px;">✓ 14 National &amp; International Scientific Symposia</span>
+      <span>Scroll table to view earlier historical conferences (1986&ndash;2023)</span>
     </div>
   </div>
 </div>
