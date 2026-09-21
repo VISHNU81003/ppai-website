@@ -8,13 +8,19 @@
 
   <!-- Favicon / Web Icons -->
   {% if site_settings and site_settings.logo %}
-    <link rel="icon" type="image/png" href="{{ site_settings.logo.url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site_settings.logo.url }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ site_settings.logo.url }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ site_settings.logo.url }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ site_settings.logo.url }}">
     <link rel="shortcut icon" type="image/png" href="{{ site_settings.logo.url }}">
-    <link rel="apple-touch-icon" href="{{ site_settings.logo.url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site_settings.logo.url }}">
   {% else %}
-    <link rel="icon" type="image/png" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/ppai_logo.png' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/ppai_logo.png' %}">
-    <link rel="apple-touch-icon" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/ppai_logo.png' %}">
   {% endif %}
 
   <!-- Primary SEO Meta Tags -->
@@ -132,7 +138,7 @@
     }
 
     .brand-logo {
-      height: clamp(54px, 6vh, 74px);
+      height: clamp(62px, 6.8vh, 85px);
       width: auto;
       object-fit: contain;
       background: #FFFFFF;
@@ -703,12 +709,12 @@
     }
 
     .footer-brand img {
-      height: 30px;
-      width: 30px;
-      border-radius: 6px;
+      height: 42px;
+      width: 42px;
+      border-radius: 8px;
       object-fit: contain;
       background: #FFFFFF;
-      padding: 2px;
+      padding: 3px;
     }
 
     .footer-desc {

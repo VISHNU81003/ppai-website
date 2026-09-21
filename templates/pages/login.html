@@ -6,10 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Member Login — Plant Protection Association of India (PPAI)</title>
   
+  <!-- Favicon / Web Icons -->
   {% if site_settings and site_settings.logo %}
-    <link rel="icon" type="image/png" href="{{ site_settings.logo.url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site_settings.logo.url }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ site_settings.logo.url }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ site_settings.logo.url }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ site_settings.logo.url }}">
+    <link rel="shortcut icon" type="image/png" href="{{ site_settings.logo.url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site_settings.logo.url }}">
   {% else %}
-    <link rel="icon" type="image/png" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/ppai_logo.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/ppai_logo.png' %}">
   {% endif %}
 
   <!-- Google Fonts -->
@@ -86,7 +97,7 @@
     }
 
     .brand-logo {
-      height: 44px;
+      height: 48px;
       width: auto;
       margin-bottom: 4px;
     }
