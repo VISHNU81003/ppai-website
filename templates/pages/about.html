@@ -6,122 +6,126 @@
 {% block extra_css %}
 <style>
   /* ===================================================================
-     HIGH-VISIBILITY EDITORIAL THEME - ABOUT US
+     MINIMALIST LINE-SEPARATED EDITORIAL THEME - ABOUT US
   =================================================================== */
   .about-stream-wrapper {
-    max-width: 980px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: clamp(36px, 5vh, 64px) clamp(20px, 4vw, 40px) clamp(64px, 8vh, 100px) clamp(20px, 4vw, 40px);
+    padding: clamp(32px, 5vh, 60px) clamp(20px, 4vw, 40px) clamp(60px, 8vh, 100px) clamp(20px, 4vw, 40px);
   }
 
-  /* Primary Page Title (High Visibility & Presence) */
-  .about-page-title {
-    font-size: clamp(32px, 3.6vw, 46px);
-    font-weight: 800;
-    color: var(--deep-forest);
-    line-height: 1.16;
-    letter-spacing: -0.03em;
-    margin: 0 0 clamp(28px, 4vh, 40px) 0;
-  }
-
-  /* Section Headings */
-  .story-heading {
-    font-size: clamp(22px, 2.4vw, 28px);
-    font-weight: 800;
-    color: var(--deep-forest);
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    margin: 0 0 16px 0;
-  }
-
-  /* Clean Divider Line */
+  /* Section Divider Line Alone */
   .story-divider {
     border: none;
     height: 1px;
-    background: rgba(11, 36, 23, 0.16);
-    margin: clamp(36px, 5vh, 52px) 0;
+    background: linear-gradient(90deg, rgba(0, 178, 114, 0.3) 0%, rgba(11, 36, 23, 0.1) 50%, rgba(0, 178, 114, 0.05) 100%);
+    margin: clamp(32px, 4.5vh, 48px) 0;
   }
 
-  /* Hero Lead Summary */
-  .story-hero-lead {
-    font-size: clamp(17.5px, 1.3vw, 20px);
-    line-height: 1.8;
-    color: #111827;
-    font-weight: 500;
-    margin-bottom: 24px;
+  /* Top Hero Statement */
+  .story-hero {
+    margin-bottom: clamp(28px, 4vh, 40px);
   }
 
-  /* Key Summary Points with High-Visibility Bullet */
-  .hero-key-points {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  .story-badge {
+    display: inline-block;
+    background: rgba(0, 178, 114, 0.12);
+    color: var(--vibrant-green);
+    padding: 4px 14px;
+    border-radius: var(--radius-pill);
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
   }
 
-  .hero-key-point {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    font-size: clamp(16px, 1.1vw, 17.5px);
-    line-height: 1.7;
-    color: #1F2937;
-  }
-
-  .hero-key-point::before {
-    content: "◆";
-    font-size: 11px;
+  .story-hero h1 {
+    font-size: clamp(30px, 3.4vw, 48px);
+    font-weight: 800;
     color: var(--deep-forest);
-    opacity: 0.75;
-    flex-shrink: 0;
-    position: relative;
-    top: -2px;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+  }
+
+  .story-hero-lead {
+    font-size: clamp(17px, 1.3vw, 21px);
+    line-height: 1.65;
+    color: var(--text-main);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .story-meta-text {
+    font-size: clamp(13px, 0.95vw, 14.5px);
+    color: var(--text-muted);
+    font-weight: 600;
+    line-height: 1.5;
   }
 
   /* One by One Story Sections */
   .story-section {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+  }
+
+  .story-tag {
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--vibrant-green);
+  }
+
+  .story-heading {
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 800;
+    color: var(--deep-forest);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
   }
 
   .story-body-p {
-    font-size: clamp(16.5px, 1.15vw, 18px);
-    line-height: 1.85;
-    color: #1F2937;
-    margin: 0 0 16px 0;
+    font-size: clamp(15.5px, 1.1vw, 17.5px);
+    line-height: 1.8;
+    color: var(--text-main);
+    margin: 0 0 12px 0;
   }
 
   .story-body-p:last-of-type {
     margin-bottom: 0;
   }
 
-  /* Objective Points */
+  .story-body-p strong {
+    color: var(--deep-forest);
+    font-weight: 700;
+  }
+
+  /* Clean Key Pillar Rows (Line & Space Separated, NO black bullets) */
   .story-pillars {
     display: flex;
     flex-direction: column;
     gap: 14px;
     margin-top: 10px;
-    padding: 0;
-    list-style: none;
   }
 
   .story-pillar-row {
     display: flex;
     align-items: baseline;
-    gap: 14px;
-    font-size: clamp(16px, 1.1vw, 17.5px);
+    gap: 12px;
+    font-size: clamp(15.5px, 1.1vw, 17.5px);
     line-height: 1.7;
-    color: #1F2937;
+    color: var(--text-main);
   }
 
-  .story-pillar-row::before {
-    content: "◆";
-    font-size: 11px;
-    color: var(--deep-forest);
-    opacity: 0.75;
+  .story-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--vibrant-green);
     flex-shrink: 0;
     position: relative;
     top: -2px;
@@ -133,15 +137,11 @@
       padding: 24px 16px 48px 16px;
     }
 
-    .about-page-title {
-      margin-bottom: 20px;
-    }
-
     .story-divider {
-      margin: 28px 0;
+      margin: 24px 0;
     }
 
-    .hero-key-point, .story-pillar-row {
+    .story-pillar-row {
       gap: 10px;
     }
   }
@@ -151,34 +151,16 @@
 {% block content %}
 <div class="about-stream-wrapper">
 
-  <!-- Main Page Title -->
-  <h1 class="about-page-title">About Us</h1>
-
-  <!-- 1. Who We Are Section -->
-  <section class="story-section">
-    <h2 class="story-heading">Who We Are</h2>
+  <!-- 1. Hero Overview -->
+  <section class="story-hero">
+    <span class="story-badge">Since 1972 • 50+ Years Legacy</span>
+    <h1>Plant Protection Association of India</h1>
     <p class="story-hero-lead">
-      The Plant Protection Association of India (PPAI) is an autonomous scientific, non-profit society dedicated to advancing plant health, crop biosecurity, and agricultural science throughout India.
+      A scientific, non-profit society established in 1972, dedicated to advancing plant health, sustainable crop biosecurity, and agricultural science nationwide.
     </p>
-
-    <!-- Key Points under Who We Are -->
-    <ul class="hero-key-points">
-      <li class="hero-key-point">
-        <span>Foundation: Established on 4th December 1972 under Founder President Dr. K. K. Nirula.</span>
-      </li>
-      <li class="hero-key-point">
-        <span>Legal Status: Registered under the Andhra Pradesh Public Societies Registration Act (Regn. No. S399 of 1949-50 under Act XXI of 1860).</span>
-      </li>
-      <li class="hero-key-point">
-        <span>National Headquarters: ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad – 500 030, India.</span>
-      </li>
-      <li class="hero-key-point">
-        <span>Scientific Network: Uniting over 1,900 life member agricultural scientists across ICAR institutes, State Agricultural Universities (SAUs), and national research centers.</span>
-      </li>
-      <li class="hero-key-point">
-        <span>Official Publication: Publisher of the peer-reviewed quarterly Indian Journal of Plant Protection (IJPP), Print ISSN: 0253-4355.</span>
-      </li>
-    </ul>
+    <p class="story-meta-text">
+      (Regn. No. S399 of 1949-50 under the Societies Registration Act XXI of 1860) &bull; National Headquarters: ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad
+    </p>
   </section>
 
   <!-- Line Divider -->
@@ -186,12 +168,13 @@
 
   <!-- 2. Genesis & Foundation -->
   <section class="story-section">
+    <span class="story-tag">01 / Foundation &amp; History</span>
     <h2 class="story-heading">Genesis &amp; Founding Leadership</h2>
     <p class="story-body-p">
-      The Plant Protection Association of India was founded on 4th December 1972 at the Central Plant Protection Training Institute (CPPTI), Rajendranagar, Hyderabad. Registered under the Andhra Pradesh Public Societies Registration Act, 1350 Fasli (Registration No. S399), the society was conceived by Founder President Dr. K. K. Nirula alongside distinguished plant protection specialists to address pressing national challenges in crop health and pest management.
+      The <strong>Plant Protection Association of India (PPAI)</strong> was founded on <strong>4th December 1972</strong> at the Central Plant Protection Training Institute (CPPTI), Rajendranagar, Hyderabad. Registered under the Andhra Pradesh Public Societies Registration Act, 1350 Fasli (Registration No. S399), the Association was established under the leadership of Founder President <strong>Dr. K. K. Nirula</strong> alongside visionary agricultural scientists.
     </p>
     <p class="story-body-p">
-      With its permanent national headquarters located at the ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad, the Association coordinates scientific consultations, national policy recommendations, and research initiatives with central and state agricultural institutions.
+      Headquartered permanently at the <strong>ICAR-NBPGR Regional Station, Rajendranagar, Hyderabad</strong>, PPAI operates as an autonomous national body collaborating with government, academic, and research organizations to safeguard India's agricultural ecosystem.
     </p>
   </section>
 
@@ -200,12 +183,13 @@
 
   <!-- 3. Golden Jubilee & Scientific Community -->
   <section class="story-section">
+    <span class="story-tag">02 / Golden Jubilee &amp; Community</span>
     <h2 class="story-heading">Over 50 Years of National Scientific Service</h2>
     <p class="story-body-p">
-      PPAI celebrated its landmark Golden Jubilee (1972–2022), commemorating fifty years of continuous contributions to Indian agricultural science. Over the decades, the Association has evolved into a multidisciplinary body encompassing Agricultural Entomology, Plant Pathology, Nematology, Weed Science, Plant Biosecurity, and Pesticide Chemistry.
+      Celebrating its landmark <strong>Golden Jubilee (1972–2022)</strong>, PPAI represents more than fifty years of distinguished service to Indian agriculture. Today, the Association unites over <strong>1,900 life member agricultural scientists</strong>, academic researchers, and plant protection specialists across ICAR institutes, State Agricultural Universities (SAUs), and premier research institutions nationwide.
     </p>
     <p class="story-body-p">
-      Today, the Association represents a national community of over 1,900 life member scientists, faculty members, research scholars, and extension professionals across ICAR institutes, State Agricultural Universities, and partner agricultural bodies nationwide.
+      The society serves as a multidisciplinary platform encompassing Entomology, Plant Pathology, Nematology, Weed Science, Plant Biosecurity, and Agricultural Chemistry, fostering collaborative research and eco-friendly crop protection packages.
     </p>
   </section>
 
@@ -214,12 +198,13 @@
 
   <!-- 4. Official Publication (IJPP) -->
   <section class="story-section">
+    <span class="story-tag">03 / Official Publication</span>
     <h2 class="story-heading">Indian Journal of Plant Protection</h2>
     <p class="story-body-p">
-      The Association publishes the double-blind peer-reviewed Indian Journal of Plant Protection (IJPP) quarterly in March, June, September, and December (Print ISSN: 0253-4355). Digitally hosted on the official ICAR ePubs portal, IJPP publishes original research articles, comprehensive scientific reviews, and short communications on applied plant protection and integrated pest management.
+      PPAI publishes the premier double-blind peer-reviewed <strong>Indian Journal of Plant Protection (IJPP)</strong> quarterly in March, June, September, and December (Print ISSN: <strong>0253-4355</strong>). Hosted digitally on the official <strong>ICAR ePubs portal</strong>, IJPP provides global open-access dissemination for original research, scientific reviews, and critical findings in plant health.
     </p>
     <p class="story-body-p">
-      The journal is indexed in leading national and international bibliographic databases, including the UGC-CARE List, CABI Abstracts, Indian Citation Index (ICI), Chemical Abstracts, and FAO Agrindex.
+      The journal is indexed in prestigious global and national databases including the <strong>UGC-CARE List</strong>, <strong>CABI Abstracts</strong>, <strong>Indian Citation Index (ICI)</strong>, <strong>Chemical Abstracts</strong>, and <strong>FAO Agrindex</strong>.
     </p>
   </section>
 
@@ -228,28 +213,30 @@
 
   <!-- 5. Scientific Mandate & Core Objectives -->
   <section class="story-section">
-    <h2 class="story-heading">Core Mandate &amp; Objectives</h2>
+    <span class="story-tag">04 / Scientific Mandate</span>
+    <h2 class="story-heading">Core Objectives &amp; Mission</h2>
     <p class="story-body-p">
-      The activities of the Plant Protection Association of India are directed toward achieving key agricultural and scientific objectives:
+      Guided by its founding mandate, the Association focuses on key strategic goals to advance plant protection science and food security:
     </p>
-
-    <ul class="story-pillars">
-      <li class="story-pillar-row">
-        <span>Integrated Pest Management: Promoting sustainable, bio-intensive pest and disease management technologies that safeguard environmental and human health.</span>
-      </li>
-      <li class="story-pillar-row">
-        <span>Scientific Dissemination: Publishing quarterly issues of IJPP, specialized symposia proceedings, and technical monographs.</span>
-      </li>
-      <li class="story-pillar-row">
-        <span>Conferences &amp; Symposia: Organizing biennial national conferences, seminars, and consultative workshops on emerging plant protection issues.</span>
-      </li>
-      <li class="story-pillar-row">
-        <span>Recognition &amp; Fellowships: Honoring distinguished scientists with Fellow of PPAI (FPPAI) recognition, honorary fellowships, and lifetime achievement awards.</span>
-      </li>
-      <li class="story-pillar-row">
-        <span>Academic Mentorship: Sponsoring annual awards for the Best M.Sc. and Ph.D. Theses in plant protection disciplines to encourage young agricultural researchers.</span>
-      </li>
-    </ul>
+    
+    <div class="story-pillars">
+      <div class="story-pillar-row">
+        <span class="story-dot"></span>
+        <span><strong>Integrated Pest Management:</strong> Promoting bio-intensive, eco-friendly crop protection practices to reduce pesticide reliance.</span>
+      </div>
+      <div class="story-pillar-row">
+        <span class="story-dot"></span>
+        <span><strong>Scientific Dissemination:</strong> Publishing quarterly IJPP issues, technical bulletins, and conference proceedings.</span>
+      </div>
+      <div class="story-pillar-row">
+        <span class="story-dot"></span>
+        <span><strong>National Symposia:</strong> Convening biennial national conferences, policy workshops, and scientist-farmer dialogues.</span>
+      </div>
+      <div class="story-pillar-row">
+        <span class="story-dot"></span>
+        <span><strong>Academic Recognition:</strong> Honoring distinguished scientists with Fellow PPAI awards and sponsoring Best M.Sc./Ph.D. Thesis awards for young researchers.</span>
+      </div>
+    </div>
   </section>
 
 </div>
