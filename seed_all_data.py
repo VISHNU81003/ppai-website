@@ -22,11 +22,32 @@ site, _ = SiteSetting.objects.get_or_create(
     defaults={
         'site_title': 'Plant Protection Association of India',
         'registration_info': '(Regn. No. S399 of 1949-50 under the Societies Registration Act XXI of 1860)',
-        'logo': 'logo/ppai_logo.png'
+        'logo': 'logo/ppai_logo.png',
+        'hero_badge': 'Since 1972',
+        'hero_title': 'Indian Journal of Plant Protection',
+        'hero_description': 'The Indian Journal of Plant Protection (IJPP) is a peer-reviewed quarterly journal published by the Plant Protection Association of India (PPAI), Hyderabad. It publishes original research, reviews, and short communications in agricultural entomology, plant pathology, nematology, weed science, and integrated pest management (IPM).',
+        'members_count': '1,900+',
+        'society_years': '54',
+        'published_volumes': '54',
     }
 )
+site.logo = 'logo/ppai_logo.png'
+site.save()
 
-# 2. Executive Council (Page 2 of document)
+# 2. Carousel Slides
+CarouselSlide.objects.all().delete()
+slides_data = [
+    (0, 'carousel/journal_cover.png', 'Indian Journal of Plant Protection Vol 54 No 1 Cover'),
+    (1, 'carousel/slide1.jpg', 'Agricultural Research and Entomology'),
+    (2, 'carousel/slide2.jpg', 'Biological Pest Control & Ladybird Beetle'),
+    (3, 'carousel/slide3.jpg', 'Plant Disease Management and Phytopathology'),
+    (4, 'carousel/slide4.jpg', 'Sustainable Agriculture and Plant Health'),
+]
+for order, img, title in slides_data:
+    CarouselSlide.objects.create(order=order, image=img, title=title, is_active=True)
+
+# 3. Executive Council (Page 2 of document)
+ExecutiveMember.objects.all().delete()
 executive_members_data = [
     ('Dr. B. Sarath Babu', 'President', 'Principal Scientist & Former Head, ICAR-NBPGR RS, Hyderabad', 'male', 'Leads the governing body of PPAI.', 1),
     ('Dr. Celia Chalam', 'Vice-President', 'Principal Scientist (Plant Pathology), ICAR-NBPGR, New Delhi', 'female', 'Plant pathology and virology specialist.', 2),
@@ -44,14 +65,11 @@ executive_members_data = [
     ('Dr. D. Sagar', 'Councillor', 'Senior Scientist (Entomology), ICAR-IARI, New Delhi', 'male', 'Insect physiology & IPM scientist.', 14),
     ('Dr. Alpeshkumar V. Khanpara', 'Councillor', 'Associate Research Scientist, Junagadh Agricultural University, Gujarat', 'male', 'Groundnut & pulse protection expert.', 15),
 ]
-
 for name, desig, aff, gender, bio, order in executive_members_data:
-    ExecutiveMember.objects.create(
-        name=name, designation=desig, affiliation=aff, gender=gender, bio=bio, order=order
-    )
+    ExecutiveMember.objects.create(name=name, designation=desig, affiliation=aff, gender=gender, bio=bio, order=order)
 
-# 3. Past Office Bearers (Pages 3 & 4 of document)
-# Past Presidents
+# 4. Past Office Bearers (Pages 3 & 4 of document)
+PastBearer.objects.all().delete()
 presidents = [
     ('Dr. K. K. Nirula', 'Founder President (1972 – 1978)', 'CPPTI, Hyderabad', 'male', 1),
     ('Dr. N. C. Joshi', '1979 – 1980', 'CPPTI, Hyderabad', 'male', 2),
@@ -70,7 +88,6 @@ presidents = [
 for name, tenure, aff, gender, order in presidents:
     PastBearer.objects.create(role='president', name=name, tenure=tenure, affiliation=aff, gender=gender, order=order)
 
-# Past Secretaries
 secretaries = [
     ('Dr. S. S. Hussaine', '1972 – 1974', 'CPPTI, Hyderabad', 'male', 1),
     ('Dr. V. Lakshminarayana', '1975 – 1976, 1979 – 1980', 'CPPTI, Hyderabad', 'male', 2),
@@ -88,7 +105,6 @@ secretaries = [
 for name, tenure, aff, gender, order in secretaries:
     PastBearer.objects.create(role='secretary', name=name, tenure=tenure, affiliation=aff, gender=gender, order=order)
 
-# Past Treasurers
 treasurers = [
     ('Shri P. K. Menon', '1972 – 1974', 'CPPTI, Hyderabad', 'male', 1),
     ('Shri S. S. Lal', '1975 – 1976', 'CPPTI, Hyderabad', 'male', 2),
@@ -106,7 +122,6 @@ treasurers = [
 for name, tenure, aff, gender, order in treasurers:
     PastBearer.objects.create(role='treasurer', name=name, tenure=tenure, affiliation=aff, gender=gender, order=order)
 
-# Past Chief Editors
 editors = [
     ('Shri B. K. Verma', '1972 – 1976', 'CPPTI, Hyderabad', 'male', 1),
     ('Dr. V. Lakshminarayana', '1977 – 1978', 'CPPTI, Hyderabad', 'male', 2),
@@ -123,4 +138,78 @@ editors = [
 for name, tenure, aff, gender, order in editors:
     PastBearer.objects.create(role='editor', name=name, tenure=tenure, affiliation=aff, gender=gender, order=order)
 
-print("Database synced cleanly with 8-page document OCR text!")
+# 5. Editorial Board (Page 5 of document)
+EditorialBoardMember.objects.all().delete()
+editorial_board_data = [
+    ('Dr. L. Saravanan', 'chief_editor', 'ICAR-NBPGR RS, Hyderabad', 1),
+    ('Dr. Kavitha Gupta', 'assoc_editor', 'ICAR-NBPGR, New Delhi', 2),
+    ('Dr. Prasanna Holajjer', 'assoc_editor', 'ICAR-NBPGR RS, Hyderabad', 3),
+    ('Dr. B. Sarath Babu', 'member', 'ICAR-NBPGR RS, Hyderabad', 4),
+    ('Dr. Celia Chalam', 'member', 'ICAR-NBPGR, New Delhi', 5),
+    ('Dr. M. Srinivas Prasad', 'member', 'ICAR-IIRR, Hyderabad', 6),
+    ('Dr. B. Parameswari', 'member', 'ICAR-SBI / NBPGR RS, Hyderabad', 7),
+    ('Dr. G. Sridevi', 'member', 'PJTSAU, Hyderabad', 8),
+    ('Dr. K. S. Varaprasad', 'member', 'Former Director, IIOR / NBPGR RS', 9),
+    ('Dr. D. V. R. Reddy', 'intl_member', 'ICRISAT / Georgia, USA', 10),
+    ('Dr. Hari C. Sharma', 'intl_member', 'Former DG, Dr. YS Parmar UHF / ICRISAT', 11),
+]
+for name, role, inst, order in editorial_board_data:
+    EditorialBoardMember.objects.create(name=name, role=role, institution=inst, order=order)
+
+# 6. Special Publications & Monographs (Page 6 of document)
+PublicationBook.objects.all().delete()
+books_data = [
+    (1986, 'Plant Protection in the Year 2000 AD (Eds. S. Jayaraj, B.K. Verma, D. Bap Reddy)'),
+    (1993, 'Integrated Pest Management in Crops (Eds. M. Veerabhadra Rao, H.C. Sharma, T.B. Gour)'),
+    (2012, 'Plant Protection in Agriculture: Challenges & Opportunities (Eds. K.S. Varaprasad, B. Sarath Babu)'),
+    (2016, 'Plant Health Management in Organic Agriculture (Eds. B. Sarath Babu, B. Parameswari, G. Sridevi)'),
+]
+for year, title in books_data:
+    PublicationBook.objects.create(year=year, title=title)
+
+# 7. Conferences, Seminars & Symposia (Page 8 / Section 8.0)
+ConferenceEvent.objects.all().delete()
+conferences_data = [
+    (2023, 'International Conference on Plant Protection in Agriculture: Horizon 2047, Hyderabad (Nov 27-29, 2023)'),
+    (2021, 'National Symposium on Emerging Pests and Diseases in Climate Resilient Agriculture, Virtual Mode (Dec 15-17, 2021)'),
+    (2018, 'National Symposium on Plant Health Management: Embracing Eco-Friendly Technologies, Hyderabad (Nov 15-17, 2018)'),
+    (2016, 'National Symposium on Plant Health Management in Organic Agriculture, Hyderabad (Dec 11-13, 2016)'),
+    (2012, 'National Symposium on Plant Protection in Agriculture: Challenges and Opportunities, Hyderabad (Nov 26-28, 2012)'),
+    (2009, 'National Symposium on Plant Protection: Technology Transition & Innovations, Hyderabad (Nov 27-28, 2009)'),
+    (2006, 'National Symposium on Plant Health Management: Proactive Approaches, Hyderabad (Nov 29-Dec 1, 2006)'),
+    (2003, 'National Symposium on Plant Protection: Challenges for the Next Decade, Hyderabad (Nov 24-25, 2003)'),
+    (2000, 'National Symposium on Crop Protection in Sustainable Agriculture, Hyderabad (Nov 23-25, 2000)'),
+    (1997, 'Silver Jubilee National Symposium on Plant Protection: Retrospect & Prospects, Hyderabad (Dec 22-24, 1997)'),
+    (1993, 'National Symposium on IPM: Principles and Practice, Hyderabad (Nov 24-26, 1993)'),
+    (1990, 'National Symposium on Biological Control of Pests and Diseases, Coimbatore (Oct 18-20, 1990)'),
+    (1988, 'National Symposium on Plant Protection Technology: Gaps and Strategies, Hyderabad (Nov 24-26, 1988)'),
+    (1986, 'National Seminar on Plant Protection in the Year 2000 AD, Hyderabad (Nov 20-22, 1986)'),
+]
+for year, title in conferences_data:
+    ConferenceEvent.objects.create(year=year, event_title=title)
+
+# 8. PPAI Society Awards & Fellowship (Page 7 of document)
+SocietyAward.objects.all().delete()
+awards_data = [
+    ('Dr. D. Bap Reddy Memorial Award', 'Conferred on an eminent scientist for outstanding research and contributions in the field of Plant Protection / Agricultural Entomology.'),
+    ('Dr. S.B. Chattopadhyay Memorial Award', 'Conferred on a distinguished scientist for outstanding contributions in Plant Pathology and crop disease management.'),
+    ('Dr. S.N. Banerjee Memorial Award', 'Conferred for exceptional research accomplishments in Integrated Pest Management (IPM) and ecological crop protection.'),
+    ('Dr. K. Ramakrishnan Memorial Award', 'Conferred for exemplary contributions in basic and applied Plant Pathology and quarantine science.'),
+    ('Fellow of Plant Protection Association of India (FPPAI)', 'Conferred on distinguished members in recognition of significant contributions to plant protection research, education, and the Association.'),
+]
+for name, desc in awards_data:
+    SocietyAward.objects.create(name=name, conferred_for=desc)
+
+# 9. Journal Volumes
+for vol in range(1, 55):
+    year = 1972 + vol - 1
+    JournalVolume.objects.get_or_create(
+        volume_number=vol,
+        defaults={
+            'year': year,
+            'issues_available': 'No. 1, No. 2, No. 3, No. 4',
+            'epubs_url': f'https://epubs.icar.org.in/index.php/IJPP'
+        }
+    )
+
+print("SUCCESS: 100% of PPAI Society Data (Site Settings, Slides, Executive Council, Legends, Editorial Board, Books, Conferences, Awards, Journal Volumes) seeded cleanly!")
